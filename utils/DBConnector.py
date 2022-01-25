@@ -20,7 +20,7 @@ def create_server_connection(host_name, user_name, user_password, db_name):
     return connection
 
 def connectToDB():
-    connection = create_server_connection('localhost','root','root','TubeSurfers_DB')
+    connection = create_server_connection('tubesurfers-db.cql9ooxely3d.eu-west-2.rds.amazonaws.com','masterUsername','TubeSurfers1234!','TubeSurfers_DB')
     return connection
 
 def execute_query(query, data = None):
