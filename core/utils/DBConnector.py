@@ -23,7 +23,20 @@ def connectToDB():
     connection = create_server_connection('tubesurfers-db.cql9ooxely3d.eu-west-2.rds.amazonaws.com','masterUsername','TubeSurfers1234!','TubeSurfers_DB')
     return connection
 
-def execute_query(query, data = None):
+def execute_query(query):
+    connection = connectToDB()
+    cursor = connection.cursor()
+
+    try:
+        cursor.execute(query)
+        connection.commit()
+        return cursor.fetchall()
+    except Error as err:
+        print(f"Error: '{err}'")
+    
+
+
+def execute_mutation(query, data = None):
     connection = connectToDB()
     cursor = connection.cursor()
 
@@ -31,12 +44,14 @@ def execute_query(query, data = None):
         try:
             cursor.execute(query)
             connection.commit()
+            return cursor.lastrowid
         except Error as err:
             print(f"Error: '{err}'")
     else:
         try:
             cursor.executemany(query, data)
             connection.commit()
+            return cursor.lastrowid
         except Error as err:
             print(f"Error: '{err}'")
 

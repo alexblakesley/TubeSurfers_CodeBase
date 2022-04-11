@@ -3,14 +3,20 @@ def BuildQuery(query, tableName, varDict) -> str:
     query = query.replace("table_name", tableName)
 
     if ("columns" in varDict):
-        query = query.replace("column_list", ",".join(varDict["columns"]))
+        if (varDict["columns"]):
+            query = query.replace("columns", ",".join(varDict["columns"]))
+        else :
+            query = query.replace("(columns)", "*")
 
     if ("data" in varDict):
         dataString = compileDataString(varDict['data'])
-        query = query.replace("data_list", dataString)
+        query = query.replace("data", dataString)
 
     if ("wheres" in varDict):
-        query = query.replace("wheres", varDict["wheres"])
+        if (varDict["wheres"]):
+            query = query.replace("wheres", varDict["wheres"])
+        else :
+            query = query.replace("(wheres)", "1=1")
 
     if ("sets" in varDict):
         setObj = varDict["sets"]
