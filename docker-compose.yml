@@ -1,0 +1,57 @@
+version: '3.4'
+
+services:
+  ts_app:
+    image: ts_app
+    container_name: TS_App
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 2008:2008
+      - 3000:3000
+    command: ["python3.8", "manage.py", "runserver", "0.0.0.0:2008"]
+    restart: always
+    environment:
+      DJANGO_WATCHMAN_TIMEOUT: 20
+    volumes:
+      - .:/code
+      
+  ts_db:
+    container_name: "TS_Database"
+    platform: linux/x86_64
+    image: mysql:5.7
+    restart: always
+    ports:
+    - 3310:3306
+    environment:
+      MYSQL_DATABASE: ts_db
+      MYSQL_USER: TSDBUser
+      MYSQL_PASSWORD: pw
+      MYSQL_ROOT_PASSWORD: pw
+
+    volumes:
+    - mysql:/var/lib/mysql
+    - mysql_config:/etc/mysql
+
+
+  ts_phpmyadmin:
+    platform: linux/x86_64
+    container_name: "TS_PhpMyAdmin"
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8091:80"
+    restart: always
+    environment:
+        PMA_ARBITRARY: 1
+        PMA_HOST: ts_db
+        PMA_PORT: 3306
+        PMA_USER: TSDBUser
+        PMA_PASSWORD: pw
+
+    depends_on:
+        - ts_db
+
+volumes:
+  mysql:
+  mysql_config:

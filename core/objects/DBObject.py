@@ -20,7 +20,7 @@ class DBObject:
         """
 
         # SQL Query to be run
-        baseInsertQuery = "INSERT INTO `TubeSurfers_DB`.`table_name` (columns) VALUES (data);"
+        baseInsertQuery = "INSERT INTO `ts_db`.`table_name` (columns) VALUES (data);"
 
         data = self.compileData()
         query = QB.BuildQuery(baseInsertQuery, self.tableName, {
@@ -41,7 +41,7 @@ class DBObject:
         """
 
 
-        baseUpdateQuery = "UPDATE `TubeSurfers_DB`.`table_name` SET sets WHERE (wheres);"
+        baseUpdateQuery = "UPDATE `ts_db`.`table_name` SET sets WHERE (wheres);"
         if (self.DBid == None):
             raise Exception("DBid must be set from a fetch call before update can be run")
 
@@ -57,11 +57,10 @@ class DBObject:
         })
         return execute_mutation(query)
 
-    @staticmethod
-    def fetch(DBObj, wheres = None):
-        baseUpdateQuery = "SELECT columns FROM `TubeSurfers_DB`.`table_name` WHERE (wheres);"
-        query = QB.BuildQuery(baseUpdateQuery, DBObj.tableName, {
-            "columns": DBObj.columns, 
+    def fetch(self, wheres = None):
+        baseUpdateQuery = "SELECT columns FROM `ts_db`.`table_name` WHERE (wheres);"
+        query = QB.BuildQuery(baseUpdateQuery, self.tableName, {
+            "columns": self.columns, 
             "wheres": wheres,
         })
         print(query)
