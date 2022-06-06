@@ -2,7 +2,7 @@
 
 
 ## Installation
-Run:
+Run from the root of the project:
 ```
 docker compose build
 ```
@@ -22,4 +22,9 @@ Then type/select
 Remote-Containers: Attach to Running Container
 ```
 And Select TS_App
+
+In new VS Code window, select open folder in explorer and when prompted select the directory:
+```
+/code/
+```
 
