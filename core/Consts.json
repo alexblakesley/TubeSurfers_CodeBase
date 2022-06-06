@@ -1,0 +1,38 @@
+{
+    "Stations":[
+        
+    ],
+
+    "Lines":[
+        "Piccadilly",
+        "Victoria",
+        "Hammersmith & City",
+        "Circle",
+        "Bakerloo",
+        "Waterloo & City"
+    ],
+
+    "DataTypes":{
+        "Pollution":[
+            "CO2",
+            "Temperature",
+            "HealthIndex",
+            "PM25",
+            "Humidity",
+            "Pressure"
+        ],
+
+        "Temperature":[
+        ],
+
+        "Noise":[
+        ],
+
+        "Acceleration":[
+        ],
+
+        "Questionaire":[
+        ]
+    }
+
+}
