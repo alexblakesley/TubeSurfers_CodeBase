@@ -1,26 +1,26 @@
 {
-    "Stations":[
-        
-    ],
+    "Stations":{
 
-    "Lines":[
-        "Piccadilly",
-        "Victoria",
-        "Hammersmith & City",
-        "Circle",
-        "Bakerloo",
-        "Waterloo & City"
-    ],
+    },
+
+    "Lines":{
+        "Piccadilly":"Piccadilly",
+        "Victoria":"Victoria",
+        "Hammersmith & City":"Hammersmith & City",
+        "Circle":"Circle",
+        "Bakerloo":"Bakerloo",
+        "Waterloo & City":"Waterloo & City"
+    },
 
     "DataTypes":{
-        "Pollution":[
-            "CO2",
-            "Temperature",
-            "HealthIndex",
-            "PM25",
-            "Humidity",
-            "Pressure"
-        ],
+        "Pollution":{
+            "CO2":"CO2",
+            "Temperature":"Temperature",
+            "HealthIndex":"HealthIndex",
+            "PM25":"PM25",
+            "Humidity":"Humidity",
+            "Pressure":"Pressure"
+        },
 
         "Temperature":[
         ],
