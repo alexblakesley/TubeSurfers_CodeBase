@@ -1374,29 +1374,28 @@
         }
 
         function pathPaint(path, n) {
+            // document.getElementById("output").innerHTML += path.getAttribute("station_from") + "\n";
+            var space = 0;
+            var dataType = document.querySelector('input[name="r_data"]:checked').value;
+            getDataset(path, dataType);
+            // document.getElementById("output").innerHTML = dataset;
+            // alert(dataset);
+            // var cur_colors = detectColors(dataset, dataType);
+            // var total = cur_colors.length;
+            // var length = path.getTotalLength();
+            // var offset = length / total;
+        
+            // for (let i = 0; i < cur_colors.length; i++) {
+            //     var clone = path.cloneNode(true);
+            //     var dasharray = String(offset) + "," + String(length-offset);
+            //     clone.style.strokeDasharray = dasharray;
+            //     clone.style.stroke = cur_colors[i];
+            //     clone.style.strokeDashoffset = -i*offset;
+            //     clone.classList.add("clone");
                 
-                // document.getElementById("output").innerHTML += path.getAttribute("station_from") + "\n";
-                var space = 0;
-                var dataType = document.querySelector('input[name="r_data"]:checked').value;
-                getDataset(path, dataType);
-                // document.getElementById("output").innerHTML = dataset;
-                // alert(dataset);
-                // var cur_colors = detectColors(dataset, dataType);
-                // var total = cur_colors.length;
-                // var length = path.getTotalLength();
-                // var offset = length / total;
-            
-                // for (let i = 0; i < cur_colors.length; i++) {
-                //     var clone = path.cloneNode(true);
-                //     var dasharray = String(offset) + "," + String(length-offset);
-                //     clone.style.strokeDasharray = dasharray;
-                //     clone.style.stroke = cur_colors[i];
-                //     clone.style.strokeDashoffset = -i*offset;
-                //     clone.classList.add("clone");
-                    
-                //     path.parentNode.appendChild(clone);
-                // }
-            }
+            //     path.parentNode.appendChild(clone);
+            // }
+        }
 
         function getDataset(path, dataType){
             const station_from = path.getAttribute("station_from");
@@ -1422,11 +1421,11 @@
             xhr.onload = function () {
                 if (xhr.readyState === xhr.DONE) {
                     if (xhr.status === 200) {
-                        var cur_colors = detectColors(xhr.response, dataType);
+                        var cur_colors = detectColors(JSON.parse(xhr.response), dataType, dataName);
                         var total = cur_colors.length;
                         var length = path.getTotalLength();
                         var offset = length / total;
-                    
+                        
                         for (let i = 0; i < cur_colors.length; i++) {
                             var clone = path.cloneNode(true);
                             var dasharray = String(offset) + "," + String(length-offset);
@@ -1448,6 +1447,7 @@
         function removePaths(path, n) {
             path.remove();
         }
+
         function paintStroke(color, n, path) {
           var clone = path.cloneNode(true);
           var dasharray = String(offset) + "," + String(length-offset);
@@ -1459,28 +1459,47 @@
           
         }
 
-        function detectColors(dataset, dataType) {
-            
+        function detectColors(dataset, dataType, dataName) {
             var colors = new Array();
-            if (dataType == "Pollution") {
-                for (let i = 0; i < dataset.length; i++) {
-                    var val = Math.floor(dataset[i] * 28);
-                    colors.push("rgb(" + toString(val) + "," + toString(val) + "," + toString(val) + ")");
-                }
-            }
-            if (dataType == "Noise") {
-                for (let i = 0; i < dataset.length; i++) {
-                    var val = Math.floor((dataset[i]-510) / 1.4);
-                    colors.push("rgb(" + toString(val) + "," + toString(val) + "," + toString(val) + ")");
-                }
-            }
-            if (dataType == "Pollution") {
-                for (let i = 0; i < dataset.length; i++) {
-                    var val = Math.floor(dataset[i]-20 * 28);
-                    colors.push("rgb(" + toString(val) + "," + toString(val) + "," + toString(val) + ")");
-                }
-            }
+            for (let i = 0; i < dataset.length; i++) {
+                switch (dataType) {
+                    case "Pollution":
+                        switch(dataName){
+                            case "HealthIndex":
+                                var min = 1.00 //Current Min Max for Health Index - Needs Adjusting
+                                var max = 9.00
+                                colors.push(FindColorStringGivenRange(dataset[i][9], min, max));
+                                break;
+                        
+                            case "Temperature":
+                                var min = 20.00 //Current Min Max for Temperature - Needs Adjusting
+                                var max = 23.10
+                                colors.push(FindColorStringGivenRange(dataset[i][9], min, max));
+                                break;
 
+                            case "CO2":
+                                var min = 515 //Current Min Max for CO2 - Needs Adjusting
+                                var max = 828
+                                colors.push(FindColorStringGivenRange(dataset[i][9], min, max));
+                                break;
+
+                            default:
+                                throw new Error("Data Name " + dataName + " is undefined");
+                        }
+                        break;
+                        
+                        
+                    case "Noise":
+                        break;
+
+                    case "Temperature":
+                        break;
+
+                    default:
+                        throw new Error("Data Type " + dataType + " is undefined");
+                    
+                }
+            }
             return colors;
 
             // var checkRadio = document.querySelector('input[name="r_data"]:checked');
@@ -1493,6 +1512,21 @@
             // else {
             //     return colors_temperature
             // }
+        }
+
+        function FindColorStringGivenRange(value, min, max){
+            var minRGB = 0
+            var maxRGB = 255
+            var rangeRGB = maxRGB
+
+            var valueRange = (max - min)
+            var AdjustedValue = (((value - min) * rangeRGB) / valueRange) + minRGB
+
+            var R = AdjustedValue
+            var G = maxRGB - AdjustedValue
+            var B = 0
+
+            return "rgb(" + R + "," + G + ", " + B + ")"
         }
 
         function changeColors() {
