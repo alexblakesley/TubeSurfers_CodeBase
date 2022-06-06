@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app import views
+from data import endpoints
 
 urlpatterns = [
     path('', views.index, name='Home'),
     path('admin/', admin.site.urls),
+    path('data/<str:fromStation>/<str:toStation>/<str:line>/<str:dataType>/<str:dataName>/', endpoints.index),
 ]

@@ -1,3 +1,5 @@
+from time import time
+from unicodedata import decimal
 from core.objects.DBObject import DBObject
 
 
@@ -20,7 +22,7 @@ class Timestamp(DBObject):
         super().__init__(DB_Table_Name, DB_Columns)
         
 
-    def checkStationNames(self) -> bool:
+    def checkStationNames(self):
         if self.FromStation not in self.AcceptedStations:
             print("Station Not Recognised. Please see list of accepted stations in Timestamp.py. A Station Names Array should have been generated during this run, please send thep printed string to Alex and he will add to DB. Station Name: "+self.FromStation)
             return False
@@ -31,6 +33,25 @@ class Timestamp(DBObject):
         
         return True
 
+
+    @staticmethod
+    def GetClosest(timestamp):
+        TS = Timestamp()
+
+        PrevTimestamp = float(timestamp) - 1
+        NextTimestamp = float(timestamp) + 1
+        Where = "Timestamp > "+ str(PrevTimestamp) + "AND Timestamp < " + str(NextTimestamp)
+        ret = TS.fetch(Where)
+
+        if (len(ret) == 0):
+            return None
+
+        clostestTS = ret[0];
+        for ts in ret:
+            if (abs(float(ts[1]) - float(timestamp)) < abs(float(clostestTS[1]) - float(timestamp))):
+                clostestTS = ts
+
+        return clostestTS
 
     
 """  @staticmethod

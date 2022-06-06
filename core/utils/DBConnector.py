@@ -14,7 +14,6 @@ def create_server_connection(host_name, user_name, user_password, db_name, port 
             database=db_name,
             port=port,
         )
-        print("MySQL Database connection successful")
     except Error as err:
         print(f"Error: '{err}'")
 

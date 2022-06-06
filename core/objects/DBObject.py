@@ -58,15 +58,13 @@ class DBObject:
         return execute_mutation(query)
 
     def fetch(self, wheres = None):
+        columns = ('DBid', *self.columns)
         baseUpdateQuery = "SELECT columns FROM `ts_db`.`table_name` WHERE (wheres);"
         query = QB.BuildQuery(baseUpdateQuery, self.tableName, {
-            "columns": self.columns, 
+            "columns": columns, 
             "wheres": wheres,
         })
-        print(query)
         return execute_query(query)
-
-    
 
     def compileData(self) -> list:
         #creates data list to match columns
@@ -74,6 +72,7 @@ class DBObject:
         for column in self.columns:
             data.append(getattr(self, column))
         return data
+
 
 
 

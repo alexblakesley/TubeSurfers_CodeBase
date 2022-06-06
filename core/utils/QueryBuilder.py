@@ -26,6 +26,13 @@ def BuildQuery(query, tableName, varDict) -> str:
     return query
 
 
+def BuildQueryComplex(query, varDict) -> str:
+    for key in varDict:
+        query = query.replace('('+key+')', '"'+varDict[key]+'"')
+
+    return query
+
+
 def compileSetString(columns, data) -> str:
     #creates string of which variables to set
     string = ""
