@@ -1,4 +1,5 @@
 from core.objects.Data import Data
+import core.Consts as Consts
 
 
 class HealthIndex(Data):
@@ -8,5 +9,5 @@ class HealthIndex(Data):
         self.DataValue = DataValue
 
         #Sets up DB object
-        super().__init__(TimestampID, 'HealthIndex', DataValue, 'Pollution', None)
+        super().__init__(TimestampID, Consts.POLLUTION_HEALTH_INDEX, DataValue, 'Pollution', None)
 

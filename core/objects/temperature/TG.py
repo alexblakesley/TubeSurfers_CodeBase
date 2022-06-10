@@ -1,4 +1,6 @@
 from core.objects.Data import Data
+import core.Consts as Consts
+
 
 class TG(Data):
     def __init__(self, TimestampID, DataValue):
@@ -7,5 +9,5 @@ class TG(Data):
         self.DataValue = DataValue
 
         #Sets up DB object
-        super().__init__(TimestampID, 'TG', DataValue, "Temperature", 'DegreeC')
+        super().__init__(TimestampID, Consts.TEMPERATURE_TG, DataValue, "Temperature", 'DegreeC')
 

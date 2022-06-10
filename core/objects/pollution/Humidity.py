@@ -1,4 +1,5 @@
 from core.objects.Data import Data
+import core.Consts as Consts
 
 
 class Humidity(Data):
@@ -8,5 +9,5 @@ class Humidity(Data):
         self.DataValue = DataValue
 
         #Sets up DB object
-        super().__init__(TimestampID, 'Humidity', DataValue, 'Pollution', 'Percent_RH')
+        super().__init__(TimestampID, Consts.POLLUTION_HUMIDITY, DataValue, 'Pollution', 'Percent_RH')
 

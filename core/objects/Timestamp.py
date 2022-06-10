@@ -1,6 +1,7 @@
 from time import time
 from unicodedata import decimal
 from core.objects.DBObject import DBObject
+import core.Consts as Consts
 
 
 class Timestamp(DBObject):
@@ -16,19 +17,19 @@ class Timestamp(DBObject):
         DB_Table_Name = "Timestamps"
         DB_Columns = ("Timestamp", "TubeLine", "FromStation", "ToStation", "IndexBetweenStations")
 
-        self.AcceptedStations = ['Euston', 'Euston Road', 'Waterloo', 'West Ham', 'Bromley-by-Bow', 'Bow Road', 'Mile End', 'Stepney Green', 'Whitechapel', 'Aldgate East', 'Tower Hill', 'Monument', 'Cannon Street', 'Mansion House', 'Blackfriars', 'Temple', 'Embankment', 'Westminster', "St James's Park", 'Victoria', 'Sloane Square', 'South Kensington', 'Gloucester Road', "Earl's Court", 'West Kensington', 'Ravenscourt Park', 'Stamford Brook', 'Turnham Green', 'Hammersmith', "Baron's Court", 'Knightsbridge', 'Hyde Park', 'Green Park', 'Piccadilly Circus', 'Leicester Square', 'Covent Garden', 'Holborn', 'Russell Square', "King's Cross St. Pancras", 'Caledonian Road', 'Holloway Road', 'Arsenal', 'Finsbury Park', 'Manor House']
+        self.AcceptedStations = Consts.STATION_NAMES
 
         #Sets up DB object
         super().__init__(DB_Table_Name, DB_Columns)
         
 
-    def checkStationNames(self):
+    def checkStationNames(self, **kwargs):
         if self.FromStation not in self.AcceptedStations:
-            print("Station Not Recognised. Please see list of accepted stations in Timestamp.py. A Station Names Array should have been generated during this run, please send thep printed string to Alex and he will add to DB. Station Name: "+self.FromStation)
+            print("Station Not Recognised. Please see list of accepted stations in Timestamp.py. A Station Names Array should have been generated during this run, please send thep printed string to Alex and he will add to DB. Station Name: "+self.FromStation+". File Name: "+kwargs.get('csvFile'))
             return False
 
         if self.ToStation not in self.AcceptedStations:
-            print("Station Not Recognised. Please see list of accepted stations in Timestamp.py. A Station Names Array should have been generated during this run, please send thep printed string to Alex and he will add to DB. Station Name: "+self.ToStation)
+            print("Station Not Recognised. Please see list of accepted stations in Timestamp.py. A Station Names Array should have been generated during this run, please send thep printed string to Alex and he will add to DB. Station Name: "+self.ToStation+". File Name: "+kwargs.get('csvFile'))
             return False
         
         return True
