@@ -9,11 +9,12 @@ class DBObject:
         self.columns = columns
 
 
-    def insert(self) -> int:
+    def insert(self, Query = None) -> int:
         """
         Inserts a created DBObject into the DB
 
         @param self:
+        @param Query a larger query string to which this query will be added, however not executed
 
         @return: int - The ID of the inserted line in the DB
         
@@ -29,6 +30,34 @@ class DBObject:
         })
 
         return execute_mutation(query, [data])
+
+
+    def insertToCompile(self, Query, CompiledData) -> int:
+        """
+        Inserts a created DBObject into the DB
+
+        @param self:
+        @param Query a query string to which this query will be added, however not executed
+        @param CompiledData a larger data array to which this query data will be added, however not executed
+
+        @return: int - The ID of the inserted line in the DB
+        
+        """
+
+        # SQL Query to be run
+        baseInsertQuery = "INSERT INTO `ts_db`.`table_name` (columns) VALUES (data);"
+
+        data = self.compileData()
+
+        if (Query == None):
+            Query = QB.BuildQuery(baseInsertQuery, self.tableName, {
+                "columns": self.columns, 
+                "data": data
+            })
+        
+        CompiledData.append(data)
+
+        return Query, CompiledData
 
     def update(self) -> int:
         """
@@ -59,7 +88,7 @@ class DBObject:
 
     def fetch(self, wheres = None):
         columns = ('DBid', *self.columns)
-        baseUpdateQuery = "SELECT columns FROM `ts_db`.`table_name` WHERE (wheres);"
+        baseUpdateQuery = "SELECT columns FROM `ts_db`.`table_name` WHERE (wheres) "
         query = QB.BuildQuery(baseUpdateQuery, self.tableName, {
             "columns": columns, 
             "wheres": wheres,
@@ -72,8 +101,6 @@ class DBObject:
         for column in self.columns:
             data.append(getattr(self, column))
         return data
-
-
 
 
 

@@ -1,6 +1,14 @@
 import json
+import os
 
-jsonConsts = json.loads("Consts.json")
+  
+# gives the path of this file
+path = os.path.realpath(__file__)
+# gives the directory where this file exists
+dir = os.path.dirname(path)
+
+with open(dir+'/Consts.json') as json_file:
+    jsonConsts = json.load(json_file)
 
 STATION_NAMES = jsonConsts['Stations']
 

@@ -48,6 +48,7 @@ def execute_mutation(query, data = None):
         try:
             cursor.execute(query)
             connection.commit()
+            print("Committed Quey: "+query)
             return cursor.lastrowid
         except Error as err:
             print(f"Error: '{err}'")

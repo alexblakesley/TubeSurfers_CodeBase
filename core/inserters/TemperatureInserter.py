@@ -1,4 +1,3 @@
-
 import pandas as pd
 from core.objects.Timestamp import Timestamp
 from core.objects.temperature.DP import DP
@@ -7,17 +6,16 @@ from core.objects.temperature.WBGT import WBGT
 from core.objects.temperature.TA import TA
 from core.objects.temperature.TG import TG
 from core.objects.temperature.Humidity import Humidity
+from core.utils.DBConnector import execute_mutation
 from core.utils.TimestampConverter import ConvertDateTimeToTimestamp
 
 
-def Insert(csvName, tubeName):
-
-    return;
-    data = pd.read_csv("data/temperature/"+tubeName+"_"+ csvName +".csv")
+def Insert(tubeName):
+    data = pd.read_csv("data/temperature/"+tubeName+".csv")
 
     data = data.reset_index()  # make sure indexes pair with number of rows
 
-    InsertDataToDB = False #Only set to true once file has been run, the TimeStamps DataFrame looks correct and no errors are thrown
+    InsertDataToDB = True #Only set to true once file has been run, the TimeStamps DataFrame looks correct and no errors are thrown
 
     TemperatureData = pd.DataFrame()
     TemperatureData['Timestamp'] = data['Date'] + ' ' + data['Time']
@@ -28,6 +26,9 @@ def Insert(csvName, tubeName):
     TemperatureData['WET'] = data['Value.4']
     TemperatureData['DP'] = data['Value.5']
 
+    CompiledQuery = None
+    CompiledData = []
+
     for index, row in TemperatureData.iterrows():
         TSData = Timestamp.GetClosest(ConvertDateTimeToTimestamp(row['Timestamp']))
         if (TSData == None):
@@ -37,24 +38,28 @@ def Insert(csvName, tubeName):
 
         dp = DP(TSid, row['DP'])
         if InsertDataToDB:
-            dp.insert()
+            CompiledQuery, CompiledData = dp.insertToCompile(CompiledQuery, CompiledData)
 
         wet = WET(TSid, row['WET'])
         if InsertDataToDB:
-            wet.insert()
+            CompiledQuery, CompiledData = wet.insertToCompile(CompiledQuery, CompiledData)
 
         ta = TA(TSid, row['TA'])
         if InsertDataToDB:
-            ta.insert()
+            CompiledQuery, CompiledData = ta.insertToCompile(CompiledQuery, CompiledData)
 
         tg = TG(TSid, row['TG'])
         if InsertDataToDB:
-            tg.insert()
+            CompiledQuery, CompiledData = tg.insertToCompile(CompiledQuery, CompiledData)
 
         wbgt = WBGT(TSid, row['WBGT'])
         if InsertDataToDB:
-            wbgt.insert()
+            CompiledQuery, CompiledData = wbgt.insertToCompile(CompiledQuery, CompiledData)
 
         humidity = Humidity(TSid, row['Humidity'])
         if InsertDataToDB:
-            humidity.insert()
+            CompiledQuery, CompiledData = humidity.insertToCompile(CompiledQuery, CompiledData)
+
+
+    execute_mutation(CompiledQuery, CompiledData)
+    print(tubeName + " - temperature inserted.")

@@ -19,8 +19,8 @@ def InsertAll():
     TsInserter.Insert(CSVName, TubeName, Date, 1)
 
     # Data #
-    TempInserter.Insert(TubeName)
-    PollInserter.Insert(TubeName)
+    #TempInserter.Insert(TubeName) # Missing Data - Need to check device
+    #PollInserter.Insert(TubeName) # Missing Data - Need to check device
 
 
     ### Insert Central ###
@@ -100,7 +100,7 @@ def InsertAll():
     TsInserter.Insert(CSVName, TubeName, Date, 2)
 
     # Data #
-    TempInserter.Insert(TubeName)
+    TempInserter.Insert(TubeName) # Only to Hammersmith?
     PollInserter.Insert(TubeName)
 
 
@@ -139,7 +139,7 @@ def InsertAll():
     TsInserter.Insert(CSVName, TubeName, Date, 2)
 
     # Data #
-    TempInserter.Insert(TubeName)
+    # TempInserter.Insert(TubeName) # Data Contained within Hammersmith & City Data 
     # PollInserter.Insert(TubeName) # Data Contained within Hammersmith & City Data 
 
 
@@ -147,7 +147,7 @@ def InsertAll():
     TubeName = Consts.LINE_NORTHERN
     Date = "14/01/2022"
 
-    ## Bank Branch ##
+    # Bank Branch ##
     # Forward #
     CSVName = "Archway-ClaphamSouth"
     TsInserter.Insert(CSVName, TubeName, Date)
@@ -158,6 +158,7 @@ def InsertAll():
     TsInserter.Insert(CSVName, TubeName, Date)
 
     ## Charing Cross Branch ##
+    Date = "27/01/2022"
     # Forward #
     CSVName = "Hampstead-Battersea"
     TsInserter.Insert(CSVName, TubeName, Date)
@@ -222,4 +223,4 @@ def InsertAll():
     
     # Data #
     TempInserter.Insert(TubeName)
-    #PollInserter.Insert(TubeName) Missing Data - Need to check device
+    #PollInserter.Insert(TubeName) # Missing Data - Need to check device

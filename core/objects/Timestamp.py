@@ -25,11 +25,11 @@ class Timestamp(DBObject):
 
     def checkStationNames(self, **kwargs):
         if self.FromStation not in self.AcceptedStations:
-            print("Station Not Recognised. Please see list of accepted stations in Timestamp.py. A Station Names Array should have been generated during this run, please send thep printed string to Alex and he will add to DB. Station Name: "+self.FromStation+". File Name: "+kwargs.get('csvFile'))
+            print("Station Not Recognised. Please see list of accepted stations in Consts.json. A Station Names array should have been generated during this run, please send thep printed string to Alex and he will add to DB. Station Name: "+self.FromStation+". File Name: "+kwargs.get('csvFile'))
             return False
 
         if self.ToStation not in self.AcceptedStations:
-            print("Station Not Recognised. Please see list of accepted stations in Timestamp.py. A Station Names Array should have been generated during this run, please send thep printed string to Alex and he will add to DB. Station Name: "+self.ToStation+". File Name: "+kwargs.get('csvFile'))
+            print("Station Not Recognised. Please see list of accepted stations in Consts.json. A Station Names array should have been generated during this run, please send thep printed string to Alex and he will add to DB. Station Name: "+self.ToStation+". File Name: "+kwargs.get('csvFile'))
             return False
         
         return True

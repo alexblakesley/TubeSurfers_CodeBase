@@ -1,5 +1,6 @@
 import pandas as pd
 from core.objects.Timestamp import Timestamp
+from core.utils.DBConnector import execute_mutation
 from core.utils.TimestampConverter import ConvertDateTimeToTimestamp
 
 
@@ -18,6 +19,9 @@ def Insert(csvName, tubeName, Date, Leg = ""):
     Stations['Departure'] = data['Departure'].shift(1)
     Stations['NextStation'] = data['Segment']
     Stations['Arrival'] = data['Arrival']
+
+    CompiledQuery = None
+    CompiledData = []
 
     StationNames = []
     TimeStamps = pd.DataFrame(columns=['index', 'Timestamp', 'FromStation', 'ToStation', 'TubeLine'])
@@ -51,7 +55,7 @@ def Insert(csvName, tubeName, Date, Leg = ""):
             NextDeptDateTimeString = Date + ' ' +NextDeptTime
             NextDeptTimeStamp = ConvertDateTimeToTimestamp(NextDeptDateTimeString)
         else:
-            NextDeptTimeStamp = ArrivalTimestamp + 60
+            NextDeptTimeStamp = ArrivalTimestamp
 
         Time = DepartureTimestamp
         Index = 0
@@ -68,7 +72,7 @@ def Insert(csvName, tubeName, Date, Leg = ""):
             TS.checkStationNames(csvFile=CSVFileName)
             
             if InsertDataToDB:
-                TS.insert()
+                CompiledQuery, CompiledData = TS.insertToCompile(CompiledQuery, CompiledData)
 
             Time += TimeStep
             Index += 1
@@ -88,7 +92,10 @@ def Insert(csvName, tubeName, Date, Leg = ""):
             TS.checkStationNames(csvFile=CSVFileName)
             
             if InsertDataToDB:
-                TS.insert()
+                CompiledQuery, CompiledData = TS.insertToCompile(CompiledQuery, CompiledData)
 
             Time += TimeStep
             Index += 1
+
+    execute_mutation(CompiledQuery, CompiledData)
+    print(tubeName + ": " + csvName + str(Leg) + " - timestamps inserted.")
