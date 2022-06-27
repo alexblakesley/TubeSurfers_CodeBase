@@ -79,6 +79,8 @@ def InsertAll():
     CSVName = "WestHam-TurnhamGreen"
     TsInserter.Insert(CSVName, TubeName, Date)
 
+    ## Kensington (Olympia) branch MISSING ##
+
     # Data #
     TempInserter.Insert(TubeName)
     PollInserter.Insert(TubeName)
@@ -108,6 +110,7 @@ def InsertAll():
     ### Insert Jubilee ###
     TubeName = Consts.LINE_JUBILEE
     Date = "26/01/2022"
+    # TODO different date needed #
     # Forward #
     CSVName = "Stratford-WillesdenGreen"
     TsInserter.Insert(CSVName, TubeName, Date)
@@ -157,16 +160,24 @@ def InsertAll():
     CSVName = "ClaphamSouth-Archway"
     TsInserter.Insert(CSVName, TubeName, Date)
 
-    ## Charing Cross Branch ##
+    ## Charing Cross Branch Southern Part##
     Date = "27/01/2022"
     # Forward #
     CSVName = "Hampstead-BatterseaPowerStation"
     TsInserter.Insert(CSVName, TubeName, Date)
-    TsInserter.Insert(CSVName, TubeName, Date, 1)
 
     # Backward #
     CSVName = "BatterseaPowerStation-Hampstead"
     TsInserter.Insert(CSVName, TubeName, Date)
+
+    ## Charing Cross Branch Northern Part##
+    Date = "17/01/2022"
+    # Forward #
+    CSVName = "Hampstead-BatterseaPowerStation"
+    TsInserter.Insert(CSVName, TubeName, Date, 1)
+
+    # Backward #
+    CSVName = "BatterseaPowerStation-Hampstead"
     TsInserter.Insert(CSVName, TubeName, Date, 1)
 
     # Data #
