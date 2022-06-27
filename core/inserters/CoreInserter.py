@@ -160,12 +160,12 @@ def InsertAll():
     ## Charing Cross Branch ##
     Date = "27/01/2022"
     # Forward #
-    CSVName = "Hampstead-Battersea"
+    CSVName = "Hampstead-BatterseaPowerStation"
     TsInserter.Insert(CSVName, TubeName, Date)
     TsInserter.Insert(CSVName, TubeName, Date, 1)
 
     # Backward #
-    CSVName = "Battersea-Hampstead"
+    CSVName = "BatterseaPowerStation-Hampstead"
     TsInserter.Insert(CSVName, TubeName, Date)
     TsInserter.Insert(CSVName, TubeName, Date, 1)
 
