@@ -22,12 +22,13 @@ class Data(DBObject):
 
 
     @staticmethod
-    def FetchDataBetweenStations(FromStation, ToStation, DataType, DataName):
-        baseUpdateQuery = 'SELECT * FROM `ts_db`.`Timestamps` LEFT JOIN `ts_db`.`Data` ON `ts_db`.`Timestamps`.`DBid` = `ts_db`.`Data`.`TimestampID` WHERE `FromStation` = (fromStation) AND `ToStation` = (toStation) AND `DataType` = (dataType) AND `DataName` = (dataName)'
+    def FetchDataBetweenStations(FromStation, ToStation, TubeLine, DataType, DataName):
+        baseUpdateQuery = 'SELECT * FROM `ts_db`.`Timestamps` LEFT JOIN `ts_db`.`Data` ON `ts_db`.`Timestamps`.`DBid` = `ts_db`.`Data`.`TimestampID` WHERE `FromStation` = (fromStation) AND `ToStation` = (toStation) AND `TubeLine` = (tubeLine) AND `DataType` = (dataType) AND `DataName` = (dataName)'
 
         query = QB.BuildQueryComplex(baseUpdateQuery, {
             'fromStation': FromStation,
             'toStation': ToStation,
+            'tubeLine': TubeLine,
             'dataType': DataType,
             'dataName': DataName,
         })

@@ -188,15 +188,59 @@
         <div>
             Select data to show:
             <div>
-                <input type="radio" id="r_pollution" name="r_data" value="Pollution" onclick="changeColors()">
-                <label for="r_pollution">Pollution</label>
+                <input type="radio" id="r_co2" name="r_data" value="Pollution&&CO2" onclick="changeColors()">
+                <label for="r_co2">CO2</label>
             </div>
             <div>
-                <input type="radio" id="r_noise" name="r_data" value="Noise" onclick="changeColors()">
+                <input type="radio" id="r_temperature" name="r_data" value="Pollution&&Temperature" onclick="changeColors()">
+                <label for="r_temperature">Temperature (Air Quality Device)</label>
+            </div>
+            <div>
+                <input type="radio" id="r_healthIndex" name="r_data" value="Pollution&&HealthIndex" onclick="changeColors()">
+                <label for="r_healthIndex">Health Index</label>
+            </div>
+            <div>
+                <input type="radio" id="r_pm25" name="r_data" value="Pollution&&PM25" onclick="changeColors()">
+                <label for="r_pm25">PM2.5</label>
+            </div>
+            <div>
+                <input type="radio" id="r_humidityPollution" name="r_data" value="Pollution&&Humidity" onclick="changeColors()">
+                <label for="r_humidityPollution">Humidity (Air Quality Device)</label>
+            </div>
+            <div>
+                <input type="radio" id="r_pressure" name="r_data" value="Pollution&&Pressure" onclick="changeColors()">
+                <label for="r_pressure">Air pressure</label>
+            </div>
+            <div>
+                <input type="radio" id="r_dp" name="r_data" value="Temperature&&DP" onclick="changeColors()">
+                <label for="r_dp">Dew Point</label>
+            </div>
+            <div>
+                <input type="radio" id="r_ta" name="r_data" value="Temperature&&TA" onclick="changeColors()">
+                <label for="r_ta">TA</label>
+            </div>
+            <div>
+                <input type="radio" id="r_tg" name="r_data" value="Temperature&&TG" onclick="changeColors()">
+                <label for="r_tg">TG</label>
+            </div>
+            <div>
+                <input type="radio" id="r_wet" name="r_data" value="Temperature&&WET" onclick="changeColors()">
+                <label for="r_wet">WET</label>
+            </div>
+            <div>
+                <input type="radio" id="r_humidityTemperature" name="r_data" value="Temperature&&Humidity" onclick="changeColors()">
+                <label for="r_humidity">Humidity (Thermometer)</label>
+            </div>
+            <div>
+                <input type="radio" id="r_wbgt" name="r_data" value="Temperature&&WBGT" onclick="changeColors()">
+                <label for="r_wbgt">WBGT</label>
+            </div>
+            <div>
+                <input type="radio" id="r_noise" name="r_data" value="Noise" onclick="changeColors()" disabled>
                 <label for="r_noise">Noise</label>
             </div>
             <div>
-                <input type="radio" id="r_temperature" name="r_data" value="Temperature" onclick="changeColors()">
+                <input type="radio" id="r_temperature" name="r_data" value="Temperature" onclick="changeColors()" disabled>
                 <label for="r_temperature">Temperature</label>
             </div>
         </div>
@@ -528,24 +572,24 @@
                 <title>Northern line</title>
                 <path id="Northern_line_route" class="original"  d="    M 854,4.5    L 1124,207 q 16,12 16,32    V 251 a 25,25 0 0,0 25,25    a 25,25 0 0,1 25,25    V 361 a 18.5,18.5 0 0,0 18.5,18.5    H 1389 a 90,90 0 0,1 90,90    V 765 q 0,20 -16,32    L 1000.5,1144             M 980,99    q -12,-9 -27,-9    h -40    "/>
             
-                <path class="inner_original p_northerneast" segment_id="1301" line="northerneast" station_from="Archway"                  station_to="Tufnell Park"             id="1301" d="M 1069,165.75 L1108,195" />
-                <path class="inner_original p_northerneast" segment_id="1302" line="northerneast" station_from="Tufnell Park"             station_to="Kentish Town"             id="1302" d="M 1108,195 L1124,207" />
-                <path class="inner_original p_northerneast" segment_id="1303" line="northerneast" station_from="Kentish Town"             station_to="Camden Town"              id="1303" d="M 1124,207  q 16,12 16,32 V 251 a 25,25 0 0,0 25,25" />
-                <path class="inner_original p_northerneast" segment_id="1304" line="northerneast" station_from="Camden Town"              station_to="Euston"                   id="1304" d="M 1165,276 a 25,25 0 0,1 25,25 V 361 a 18.5,18.5 0 0,0 18.5,18.5" />
-                <path class="inner_original p_northerneast" segment_id="1305" line="northerneast" station_from="Euston"                   station_to="King's Cross St. Pancras" id="1305" d="M 1208.5,379.5 L1290,379.5" />
-                <path class="inner_original p_northerneast" segment_id="1306" line="northerneast" station_from="King's Cross St. Pancras" station_to="Angel"                    id="1306" d="M 1290,379.5 H 1389 A 90,90 0 0,1 1419.78,384.93" />
-                <path class="inner_original p_northerneast" segment_id="1307" line="northerneast" station_from="Angel"                    station_to="Old Street"               id="1307" d="M 1419.78,384.93 A 90,90 0 0,1 1466.94,424.5" />
-                <path class="inner_original p_northerneast" segment_id="1308" line="northerneast" station_from="Old Street"               station_to="Moorgate"                 id="1308" d="M 1466.94,424.5 A 90,90 0 0,1 1479,469.5 L1479,500" />
-                <path class="inner_original p_northerneast" segment_id="1309" line="northerneast" station_from="Moorgate"                 station_to="Bank"                     id="1309" d="M 1479,500 L1479,563" />
-                <path class="inner_original p_northerneast" segment_id="1310" line="northerneast" station_from="Bank"                     station_to="London Bridge"            id="1310" d="M 1479,563 L1479,672" />
-                <path class="inner_original p_northerneast" segment_id="1311" line="northerneast" station_from="London Bridge"            station_to="Borough"                  id="1311" d="M 1479,672 L1479,720" />
-                <path class="inner_original p_northerneast" segment_id="1312" line="northerneast" station_from="Borough"                  station_to="Elephant & Castle"        id="1312" d="M 1479,720 L1479,765" />
-                <path class="inner_original p_northerneast" segment_id="1313" line="northerneast" station_from="Elephant & Castle"        station_to="Kennington"               id="1313" d="M 1479,765 q 0,20 -16,32 L1365.5,870" />
-                <path class="inner_original p_northerneast" segment_id="1314" line="northerneast" station_from="Kennington"               station_to="Oval"                     id="1314" d="M 1365.5,870 L1328.5,898" />
-                <path class="inner_original p_northerneast" segment_id="1315" line="northerneast" station_from="Oval"                     station_to="Stockwell"                id="1315" d="M 1328.5,898 L1284.5,931" />
-                <path class="inner_original p_northerneast" segment_id="1316" line="northerneast" station_from="Stockwell"                station_to="Clapham North"            id="1316" d="M 1284.5,931 L1240.5,964" />
-                <path class="inner_original p_northerneast" segment_id="1317" line="northerneast" station_from="Clapham North"            station_to="Clapham Common"           id="1317" d="M 1240.5,964 L1210.5,986.5" />
-                <path class="inner_original p_northerneast" segment_id="1318" line="northerneast" station_from="Clapham Common"           station_to="Clapham South"            id="1318" d="M 1210.5,986.5 L1180.5,1009" />   
+                <path class="inner_original p_northerneast" segment_id="1301" line="northern" station_from="Archway"                  station_to="Tufnell Park"             id="1301" d="M 1069,165.75 L1108,195" />
+                <path class="inner_original p_northerneast" segment_id="1302" line="northern" station_from="Tufnell Park"             station_to="Kentish Town"             id="1302" d="M 1108,195 L1124,207" />
+                <path class="inner_original p_northerneast" segment_id="1303" line="northern" station_from="Kentish Town"             station_to="Camden Town"              id="1303" d="M 1124,207  q 16,12 16,32 V 251 a 25,25 0 0,0 25,25" />
+                <path class="inner_original p_northerneast" segment_id="1304" line="northern" station_from="Camden Town"              station_to="Euston"                   id="1304" d="M 1165,276 a 25,25 0 0,1 25,25 V 361 a 18.5,18.5 0 0,0 18.5,18.5" />
+                <path class="inner_original p_northerneast" segment_id="1305" line="northern" station_from="Euston"                   station_to="King's Cross St. Pancras" id="1305" d="M 1208.5,379.5 L1290,379.5" />
+                <path class="inner_original p_northerneast" segment_id="1306" line="northern" station_from="King's Cross St. Pancras" station_to="Angel"                    id="1306" d="M 1290,379.5 H 1389 A 90,90 0 0,1 1419.78,384.93" />
+                <path class="inner_original p_northerneast" segment_id="1307" line="northern" station_from="Angel"                    station_to="Old Street"               id="1307" d="M 1419.78,384.93 A 90,90 0 0,1 1466.94,424.5" />
+                <path class="inner_original p_northerneast" segment_id="1308" line="northern" station_from="Old Street"               station_to="Moorgate"                 id="1308" d="M 1466.94,424.5 A 90,90 0 0,1 1479,469.5 L1479,500" />
+                <path class="inner_original p_northerneast" segment_id="1309" line="northern" station_from="Moorgate"                 station_to="Bank"                     id="1309" d="M 1479,500 L1479,563" />
+                <path class="inner_original p_northerneast" segment_id="1310" line="northern" station_from="Bank"                     station_to="London Bridge"            id="1310" d="M 1479,563 L1479,672" />
+                <path class="inner_original p_northerneast" segment_id="1311" line="northern" station_from="London Bridge"            station_to="Borough"                  id="1311" d="M 1479,672 L1479,720" />
+                <path class="inner_original p_northerneast" segment_id="1312" line="northern" station_from="Borough"                  station_to="Elephant & Castle"        id="1312" d="M 1479,720 L1479,765" />
+                <path class="inner_original p_northerneast" segment_id="1313" line="northern" station_from="Elephant & Castle"        station_to="Kennington"               id="1313" d="M 1479,765 q 0,20 -16,32 L1365.5,870" />
+                <path class="inner_original p_northerneast" segment_id="1314" line="northern" station_from="Kennington"               station_to="Oval"                     id="1314" d="M 1365.5,870 L1328.5,898" />
+                <path class="inner_original p_northerneast" segment_id="1315" line="northern" station_from="Oval"                     station_to="Stockwell"                id="1315" d="M 1328.5,898 L1284.5,931" />
+                <path class="inner_original p_northerneast" segment_id="1316" line="northern" station_from="Stockwell"                station_to="Clapham North"            id="1316" d="M 1284.5,931 L1240.5,964" />
+                <path class="inner_original p_northerneast" segment_id="1317" line="northern" station_from="Clapham North"            station_to="Clapham Common"           id="1317" d="M 1240.5,964 L1210.5,986.5" />
+                <path class="inner_original p_northerneast" segment_id="1318" line="northern" station_from="Clapham Common"           station_to="Clapham South"            id="1318" d="M 1210.5,986.5 L1180.5,1009" />   
             </g>
 
 
@@ -553,21 +597,21 @@
                 <title>Edgware line</title>
                 <path id="Edgware_line_route" class="original" d="    M 766,124.5    L 962.67,272 q 12,9 27,9    H 1165 a 37,37 0 0,1 37,37    L 1202,360 q 0,13 -19.5,26 t -19.5,26    L 1163,461.667 q 0,10 6,18    L 1278,625 q 9,12 9,25 t 9,25    L 1390.875,801.5 a 30,30 0 0,1 -6.5,42    L 1342.375,875 q -12,9 -27,9    H 1240.5 q -15,0 -27,9    L 1180.17,918.25 q -12,9 -27,9    H 1134    "/>
                 
-                <path class="inner_original p_northernwest" segment_id="1401" line="northernwest" station_from="Hampstead"            station_to="Belsize Park"            id="1401" d="M 948,261 L 962.67,272 q 12,9 27,9 L1010,281" />
-                <path class="inner_original p_northernwest" segment_id="1402" line="northernwest" station_from="Belsize Park"         station_to="Chalk Farm"              id="1402" d="M 1010,281 L1090,281" />
-                <path class="inner_original p_northernwest" segment_id="1403" line="northernwest" station_from="Chalk Farm"           station_to="Camden Town"             id="1403" d="M 1090,281 L1165,281" />
-                <path class="inner_original p_northernwest" segment_id="1404" line="northernwest" station_from="Camden Town"          station_to="Mornington Crescent"     id="1404" d="M 1165,281 a 37,37 0 0,1 37,37 L1202,332" />
-                <path class="inner_original p_northernwest" segment_id="1405" line="northernwest" station_from="Mornington Crescent"  station_to="Euston"                  id="1405" d="M 1202,332 L1202,360" />
-                <path class="inner_original p_northernwest" segment_id="1406" line="northernwest" station_from="Euston"               station_to="Warren Street"           id="1406" d="M 1202,360 q 0,13 -19.5,26 t -19.5,26" />
-                <path class="inner_original p_northernwest" segment_id="1407" line="northernwest" station_from="Warren Street"        station_to="Goodge Street"           id="1407" d="M 1163,412 L1163,450" />
-                <path class="inner_original p_northernwest" segment_id="1408" line="northernwest" station_from="Goodge Street"        station_to="Tottenham Court Road"    id="1408" d="M 1163,450 L 1163,461.667 q 0,10 6,18 L1208,531.75" />
-                <path class="inner_original p_northernwest" segment_id="1409" line="northernwest" station_from="Tottenham Court Road" station_to="Leicester Square"        id="1409" d="M 1208,531.75 L1255.5,595" />
-                <path class="inner_original p_northernwest" segment_id="1410" line="northernwest" station_from="Leicester Square"     station_to="Charing Cross"           id="1410" d="M 1255.5,595 L1278,625 q 9,12 9,25 t 9,25" />
-                <path class="inner_original p_northernwest" segment_id="1411" line="northernwest" station_from="Charing Cross"        station_to="Embankment"              id="1411" d="M 1296,675 L1307,690" />
-                <path class="inner_original p_northernwest" segment_id="1412" line="northernwest" station_from="Embankment"           station_to="Waterloo"                id="1412" d="M 1307,690 L1338,731" />
-                <path class="inner_original p_northernwest" segment_id="1413" line="northernwest" station_from="Waterloo"             station_to="Kennington"              id="1413" d="M 1338,731 L 1390.875,801.5 a 30,30 0 0,1 -6.5,42 L1359.5,862" />
-                <path class="inner_original p_northernwest" segment_id="1414" line="northernwest" station_from="Kennington"           station_to="Nine Elms"               id="1414" d="M 1359.5,862  L 1342.375,875 q -12,9 -27,9    H 1240.5 q -15,0 -27,9 L1192.5,908" />
-                <path class="inner_original p_northernwest" segment_id="1415" line="northernwest" station_from="Nine Elms"            station_to="Battersea Power Station" id="1415" d="M 1193.5,908 L 1180.17,918.25 q -12,9 -27,9    H 1134" />
+                <path class="inner_original p_northernwest" segment_id="1401" line="northern" station_from="Hampstead"            station_to="Belsize Park"            id="1401" d="M 948,261 L 962.67,272 q 12,9 27,9 L1010,281" />
+                <path class="inner_original p_northernwest" segment_id="1402" line="northern" station_from="Belsize Park"         station_to="Chalk Farm"              id="1402" d="M 1010,281 L1090,281" />
+                <path class="inner_original p_northernwest" segment_id="1403" line="northern" station_from="Chalk Farm"           station_to="Camden Town"             id="1403" d="M 1090,281 L1165,281" />
+                <path class="inner_original p_northernwest" segment_id="1404" line="northern" station_from="Camden Town"          station_to="Mornington Crescent"     id="1404" d="M 1165,281 a 37,37 0 0,1 37,37 L1202,332" />
+                <path class="inner_original p_northernwest" segment_id="1405" line="northern" station_from="Mornington Crescent"  station_to="Euston"                  id="1405" d="M 1202,332 L1202,360" />
+                <path class="inner_original p_northernwest" segment_id="1406" line="northern" station_from="Euston"               station_to="Warren Street"           id="1406" d="M 1202,360 q 0,13 -19.5,26 t -19.5,26" />
+                <path class="inner_original p_northernwest" segment_id="1407" line="northern" station_from="Warren Street"        station_to="Goodge Street"           id="1407" d="M 1163,412 L1163,450" />
+                <path class="inner_original p_northernwest" segment_id="1408" line="northern" station_from="Goodge Street"        station_to="Tottenham Court Road"    id="1408" d="M 1163,450 L 1163,461.667 q 0,10 6,18 L1208,531.75" />
+                <path class="inner_original p_northernwest" segment_id="1409" line="northern" station_from="Tottenham Court Road" station_to="Leicester Square"        id="1409" d="M 1208,531.75 L1255.5,595" />
+                <path class="inner_original p_northernwest" segment_id="1410" line="northern" station_from="Leicester Square"     station_to="Charing Cross"           id="1410" d="M 1255.5,595 L1278,625 q 9,12 9,25 t 9,25" />
+                <path class="inner_original p_northernwest" segment_id="1411" line="northern" station_from="Charing Cross"        station_to="Embankment"              id="1411" d="M 1296,675 L1307,690" />
+                <path class="inner_original p_northernwest" segment_id="1412" line="northern" station_from="Embankment"           station_to="Waterloo"                id="1412" d="M 1307,690 L1338,731" />
+                <path class="inner_original p_northernwest" segment_id="1413" line="northern" station_from="Waterloo"             station_to="Kennington"              id="1413" d="M 1338,731 L 1390.875,801.5 a 30,30 0 0,1 -6.5,42 L1359.5,862" />
+                <path class="inner_original p_northernwest" segment_id="1414" line="northern" station_from="Kennington"           station_to="Nine Elms"               id="1414" d="M 1359.5,862  L 1342.375,875 q -12,9 -27,9    H 1240.5 q -15,0 -27,9 L1192.5,908" />
+                <path class="inner_original p_northernwest" segment_id="1415" line="northern" station_from="Nine Elms"            station_to="Battersea Power Station" id="1415" d="M 1193.5,908 L 1180.17,918.25 q -12,9 -27,9    H 1134" />
             </g>
 
             <g class="me sdistrict">
@@ -690,12 +734,12 @@
                 <path class="inner_original p_hnc" segment_id="2316" line="Hammersmith & City" station_from="Barbican"                 station_to="Moorgate"                 id="2316" d="M 1417.5,488.5 A 40,40 0 0,0 1439,495 L1479,495" />
                 <path class="inner_original p_hnc" segment_id="2317" line="Hammersmith & City" station_from="Moorgate"                 station_to="Liverpool Street"         id="2317" d="M 1479,495 L1563,495" />
                 <path class="inner_original p_hnc" segment_id="2318" line="Hammersmith & City" station_from="Liverpool Street"         station_to="Aldgate East"             id="2318" d="M 1563,495 a 46,46 0 0,1 36.8,18.4    l 18,24 q 12,16 32,16    H 1653" />
-                <path class="inner_original p_hnc" segment_id="2221" line="Hammersmith & City" station_from="Aldgate East"             station_to="Whitechapel"              id="2221" d="M 1653 553.3 a 45,45 0 0,0 27,-9 L1699,530" />
-                <path class="inner_original p_hnc" segment_id="2222" line="Hammersmith & City" station_from="Whitechapel"              station_to="Stepney Green"            id="2222" d="M 1699,530 L1752.5,490" />
-                <path class="inner_original p_hnc" segment_id="2223" line="Hammersmith & City" station_from="Stepney Green"            station_to="Mile End"                 id="2223" d="M 1752.5,490 L1811.5,445.5" />
-                <path class="inner_original p_hnc" segment_id="2224" line="Hammersmith & City" station_from="Mile End"                 station_to="Bow Road"                 id="2224" d="M 1811.5,445.5 L1817.07,441.5 a 50,50 0 0,1 30,-10 L1878,431.5" />
-                <path class="inner_original p_hnc" segment_id="2225" line="Hammersmith & City" station_from="Bow Road"                 station_to="Bromley-by-Bow"           id="2225" d="M 1878,431.5 L1963,431.5" />
-                <path class="inner_original p_hnc" segment_id="2226" line="Hammersmith & City" station_from="Bromley-by-Bow"           station_to="West Ham"                 id="2226" d="M 1963,431.5 L2031,431.5" />        
+                <path class="inner_original p_hnc" segment_id="2221" line="District"           station_from="Aldgate East"             station_to="Whitechapel"              id="2221" d="M 1653 553.3 a 45,45 0 0,0 27,-9 L1699,530" />
+                <path class="inner_original p_hnc" segment_id="2222" line="District"           station_from="Whitechapel"              station_to="Stepney Green"            id="2222" d="M 1699,530 L1752.5,490" />
+                <path class="inner_original p_hnc" segment_id="2223" line="District"           station_from="Stepney Green"            station_to="Mile End"                 id="2223" d="M 1752.5,490 L1811.5,445.5" />
+                <path class="inner_original p_hnc" segment_id="2224" line="District"           station_from="Mile End"                 station_to="Bow Road"                 id="2224" d="M 1811.5,445.5 L1817.07,441.5 a 50,50 0 0,1 30,-10 L1878,431.5" />
+                <path class="inner_original p_hnc" segment_id="2225" line="District"           station_from="Bow Road"                 station_to="Bromley-by-Bow"           id="2225" d="M 1878,431.5 L1963,431.5" />
+                <path class="inner_original p_hnc" segment_id="2226" line="District"           station_from="Bromley-by-Bow"           station_to="West Ham"                 id="2226" d="M 1963,431.5 L2031,431.5" />        
             </g>
 
             <g class="me smetropolitan">
@@ -1312,18 +1356,48 @@
 
 
     <script>
+        // function to get the constants from const.json
+        function Get(url) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", url, false);
+            xhttp.send(null);
+            return xhttp.responseText;
+        }
+        // read in consts.json
+        var constJson = JSON.parse(Get("http://localhost:2008/const"));
 
-        var xhttp = new XMLHttpRequest();
 
-        // var colors_pollution = ["red", "yellow", "green", "blue", "black"];
-        // var colors_noise = ["rgb(0, 0, 53)", "rgb(1, 0, 53)", "rgb(2, 0, 53)", "rgb(3, 0, 53)", "rgb(4, 0, 53)", "rgb(5, 0, 53)", "rgb(6, 0, 53)", "rgb(7, 0, 53)", "rgb(8, 0, 53)", "rgb(9, 0, 53)", "rgb(10, 0, 53)", "rgb(11, 0, 53)", "rgb(12, 0, 53)", "rgb(13, 0, 53)", "rgb(14, 0, 53)", "rgb(15, 0, 53)", "rgb(16, 0, 53)", "rgb(17, 0, 53)", "rgb(18, 0, 53)", "rgb(19, 0, 53)", "rgb(20, 0, 53)", "rgb(21, 0, 53)", "rgb(22, 0, 53)", "rgb(23, 0, 53)", "rgb(24, 0, 53)", "rgb(25, 0, 53)", "rgb(26, 0, 53)", "rgb(27, 0, 53)", "rgb(28, 0, 53)", "rgb(29, 0, 53)", "rgb(30, 0, 53)", "rgb(31, 0, 53)", "rgb(32, 0, 53)", "rgb(33, 0, 53)", "rgb(34, 0, 53)", "rgb(35, 0, 53)", "rgb(36, 0, 53)", "rgb(37, 0, 53)", "rgb(38, 0, 53)", "rgb(39, 0, 53)", "rgb(40, 0, 53)", "rgb(41, 0, 53)", "rgb(42, 0, 53)", "rgb(43, 0, 53)", "rgb(44, 0, 53)", "rgb(45, 0, 53)", "rgb(46, 0, 53)", "rgb(47, 0, 53)", "rgb(48, 0, 53)", "rgb(49, 0, 53)", "rgb(50, 0, 53)", "rgb(51, 0, 53)", "rgb(52, 0, 53)", "rgb(53, 0, 53)", "rgb(54, 0, 53)", "rgb(55, 0, 53)", "rgb(56, 0, 53)", "rgb(57, 0, 53)", "rgb(58, 0, 53)", "rgb(59, 0, 53)", "rgb(60, 0, 53)", "rgb(61, 0, 53)", "rgb(62, 0, 53)", "rgb(63, 0, 53)", "rgb(64, 0, 53)", "rgb(65, 0, 53)", "rgb(66, 0, 53)", "rgb(67, 0, 53)", "rgb(68, 0, 53)", "rgb(69, 0, 53)", "rgb(70, 0, 53)", "rgb(71, 0, 53)", "rgb(72, 0, 53)", "rgb(73, 0, 53)", "rgb(74, 0, 53)", "rgb(75, 0, 53)", "rgb(76, 0, 53)", "rgb(77, 0, 53)", "rgb(78, 0, 53)", "rgb(79, 0, 53)", "rgb(80, 0, 53)", "rgb(81, 0, 53)", "rgb(82, 0, 53)", "rgb(83, 0, 53)", "rgb(84, 0, 53)", "rgb(85, 0, 53)", "rgb(86, 0, 53)", "rgb(87, 0, 53)", "rgb(88, 0, 53)", "rgb(89, 0, 53)", "rgb(90, 0, 53)", "rgb(91, 0, 53)", "rgb(92, 0, 53)", "rgb(93, 0, 53)", "rgb(94, 0, 53)", "rgb(95, 0, 53)", "rgb(96, 0, 53)", "rgb(97, 0, 53)", "rgb(98, 0, 53)", "rgb(99, 0, 53)", "rgb(100, 0, 53)", "rgb(101, 0, 53)", "rgb(102, 0, 53)", "rgb(103, 0, 53)", "rgb(104, 0, 53)", "rgb(105, 0, 53)", "rgb(106, 0, 53)", "rgb(107, 0, 53)", "rgb(108, 0, 53)", "rgb(109, 0, 53)", "rgb(110, 0, 53)", "rgb(111, 0, 53)", "rgb(112, 0, 53)", "rgb(113, 0, 53)", "rgb(114, 0, 53)", "rgb(115, 0, 53)", "rgb(116, 0, 53)", "rgb(117, 0, 53)", "rgb(118, 0, 53)", "rgb(119, 0, 53)", "rgb(120, 0, 53)", "rgb(121, 0, 53)", "rgb(122, 0, 53)", "rgb(123, 0, 53)", "rgb(124, 0, 53)", "rgb(125, 0, 53)", "rgb(126, 0, 53)", "rgb(127, 0, 53)", "rgb(128, 0, 53)", "rgb(129, 0, 53)", "rgb(130, 0, 53)", "rgb(131, 0, 53)", "rgb(132, 0, 53)", "rgb(133, 0, 53)", "rgb(134, 0, 53)", "rgb(135, 0, 53)", "rgb(136, 0, 53)", "rgb(137, 0, 53)", "rgb(138, 0, 53)", "rgb(139, 0, 53)", "rgb(140, 0, 53)", "rgb(141, 0, 53)", "rgb(142, 0, 53)", "rgb(143, 0, 53)", "rgb(144, 0, 53)", "rgb(145, 0, 53)", "rgb(146, 0, 53)", "rgb(147, 0, 53)", "rgb(148, 0, 53)", "rgb(150, 0, 53)"]
-        // var colors_temperature = ["rgb(0, 255, 0)", "rgb(4, 251, 0)", "rgb(8, 247, 0)", "rgb(12, 243, 0)", "rgb(16, 239, 0)", "rgb(20, 235, 0)", "rgb(24, 231, 0)", "rgb(28, 227, 0)", "rgb(32, 223, 0)", "rgb(36, 219, 0)", "rgb(40, 215, 0)", "rgb(44, 211, 0)", "rgb(48, 207, 0)", "rgb(52, 203, 0)", "rgb(56, 199, 0)", "rgb(60, 195, 0)", "rgb(64, 191, 0)", "rgb(68, 187, 0)", "rgb(72, 183, 0)", "rgb(76, 179, 0)", "rgb(80, 175, 0)", "rgb(84, 171, 0)", "rgb(88, 167, 0)", "rgb(92, 163, 0)", "rgb(96, 159, 0)", "rgb(100, 155, 0)", "rgb(104, 151, 0)", "rgb(108, 147, 0)", "rgb(112, 143, 0)", "rgb(116, 139, 0)", "rgb(120, 135, 0)", "rgb(124, 131, 0)", "rgb(128, 127, 0)", "rgb(132, 123, 0)", "rgb(136, 119, 0)", "rgb(140, 115, 0)", "rgb(144, 111, 0)", "rgb(148, 107, 0)", "rgb(152, 103, 0)", "rgb(156, 99, 0)", "rgb(160, 95, 0)", "rgb(164, 91, 0)", "rgb(168, 87, 0)", "rgb(172, 83, 0)", "rgb(176, 79, 0)", "rgb(180, 75, 0)", "rgb(184, 71, 0)", "rgb(188, 67, 0)", "rgb(192, 63, 0)", "rgb(196, 59, 0)", "rgb(200, 55, 0)", "rgb(204, 51, 0)", "rgb(208, 47, 0)", "rgb(212, 43, 0)", "rgb(216, 39, 0)", "rgb(220, 35, 0)", "rgb(224, 31, 0)", "rgb(228, 27, 0)", "rgb(232, 23, 0)", "rgb(236, 19, 0)", "rgb(240, 15, 0)", "rgb(244, 11, 0)", "rgb(248, 7, 0)", "rgb(252, 3, 0)", "rgb(255, 0, 0)", "rgb(255, 0, 0)", "rgb(251, 4, 0)", "rgb(247, 8, 0)", "rgb(243, 12, 0)", "rgb(239, 16, 0)", "rgb(235, 20, 0)", "rgb(231, 24, 0)", "rgb(227, 28, 0)", "rgb(223, 32, 0)", "rgb(219, 36, 0)", "rgb(215, 40, 0)", "rgb(211, 44, 0)", "rgb(207, 48, 0)", "rgb(203, 52, 0)", "rgb(199, 56, 0)", "rgb(195, 60, 0)", "rgb(191, 64, 0)", "rgb(187, 68, 0)", "rgb(183, 72, 0)", "rgb(179, 76, 0)", "rgb(175, 80, 0)", "rgb(171, 84, 0)", "rgb(167, 88, 0)", "rgb(163, 92, 0)", "rgb(159, 96, 0)", "rgb(155, 100, 0)", "rgb(151, 104, 0)", "rgb(147, 108, 0)", "rgb(143, 112, 0)", "rgb(139, 116, 0)", "rgb(135, 120, 0)", "rgb(131, 124, 0)", "rgb(127, 128, 0)", "rgb(123, 132, 0)", "rgb(119, 136, 0)", "rgb(115, 140, 0)", "rgb(111, 144, 0)", "rgb(107, 148, 0)", "rgb(103, 152, 0)", "rgb(99, 156, 0)", "rgb(95, 160, 0)", "rgb(91, 164, 0)", "rgb(87, 168, 0)", "rgb(83, 172, 0)", "rgb(79, 176, 0)", "rgb(75, 180, 0)", "rgb(71, 184, 0)", "rgb(67, 188, 0)", "rgb(63, 192, 0)", "rgb(59, 196, 0)", "rgb(55, 200, 0)", "rgb(51, 204, 0)", "rgb(47, 208, 0)", "rgb(43, 212, 0)", "rgb(39, 216, 0)", "rgb(35, 220, 0)", "rgb(31, 224, 0)", "rgb(27, 228, 0)", "rgb(23, 232, 0)", "rgb(19, 236, 0)", "rgb(15, 240, 0)", "rgb(11, 244, 0)", "rgb(7, 248, 0)", "rgb(3, 252, 0)", "rgb(0, 255, 0)"]
-
+        // initialise map on first load
         changeColors();
-        
-        function lineChange(nameOfLine) {
-            var className = "p_" + nameOfLine;
 
+
+        // is called on load and whenever a new radio button is clicked
+        // "reclicks" the checkboxes, which are checked to activate their onclick event
+        function changeColors() {
+            var selectLinesDiv = document.getElementById("selectLines");
+            var all_checkboxes = selectLinesDiv.getElementsByTagName('input');
+            let n = 0;
+            for (let i = 0; i < all_checkboxes.length; i++) {
+                if (all_checkboxes[i].checked) {
+                    all_checkboxes[i].click();
+                    all_checkboxes[i].click();
+                }
+            }
+        }
+
+        
+        // onclick event of the checkboxes for the different tube lines
+        function lineChange(nameOfLine) {
+            // check which radio button is checked
+            var radioValue = document.querySelector('input[name="r_data"]:checked').value;
+            const valueArray = radioValue.split("&&");
+            var dataType = valueArray[0];
+            var dataName = valueArray[1];
+            // get corresponding min and max values
+            var minVal = constJson["DataTypes"][dataType][dataName]["min"];
+            var maxVal = constJson["DataTypes"][dataType][dataName]["max"];
+
+            // check how many lines are selected (aka how many checkboxes are checked)
             var selectLinesDiv = document.getElementById("selectLines");
             var all_checkboxes = selectLinesDiv.getElementsByTagName('input');
             let n = 0;
@@ -1333,8 +1407,10 @@
                 }
             }
 
+            // get all paths and station ticks
             const inner_original = document.getElementsByClassName('inner_original');
             const station_ticks = document.getElementsByClassName('stationcolour');
+            // if no checkboxes are ticked, remove the grey colour (aka recolour the lines)
             if (n==0) {
                 for (const elem of inner_original) {
                     elem.classList.remove("grey");
@@ -1343,6 +1419,7 @@
                     ticks.getElementsByTagName("*")[0].classList.remove("grey");
                 }
             }
+            // otherwise make all lines and ticks grey
             else {
                 for (const elem of inner_original) {
                     elem.classList.add("grey");
@@ -1352,95 +1429,61 @@
                 }
             }
 
+            
+            // get class name of current tube line
+            var className = "p_" + nameOfLine;
+
+            // if checkbox is checked (aka line is selected), cycle through every segment
+            // and colour each segment in by calling getDataset function for each segment
             if (document.getElementById("c_" + nameOfLine).checked) {
                 var all_paths = document.getElementsByClassName(className)
                 var patharray = Object.values(all_paths);
-                patharray.forEach(pathPaint);
+                for (let path in patharray) {
+                    getDataset(patharray[path], dataType, dataName, minVal, maxVal);
+                }
             }
+            // otherwise checkbox has just been unchecked and the data colouring has to be removed
             else {
                 var path_clones = document.getElementById("routes").querySelectorAll("." + className + ".clone");
                 var patharray = Object.values(path_clones);
                 patharray.forEach(removePaths);
             }
         }
-
-
-        var colorIn = false;
-        if (colorIn) {
-
-            // var colors = ["rgb(0, 0, 53)", "rgb(1, 0, 53)", "rgb(2, 0, 53)", "rgb(3, 0, 53)", "rgb(4, 0, 53)", "rgb(5, 0, 53)", "rgb(6, 0, 53)", "rgb(7, 0, 53)", "rgb(8, 0, 53)", "rgb(9, 0, 53)", "rgb(10, 0, 53)", "rgb(11, 0, 53)", "rgb(12, 0, 53)", "rgb(13, 0, 53)", "rgb(14, 0, 53)", "rgb(15, 0, 53)", "rgb(16, 0, 53)", "rgb(17, 0, 53)", "rgb(18, 0, 53)", "rgb(19, 0, 53)", "rgb(20, 0, 53)", "rgb(21, 0, 53)", "rgb(22, 0, 53)", "rgb(23, 0, 53)", "rgb(24, 0, 53)", "rgb(25, 0, 53)", "rgb(26, 0, 53)", "rgb(27, 0, 53)", "rgb(28, 0, 53)", "rgb(29, 0, 53)", "rgb(30, 0, 53)", "rgb(31, 0, 53)", "rgb(32, 0, 53)", "rgb(33, 0, 53)", "rgb(34, 0, 53)", "rgb(35, 0, 53)", "rgb(36, 0, 53)", "rgb(37, 0, 53)", "rgb(38, 0, 53)", "rgb(39, 0, 53)", "rgb(40, 0, 53)", "rgb(41, 0, 53)", "rgb(42, 0, 53)", "rgb(43, 0, 53)", "rgb(44, 0, 53)", "rgb(45, 0, 53)", "rgb(46, 0, 53)", "rgb(47, 0, 53)", "rgb(48, 0, 53)", "rgb(49, 0, 53)", "rgb(50, 0, 53)", "rgb(51, 0, 53)", "rgb(52, 0, 53)", "rgb(53, 0, 53)", "rgb(54, 0, 53)", "rgb(55, 0, 53)", "rgb(56, 0, 53)", "rgb(57, 0, 53)", "rgb(58, 0, 53)", "rgb(59, 0, 53)", "rgb(60, 0, 53)", "rgb(61, 0, 53)", "rgb(62, 0, 53)", "rgb(63, 0, 53)", "rgb(64, 0, 53)", "rgb(65, 0, 53)", "rgb(66, 0, 53)", "rgb(67, 0, 53)", "rgb(68, 0, 53)", "rgb(69, 0, 53)", "rgb(70, 0, 53)", "rgb(71, 0, 53)", "rgb(72, 0, 53)", "rgb(73, 0, 53)", "rgb(74, 0, 53)", "rgb(75, 0, 53)", "rgb(76, 0, 53)", "rgb(77, 0, 53)", "rgb(78, 0, 53)", "rgb(79, 0, 53)", "rgb(80, 0, 53)", "rgb(81, 0, 53)", "rgb(82, 0, 53)", "rgb(83, 0, 53)", "rgb(84, 0, 53)", "rgb(85, 0, 53)", "rgb(86, 0, 53)", "rgb(87, 0, 53)", "rgb(88, 0, 53)", "rgb(89, 0, 53)", "rgb(90, 0, 53)", "rgb(91, 0, 53)", "rgb(92, 0, 53)", "rgb(93, 0, 53)", "rgb(94, 0, 53)", "rgb(95, 0, 53)", "rgb(96, 0, 53)", "rgb(97, 0, 53)", "rgb(98, 0, 53)", "rgb(99, 0, 53)", "rgb(100, 0, 53)", "rgb(101, 0, 53)", "rgb(102, 0, 53)", "rgb(103, 0, 53)", "rgb(104, 0, 53)", "rgb(105, 0, 53)", "rgb(106, 0, 53)", "rgb(107, 0, 53)", "rgb(108, 0, 53)", "rgb(109, 0, 53)", "rgb(110, 0, 53)", "rgb(111, 0, 53)", "rgb(112, 0, 53)", "rgb(113, 0, 53)", "rgb(114, 0, 53)", "rgb(115, 0, 53)", "rgb(116, 0, 53)", "rgb(117, 0, 53)", "rgb(118, 0, 53)", "rgb(119, 0, 53)", "rgb(120, 0, 53)", "rgb(121, 0, 53)", "rgb(122, 0, 53)", "rgb(123, 0, 53)", "rgb(124, 0, 53)", "rgb(125, 0, 53)", "rgb(126, 0, 53)", "rgb(127, 0, 53)", "rgb(128, 0, 53)", "rgb(129, 0, 53)", "rgb(130, 0, 53)", "rgb(131, 0, 53)", "rgb(132, 0, 53)", "rgb(133, 0, 53)", "rgb(134, 0, 53)", "rgb(135, 0, 53)", "rgb(136, 0, 53)", "rgb(137, 0, 53)", "rgb(138, 0, 53)", "rgb(139, 0, 53)", "rgb(140, 0, 53)", "rgb(141, 0, 53)", "rgb(142, 0, 53)", "rgb(143, 0, 53)", "rgb(144, 0, 53)", "rgb(145, 0, 53)", "rgb(146, 0, 53)", "rgb(147, 0, 53)", "rgb(148, 0, 53)", "rgb(150, 0, 53)"]
-
             
-            var root = document.querySelector("svg");
-            var routes = document.getElementById("routes");
-            var path = routes.querySelectorAll("path:not(.original)");
 
-            var patharray = Object.values(path);
-
-            
-            patharray.forEach(pathPaint);
-
-        }
-
-        function pathPaint(path, n) {
-            // document.getElementById("output").innerHTML += path.getAttribute("station_from") + "\n";
-            var dataType = document.querySelector('input[name="r_data"]:checked').value;
-            getDataset(path, dataType);
-            // document.getElementById("output").innerHTML = dataset;
-            // alert(dataset);
-            // var cur_colors = detectColors(dataset, dataType);
-            // var total = cur_colors.length;
-            // var length = path.getTotalLength();
-            // var offset = length / total;
-        
-            // for (let i = 0; i < cur_colors.length; i++) {
-            //     var clone = path.cloneNode(true);
-            //     var dasharray = String(offset) + "," + String(length-offset);
-            //     clone.style.strokeDasharray = dasharray;
-            //     clone.style.stroke = cur_colors[i];
-            //     clone.style.strokeDashoffset = -i*offset;
-            //     clone.classList.add("clone");
-                
-            //     path.parentNode.appendChild(clone);
-            // }
-        }
-
-        function getDataset(path, dataType){
+        // this function finds the correct data for a single segment for the chosen parameters and initiates the colouring
+        function getDataset(path, dataType, dataName, minVal, maxVal){
+            // detect the correct segment and direction
             const station_from = path.getAttribute("station_from");
             const station_to = path.getAttribute("station_to");
             const line = path.getAttribute("line")
             var changedDirection = document.getElementById("c_changeDirection").checked;
-            if (dataType == "Pollution") {
-                dataName = "HealthIndex";  // between 1 and 9
-            }
-            if (dataType == "Temperature") {
-                dataType = "Pollution";
-                dataName = "Temperature";  // between 20 and 30
-            }
-            if (dataType == "Noise") {
-                dataType = "Pollution";
-                dataName = "CO2";          // between 515 and 828
-            }
 
+            // create the url for the database query
             var url = "http://localhost:2008/data/" + station_to + "/" + station_from + "/" + line + "/" + dataType + "/" + dataName;
             if (changedDirection) {
                 url = "http://localhost:2008/data/" + station_from + "/" + station_to + "/" + line + "/" + dataType + "/" + dataName;
             }
             
-            "http://localhost:2008/data/Green Park/Piccadilly Circus/Piccadilly/Pollution/CO2"
+            // example query
+            /////// "http://localhost:2008/data/Green Park/Piccadilly Circus/Piccadilly/Pollution/CO2"
 
-
+            // place the database query via AJAX
             var xhr = new XMLHttpRequest();
             xhr.open('GET', url, true);
 
+            // when there is a response, colour the path in accordingly
             xhr.onload = function () {
                 if (xhr.readyState === xhr.DONE) {
                     if (xhr.status === 200) {
-                        var cur_colors = detectColors(JSON.parse(xhr.response), dataType, dataName, changedDirection);
+                        // transform values into colours
+                        var cur_colors = ColorsByMinMax(JSON.parse(xhr.response), minVal, maxVal, changedDirection);
+                        // seperate the segment into as many parts as there are datapoints
                         var total = cur_colors.length;
                         var length = path.getTotalLength();
                         var offset = length / total;
                         
+                        // create a subpath for each datapoint with a single colour
                         for (let i = 0; i < cur_colors.length; i++) {
                             var clone = path.cloneNode(true);
                             var dasharray = String(offset) + "," + String(length-offset);
@@ -1455,83 +1498,19 @@
                 }
             };
 
+            // send the query
             xhr.send();
         }
+
                
-        
+        // remove the colouring of this path
         function removePaths(path, n) {
             path.remove();
         }
 
-        function paintStroke(color, n, path) {
-          var clone = path.cloneNode(true);
-          var dasharray = String(offset) + "," + String(length-offset);
-          clone.style.strokeDasharray = dasharray;
-          clone.style.stroke = color;
-          clone.style.strokeDashoffset = -n*offset;
-          
-          root.appendChild(clone);
-          
-        }
 
-        function detectColors(dataset, dataType, dataName, changedDirection) {
-            var colors = new Array();
-            // for (let i = 0; i < dataset.length; i++) {
-            switch (dataType) {
-                case "Pollution":
-                    switch(dataName){
-                        case "HealthIndex":
-                            var min = 1.00 //Current Min Max for Health Index - Needs Adjusting
-                            var max = 9.00
-                            colors = ColorsByMinMax(dataset, min, max, changedDirection);
-                            // colors.push(FindColorStringGivenRange(dataset[i][9], min, max));
-                            break;
-                    
-                        case "Temperature":
-                            var min = 20.00 //Current Min Max for Temperature - Needs Adjusting
-                            var max = 23.10
-                            colors = ColorsByMinMax(dataset, min, max, changedDirection);
-                            // colors.push(FindColorStringGivenRange(dataset[i][9], min, max));
-                            break;
-
-                        case "CO2":
-                            var min = 515 //Current Min Max for CO2 - Needs Adjusting
-                            var max = 828
-                            colors = ColorsByMinMax(dataset, min, max, changedDirection);
-                            // colors.push(FindColorStringGivenRange(dataset[i][9], min, max));
-                            break;
-
-                        default:
-                            throw new Error("Data Name " + dataName + " is undefined");
-                    }
-                    break;
-                    
-                    
-                case "Noise":
-                    break;
-
-                case "Temperature":
-                    break;
-
-                default:
-                    throw new Error("Data Type " + dataType + " is undefined");
-                
-            }
-            // }
-            return colors;
-
-            // var checkRadio = document.querySelector('input[name="r_data"]:checked');
-            // if(checkRadio.value == "Pollution") {
-            //     return colors_pollution
-            // }
-            // else if (checkRadio.value == "Noise") {
-            //     return colors_noise
-            // }
-            // else {
-            //     return colors_temperature
-            // }
-        }
-
+        // this function defines colours using min and max values using the FindColorStringGivenRange function
+        // TODO: Add a threshold as a border between green and red values
         function ColorsByMinMax(dataset, min, max, changedDirection) {
             var colors = new Array();
             if (changedDirection) {
@@ -1547,6 +1526,7 @@
             return colors;
         }
 
+        // this function transforms a datapoint into an rgb colour using min and max values
         function FindColorStringGivenRange(value, min, max){
             var minRGB = 0
             var maxRGB = 255
@@ -1560,18 +1540,6 @@
             var B = 0
 
             return "rgb(" + R + "," + G + ", " + B + ")"
-        }
-
-        function changeColors() {
-            var selectLinesDiv = document.getElementById("selectLines");
-            var all_checkboxes = selectLinesDiv.getElementsByTagName('input');
-            let n = 0;
-            for (let i = 0; i < all_checkboxes.length; i++) {
-                if (all_checkboxes[i].checked) {
-                    all_checkboxes[i].click();
-                    all_checkboxes[i].click();
-                }
-            }
         }
     </script>
 

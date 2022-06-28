@@ -109,17 +109,26 @@ def InsertAll():
 
     ### Insert Jubilee ###
     TubeName = Consts.LINE_JUBILEE
+
+    ## From Stratford to Baker Street ##
     Date = "26/01/2022"
-    # TODO different date needed #
     # Forward #
     CSVName = "Stratford-WillesdenGreen"
     TsInserter.Insert(CSVName, TubeName, Date)
-    TsInserter.Insert(CSVName, TubeName, Date, 1)
 
     # Backward #
     CSVName = "WillesdenGreen-Stratford"
     TsInserter.Insert(CSVName, TubeName, Date)
     TsInserter.Insert(CSVName, TubeName, Date, 1)
+
+    ## From Baker Street to Willesden Green ##
+    Date = "04/02/2022"
+    # Forward #
+    CSVName = "Stratford-WillesdenGreen"
+    TsInserter.Insert(CSVName, TubeName, Date, 1)
+
+    # Backward #
+    CSVName = "WillesdenGreen-Stratford"
     TsInserter.Insert(CSVName, TubeName, Date, 2)
 
     # Data #
