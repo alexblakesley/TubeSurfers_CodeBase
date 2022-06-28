@@ -279,17 +279,17 @@
             <g id="termx" class="stationcolour"><path style="fill:#fff;stroke-width:0.75" d="M 1.75,-2 H 7.5 V 2 H -7.5 V -2 H -1.75"/></g>
             <g id="termedgwarex" class="stationcolour"><use xlink:href="#termx" class="sedgware"/></g>
             <g id="termognorthx" class="stationcolour"><use xlink:href="#termx" class="sognorth"/></g>
-            <g id="st" class="stationcolour"><path class="me" d="M 1,0 H 7.5"/></g>
+            <g id="st"><path class="me" d="M 1,0 H 7.5"/></g>
             <g id="stb" class="stationcolour"><path class="me" style="stroke-width:5.5" d="M 2.5,0 H 7.75"/></g>
             <g id="stbakerloo" class="stationcolour"><use xlink:href="#st" class="sbakerloo"/></g>
             <g id="stcentral" class="stationcolour"><use xlink:href="#st" class="scentral"/></g>
             <g id="stcircle" class="stationcolour">
-                <use xlink:href="#stb" class="meb bcircle"/>
+                <!-- <use xlink:href="#stb" class="meb bcircle"/> -->
                 <use xlink:href="#st" class="scircle"/>
             </g>
             <g id="stdistrict" class="stationcolour"><use xlink:href="#st" class="sdistrict"/></g>
             <g id="sthnc" class="stationcolour">
-                <use xlink:href="#stb" class="meb bhnc"/>
+                <!-- <use xlink:href="#stb" class="meb bhnc"/> -->
                 <use xlink:href="#st" class="shnc"/>
             </g>
             <g id="stjubilee" class="stationcolour"><use xlink:href="#st" class="sjubilee"/></g>
@@ -1079,6 +1079,7 @@
                 </g>
             </g>
         </g>
+        
         <g id="text">
             <g class="st" id="stname" transform="translate(0,4)" opacity="1">
                 <g id="stname_interchanges" class="b">
@@ -1432,10 +1433,14 @@
             
             // get class name of current tube line
             var className = "p_" + nameOfLine;
+            // var tickStName = "st" + nameOfLine;
+            // var tickTermName = "term" + nameOfLine;
 
             // if checkbox is checked (aka line is selected), cycle through every segment
             // and colour each segment in by calling getDataset function for each segment
             if (document.getElementById("c_" + nameOfLine).checked) {
+                // document.getElementById(tickStName).getElementsByTagName("*")[0].classList.remove("grey");
+                // document.getElementById(tickTermName).getElementsByTagName("*")[0].classList.remove("grey");
                 var all_paths = document.getElementsByClassName(className)
                 var patharray = Object.values(all_paths);
                 for (let path in patharray) {
