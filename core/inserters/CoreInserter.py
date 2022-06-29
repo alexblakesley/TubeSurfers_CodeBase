@@ -19,8 +19,8 @@ def InsertAll():
     TsInserter.Insert(CSVName, TubeName, Date, 1)
 
     # Data #
-    #TempInserter.Insert(TubeName) # Missing Data - Need to check device
-    #PollInserter.Insert(TubeName) # Missing Data - Need to check device
+    TempInserter.Insert(TubeName)
+    PollInserter.Insert(TubeName)
 
 
     ### Insert Central ###
