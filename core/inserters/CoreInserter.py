@@ -138,21 +138,24 @@ def InsertAll():
 
 
     ### Insert Metropolitan ###
+    # only contains timestamps between Baker Street/Finchley Road and Aldgate/Liverpool Street
+    # Rest is contained within Hammersmith & City data
     TubeName = Consts.LINE_METROPOLITAN
     Date = "21/01/2022"
     # Forward #
     CSVName = "Aldgate-FinchleyRoad"
     TsInserter.Insert(CSVName, TubeName, Date)
+    TsInserter.Insert(CSVName, TubeName, Date, 1)
 
     # Backward #
     CSVName = "FinchleyRoad-Aldgate"
     TsInserter.Insert(CSVName, TubeName, Date)
     TsInserter.Insert(CSVName, TubeName, Date, 1)
-    TsInserter.Insert(CSVName, TubeName, Date, 2)
+    # TsInserter.Insert(CSVName, TubeName, Date, 2)
 
     # Data #
-    # TempInserter.Insert(TubeName) # Data Contained within Hammersmith & City Data 
-    # PollInserter.Insert(TubeName) # Data Contained within Hammersmith & City Data 
+    TempInserter.Insert(TubeName)
+    PollInserter.Insert(TubeName) 
 
 
     ### Insert Northern ###
