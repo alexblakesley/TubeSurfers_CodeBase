@@ -12,3 +12,4 @@ notebook
 djangorestframework
 acoustics
 awsebcli
+gunicorn
