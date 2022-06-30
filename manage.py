@@ -6,7 +6,7 @@ import sys
 
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', '_watchman.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django.settings')
 
     from django.conf import settings
 

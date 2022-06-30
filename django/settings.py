@@ -46,7 +46,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = '_watchman.urls'
+ROOT_URLCONF = 'django.urls'
 
 TEMPLATES = [
     {
@@ -64,7 +64,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = '_watchman.wsgi.application'
+WSGI_APPLICATION = 'django.wsgi.application'
 
 
 # Database
