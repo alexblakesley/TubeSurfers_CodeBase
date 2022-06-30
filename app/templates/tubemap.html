@@ -1353,6 +1353,21 @@
                 </g>
             </g>
         </g>
+
+        <g id="key_to_colours" transform="translate(2400,120)">
+            <g class="me">
+                <path id="keyToColours" class="original" style="stroke:grey" d="M 0,0 v400"/>
+            </g>
+            <g class="me">
+                <text class="st">
+                    <tspan x="10" y="-20" class="end" style="font-size:15px" id="keyTitle">Title [Unit]</tspan>
+                    <tspan x="-10" y="6" class="end" id="keyMaxVal">max value</tspan>
+                    <tspan x="-10" y="200" class="end" id="keyThreshold">threshold</tspan>
+                    <tspan x="-10" y="403" class="end" id="keyMinVal">min value</tspan>
+                </text>
+                <path id="thresholdMarker" style="stroke:black" d="M -5,200 h10"/>
+            </g>
+        </g>
     </svg>
 
 
@@ -1373,8 +1388,10 @@
 
 
         // is called on load and whenever a new radio button is clicked
+        // updates the key on the right hand side and
         // "reclicks" the checkboxes, which are checked to activate their onclick event
         function changeColors() {
+            updateKey();
             var selectLinesDiv = document.getElementById("selectLines");
             var all_checkboxes = selectLinesDiv.getElementsByTagName('input');
             let n = 0;
@@ -1482,24 +1499,7 @@
             xhr.onload = function () {
                 if (xhr.readyState === xhr.DONE) {
                     if (xhr.status === 200) {
-                        // transform values into colours
-                        var cur_colors = ColorsByMinMax(JSON.parse(xhr.response), minVal, maxVal, threshold, changedDirection);
-                        // seperate the segment into as many parts as there are datapoints
-                        var total = cur_colors.length;
-                        var length = path.getTotalLength();
-                        var offset = length / total;
-                        
-                        // create a subpath for each datapoint with a single colour
-                        for (let i = 0; i < cur_colors.length; i++) {
-                            var clone = path.cloneNode(true);
-                            var dasharray = String(offset) + "," + String(length-offset);
-                            clone.style.strokeDasharray = dasharray;
-                            clone.style.stroke = cur_colors[i];
-                            clone.style.strokeDashoffset = -i*offset;
-                            clone.classList.add("clone");
-                            
-                            path.parentNode.appendChild(clone);
-                        }
+                        colourPaths (JSON.parse(xhr.response), minVal, maxVal, threshold, changedDirection, path)
                     }
                 }
             };
@@ -1508,10 +1508,70 @@
             xhr.send();
         }
 
+        function colourPaths (dataset, minVal, maxVal, threshold, changedDirection, path) {
+            // transform values into colours
+            var cur_colors = ColorsByMinMax(dataset, minVal, maxVal, threshold, changedDirection);
+            // seperate the segment into as many parts as there are datapoints
+            var total = cur_colors.length;
+            var length = path.getTotalLength();
+            var offset = length / total;
+            
+            // create a subpath for each datapoint with a single colour
+            for (let i = 0; i < cur_colors.length; i++) {
+                var clone = path.cloneNode(true);
+                var dasharray = String(offset) + "," + String(length-offset);
+                clone.style.strokeDasharray = dasharray;
+                clone.style.stroke = cur_colors[i];
+                clone.style.strokeDashoffset = -i*offset;
+                clone.classList.add("clone");
+                
+                path.parentNode.appendChild(clone);
+            }
+        }
+
                
         // remove the colouring of this path
         function removePaths(path, n) {
             path.remove();
+        }
+
+        function updateKey() {
+            // check which radio button is checked
+            var radioValue = document.querySelector('input[name="r_data"]:checked').value;
+            const valueArray = radioValue.split("&&");
+            var dataType = valueArray[0];
+            var dataName = valueArray[1];
+            // get corresponding min and max values
+            var name = constJson["DataTypes"][dataType][dataName]["name"];
+            var minVal = constJson["DataTypes"][dataType][dataName]["min"];
+            var maxVal = constJson["DataTypes"][dataType][dataName]["max"];
+            var threshold = constJson["DataTypes"][dataType][dataName]["threshold"];
+            var unit = constJson["DataTypes"][dataType][dataName]["unit"];
+            var resolution = constJson["DataTypes"][dataType][dataName]["resolution"];
+
+            document.getElementById("keyTitle").innerHTML = name + " [" + unit + "]";
+            document.getElementById("keyMaxVal").innerHTML = maxVal;
+            document.getElementById("keyMinVal").innerHTML = minVal;
+
+            if (threshold != 0) {
+                document.getElementById("keyThreshold").innerHTML = threshold;
+                thresholdHeight = 403 - (threshold-minVal)/(maxVal-minVal) * 397;
+                document.getElementById("keyThreshold").setAttribute("y", thresholdHeight);
+                document.getElementById("thresholdMarker").setAttribute("d", "M -5," + (thresholdHeight -5) + " h10")
+            }
+            else {
+                document.getElementById("keyThreshold").innerHTML = "";
+                document.getElementById("thresholdMarker").setAttribute("d", "M 0,0 h0")
+            }
+
+            path = document.getElementById("keyToColours");
+            keyDataset = [];
+            nSteps = (maxVal - minVal)/resolution + 1;
+            for (i=0; i<nSteps; i++) {
+                keyDataset.push([0,0,0,0,0,0,0,0,0,i*resolution + minVal]);
+            }
+            colourPaths(keyDataset, minVal, maxVal, threshold, true, path);
+
         }
 
 
@@ -1519,6 +1579,7 @@
         // TODO: Add a threshold as a border between green and red values
         function ColorsByMinMax(dataset, min, max, threshold, changedDirection) {
             var colors = new Array();
+            console.log(dataset);
             if (changedDirection) {
                 for (let i = dataset.length; i > 0; i--) {
                     colors.push(FindColorStringGivenRange(dataset[i-1][9], min, max, threshold));
