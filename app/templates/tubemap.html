@@ -1397,6 +1397,7 @@
             // get corresponding min and max values
             var minVal = constJson["DataTypes"][dataType][dataName]["min"];
             var maxVal = constJson["DataTypes"][dataType][dataName]["max"];
+            var threshold = constJson["DataTypes"][dataType][dataName]["threshold"];
 
             // check how many lines are selected (aka how many checkboxes are checked)
             var selectLinesDiv = document.getElementById("selectLines");
@@ -1444,7 +1445,7 @@
                 var all_paths = document.getElementsByClassName(className)
                 var patharray = Object.values(all_paths);
                 for (let path in patharray) {
-                    getDataset(patharray[path], dataType, dataName, minVal, maxVal);
+                    getDataset(patharray[path], dataType, dataName, minVal, maxVal, threshold);
                 }
             }
             // otherwise checkbox has just been unchecked and the data colouring has to be removed
@@ -1457,7 +1458,7 @@
             
 
         // this function finds the correct data for a single segment for the chosen parameters and initiates the colouring
-        function getDataset(path, dataType, dataName, minVal, maxVal){
+        function getDataset(path, dataType, dataName, minVal, maxVal, threshold){
             // detect the correct segment and direction
             const station_from = path.getAttribute("station_from");
             const station_to = path.getAttribute("station_to");
@@ -1482,7 +1483,7 @@
                 if (xhr.readyState === xhr.DONE) {
                     if (xhr.status === 200) {
                         // transform values into colours
-                        var cur_colors = ColorsByMinMax(JSON.parse(xhr.response), minVal, maxVal, changedDirection);
+                        var cur_colors = ColorsByMinMax(JSON.parse(xhr.response), minVal, maxVal, threshold, changedDirection);
                         // seperate the segment into as many parts as there are datapoints
                         var total = cur_colors.length;
                         var length = path.getTotalLength();
@@ -1516,35 +1517,93 @@
 
         // this function defines colours using min and max values using the FindColorStringGivenRange function
         // TODO: Add a threshold as a border between green and red values
-        function ColorsByMinMax(dataset, min, max, changedDirection) {
+        function ColorsByMinMax(dataset, min, max, threshold, changedDirection) {
             var colors = new Array();
             if (changedDirection) {
                 for (let i = dataset.length; i > 0; i--) {
-                    colors.push(FindColorStringGivenRange(dataset[i-1][9], min, max));
+                    colors.push(FindColorStringGivenRange(dataset[i-1][9], min, max, threshold));
                 }               
             }
             else {
                 for (let i = 0; i < dataset.length; i++) {
-                    colors.push(FindColorStringGivenRange(dataset[i][9], min, max));
+                    colors.push(FindColorStringGivenRange(dataset[i][9], min, max, threshold));
                 }
             }
             return colors;
         }
 
         // this function transforms a datapoint into an rgb colour using min and max values
-        function FindColorStringGivenRange(value, min, max){
-            var minRGB = 0
-            var maxRGB = 255
-            var rangeRGB = maxRGB
+        function FindColorStringGivenRange(value, min, max, threshold){
+            // if there is a threshold defined
+            if (threshold != 0) {
+                // from min to threshold go from green rgb(77,140,87) to yellow rgb(248,222,126)
+                if (value <= threshold) {
+                    var minR = 77;
+                    var maxR = 248;
+                    var minG = 140;
+                    var maxG = 222;
+                    var minB = 87;
+                    var maxB = 126;
 
-            var valueRange = (max - min)
-            var AdjustedValue = (((value - min) * rangeRGB) / valueRange) + minRGB
+                    var R = ((value-min)/(threshold-min)*(maxR-minR)) + minR;
+                    var G = ((value-min)/(threshold-min)*(maxG-minG)) + minG;
+                    var B = ((value-min)/(threshold-min)*(maxB-minB)) + minB;
+                }
+                // if value between threshold and 2* threshold go from yellow rgb(248,222,126) to red rgb(240,5,5)
+                else if (value <= 2*threshold) {
+                    var minR = 248;
+                    var maxR = 240;
+                    var minG = 222;
+                    var maxG = 5;
+                    var minB = 126;
+                    var maxB = 5;
 
-            var R = AdjustedValue
-            var G = maxRGB - AdjustedValue
-            var B = 0
+                    var R = ((value-threshold)/(2*threshold-threshold)*(maxR-minR)) + minR;
+                    var G = ((value-threshold)/(2*threshold-threshold)*(maxG-minG)) + minG;
+                    var B = ((value-threshold)/(2*threshold-threshold)*(maxB-minB)) + minB;
+                }
+                // if value between 2* threshold and 3* threshold go from red rgb(240,5,5) to purple rgb(48,25,52)
+                else if (value <= 3*threshold) {
+                    var minR = 240;
+                    var maxR = 48;
+                    var minG = 5;
+                    var maxG = 25;
+                    var minB = 5;
+                    var maxB = 52;
 
-            return "rgb(" + R + "," + G + ", " + B + ")"
+                    var R = ((value-2*threshold)/(3*threshold-2*threshold)*(maxR-minR)) + minR;
+                    var G = ((value-2*threshold)/(3*threshold-2*threshold)*(maxG-minG)) + minG;
+                    var B = ((value-2*threshold)/(3*threshold-2*threshold)*(maxB-minB)) + minB;
+                }
+                // if value higher than 3* threshold go from purple rgb(75,0,130) to black rgb(0,0,0)
+                else {
+                    var minR = 75;
+                    var maxR = 0;
+                    var minG = 0;
+                    var maxG = 0;
+                    var minB = 130;
+                    var maxB = 0;
+
+                    var R = ((value-3*threshold)/(max-3*threshold)*(maxR-minR)) + minR;
+                    var G = ((value-3*threshold)/(max-3*threshold)*(maxG-minG)) + minG;
+                    var B = ((value-3*threshold)/(max-3*threshold)*(maxB-minB)) + minB;
+                }
+            }
+            // no threshold available
+            else {
+                var minRGB = 0;
+                var maxRGB = 255;
+                var rangeRGB = maxRGB;
+
+                var valueRange = (max - min);
+                var AdjustedValue = (((value - min) * rangeRGB) / valueRange) + minRGB;
+
+                var R = AdjustedValue;
+                var G = maxRGB - AdjustedValue;
+                var B = 0;
+            }
+
+            return "rgb(" + R + "," + G + ", " + B + ")";
         }
     </script>
 

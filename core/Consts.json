@@ -23,7 +23,7 @@
                 "name":"CO2",
                 "min":446,
                 "max":1500,
-                "threshold":0,
+                "threshold":600,
                 "unit":"CO2 ppm"
             },
             "Temperature":{
@@ -37,7 +37,7 @@
                 "name":"HealthIndex",
                 "min":1,
                 "max":9,
-                "threshold":0,
+                "threshold":3,
                 "unit":"[-]"
             },
             "PM25":{
