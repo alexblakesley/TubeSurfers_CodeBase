@@ -1380,7 +1380,7 @@
             return xhttp.responseText;
         }
         // read in consts.json
-        var constJson = JSON.parse(Get("http://localhost:2008/const"));
+        var constJson = JSON.parse(Get("http://localhost:8000/const"));
 
 
         // initialise map on first load
@@ -1483,13 +1483,13 @@
             var changedDirection = document.getElementById("c_changeDirection").checked;
 
             // create the url for the database query
-            var url = "http://localhost:2008/data/" + station_to + "/" + station_from + "/" + line + "/" + dataType + "/" + dataName;
+            var url = "http://localhost:8000/data/" + station_to + "/" + station_from + "/" + line + "/" + dataType + "/" + dataName;
             if (changedDirection) {
-                url = "http://localhost:2008/data/" + station_from + "/" + station_to + "/" + line + "/" + dataType + "/" + dataName;
+                url = "http://localhost:8000/data/" + station_from + "/" + station_to + "/" + line + "/" + dataType + "/" + dataName;
             }
             
             // example query
-            /////// "http://localhost:2008/data/Green Park/Piccadilly Circus/Piccadilly/Pollution/CO2"
+            /////// "http://localhost:8000/data/Green Park/Piccadilly Circus/Piccadilly/Pollution/CO2"
 
             // place the database query via AJAX
             var xhr = new XMLHttpRequest();
