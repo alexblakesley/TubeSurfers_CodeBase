@@ -1,7 +1,7 @@
-from doctest import script_from_examples
 import os
 import numpy as np
-# from acoustics import Signal
+from acoustics import Signal
+
 
 ### Variables to be adjusted ###
 fileDirectory = ""
@@ -11,7 +11,7 @@ micGain = 34
 
 for filename in os.listdir(fileDirectory):
     # open wave file
-    s = Signal.from_wav(os.path.join(fileDirectory, filename)
+    s = Signal.from_wav(os.path.join(fileDirectory, filename))
 
     nSamples = s.samples
     framerate = s.fs
@@ -25,7 +25,7 @@ for filename in os.listdir(fileDirectory):
 
     # mean over all channels
     spl_mean = np.power(10,0.1*spl_a[1][0])
-    for i=1 in range(nChannels):
+    for i in range(nChannels):
         spl_mean = meanTemp + np.power(10,0.1*spl_a[1][i])
     spl_mean = 10*np.log10(1/nChannels*spl_mean)
 
