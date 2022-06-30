@@ -4,7 +4,7 @@
 ## Installation
 Run from the root of the project:
 ```
-docker compose build
+docker compose -f docker-compose.staging.yml build
 ```
 
 Then:

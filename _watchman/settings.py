@@ -20,9 +20,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'fr!3by5i&ey^-9s^*gl$*1)uoxf3l441r2t5l$!((pg2j2l#=('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['TubeSurfersApp.eba-mvvg4vvs.eu-west-2.elasticbeanstalk.com']
 
 
 # Application definition

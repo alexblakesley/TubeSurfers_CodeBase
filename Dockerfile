@@ -10,7 +10,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 RUN apt-get update
-RUN apt-get install -y make automake gcc g++ subversion python3-dev bash watchman
+RUN apt-get install -y make automake gcc g++ subversion python3-dev bash watchman git
 RUN rm -fr /var/cache/apk/*
 
 # Install pip requirements

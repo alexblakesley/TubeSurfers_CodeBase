@@ -24,3 +24,7 @@
 **/secrets.dev.yaml
 **/values.dev.yaml
 README.md
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+.git
+.gitignore
