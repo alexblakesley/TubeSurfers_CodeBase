@@ -1,9 +1,9 @@
 version: '3.8'
 
 services:
-  ts_app:
-    image: ts_app
-    container_name: TS_App
+  web:
+    image: <aws-account-id>.dkr.ecr.<aws-region>.amazonaws.com/ts_app:web
+    command: gunicorn django.wsgi:application --bind 0.0.0.0:8000
     build:
       context: .
       dockerfile: ./Dockerfile
