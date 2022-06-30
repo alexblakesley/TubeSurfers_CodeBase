@@ -10,8 +10,8 @@ services:
     ports:
       - 2008:2008
       - 3000:3000
-      - 2238:2238
-    command: ["python3.8", "manage.py", "runserver", "0.0.0.0:2008"]
+      - 2234:2234
+    command: ["python3.8", "manage.py", "runserver", "0.0.0.0:2234"]
     restart: always
     environment:
       DJANGO_WATCHMAN_TIMEOUT: 20
