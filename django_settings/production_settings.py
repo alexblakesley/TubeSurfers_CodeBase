@@ -22,9 +22,9 @@ SECURE_CROSS_ORIGIN_OPENER_POLICY = None
 SECRET_KEY = 'fr!3by5i&ey^-9s^*gl$*1)uoxf3l441r2t5l$!((pg2j2l#=('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['tubesurfers.co.uk', 'TubeSurfersApp.eba-pabcmmyh.eu-west-2.elasticbeanstalk.com' ]
 
 
 # Application definition
@@ -117,3 +117,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+BASE_URL = "tubesurfers.co.uk"
+DB_NAME = "tubesurfers-db.cql9ooxely3d.eu-west-2.rds.amazonaws.com"
+DB_DEFAULT_SCHEMA = "ts_db"
+DB_USERNAME = "masterUsername"
+DB_PASSWORD = "TubeSurfers1234!"
+DB_PORT = None
+

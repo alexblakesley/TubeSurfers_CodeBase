@@ -1,4 +1,5 @@
 from multiprocessing import connection
+from django.conf import settings
 import mysql.connector
 from mysql.connector import Error
 import pandas as pd
@@ -20,11 +21,7 @@ def create_server_connection(host_name, user_name, user_password, db_name, port 
     return connection
 
 def connectToDB():
-    LiveDB = False
-    if (LiveDB):
-        connection = create_server_connection('tubesurfers-db.cql9ooxely3d.eu-west-2.rds.amazonaws.com','masterUsername','TubeSurfers1234!','ts_db')
-    else :
-        connection = create_server_connection('ts_db','root','pw','ts_db', '3306')
+    connection = create_server_connection(settings.DB_NAME, settings.DB_USERNAME, settings.DB_PASSWORD, settings.DB_DEFAULT_SCHEMA)
     return connection
 
 def execute_query(query):

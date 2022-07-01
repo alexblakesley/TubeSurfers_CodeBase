@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Tube Map</title>
-
     <style type="text/css">
 
         .original {stroke:gainsboro}
@@ -1380,7 +1379,8 @@
             return xhttp.responseText;
         }
         // read in consts.json
-        var constJson = JSON.parse(Get("http://localhost:8000/const"));
+        var url = "{{ BaseURL }}"
+        var constJson = JSON.parse(Get("http://"+url+"/const"));
 
 
         // initialise map on first load
@@ -1483,13 +1483,13 @@
             var changedDirection = document.getElementById("c_changeDirection").checked;
 
             // create the url for the database query
-            var url = "http://localhost:8000/data/" + station_to + "/" + station_from + "/" + line + "/" + dataType + "/" + dataName;
+            var url = "http://{{ BaseURL }}/data/" + station_to + "/" + station_from + "/" + line + "/" + dataType + "/" + dataName;
             if (changedDirection) {
-                url = "http://localhost:8000/data/" + station_from + "/" + station_to + "/" + line + "/" + dataType + "/" + dataName;
+                url = "http://{{ BaseURL }}/data/" + station_from + "/" + station_to + "/" + line + "/" + dataType + "/" + dataName;
             }
             
             // example query
-            /////// "http://localhost:8000/data/Green Park/Piccadilly Circus/Piccadilly/Pollution/CO2"
+            /////// "http://{{ BaseURL }}/data/Green Park/Piccadilly Circus/Piccadilly/Pollution/CO2"
 
             // place the database query via AJAX
             var xhr = new XMLHttpRequest();

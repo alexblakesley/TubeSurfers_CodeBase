@@ -6,7 +6,7 @@ import sys
 
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_settings.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_settings.development_settings')
 
     from django.conf import settings
 

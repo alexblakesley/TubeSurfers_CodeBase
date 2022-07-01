@@ -1,4 +1,5 @@
 
+from django.conf import settings
 import numpy as np
 import pandas as pd
 import time
@@ -13,8 +14,11 @@ from django.template import loader
 def index(request):
     template = loader.get_template('index.html')
     
+    BaseURL = settings.BASE_URL
+
     context = {
-        'temp': None,
+        'BaseURL': BaseURL,
     }
+
 
     return HttpResponse(template.render(context, request))
