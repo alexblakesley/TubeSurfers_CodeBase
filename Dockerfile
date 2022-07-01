@@ -20,3 +20,5 @@ WORKDIR /code
 
 RUN pip3 install --upgrade pip && pip3 install -r requirements.txt
 COPY . /code/
+
+CMD ["python3.8", "manage.py", "runserver", "0.0.0.0:8000"] 
