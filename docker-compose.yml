@@ -9,13 +9,12 @@ services:
       dockerfile: ./Dockerfile
     ports:
       - 8000:8000
-      - 3000:3000
     command: ["python3.8", "manage.py", "runserver", "0.0.0.0:8000"]
     restart: always
     environment:
       DJANGO_WATCHMAN_TIMEOUT: 20
     volumes:
-      - .:/code
+      - .:/code/
       
   ts_db:
     container_name: "TS_Database"
