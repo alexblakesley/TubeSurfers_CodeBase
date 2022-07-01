@@ -18,12 +18,10 @@ from django.urls import path
 from app import views
 from core import viewjson
 from data import endpoints
-import static
 
 urlpatterns = [
     path('', views.index, name='Home'),
     path('admin/', admin.site.urls),
     path('data/<str:fromStation>/<str:toStation>/<str:line>/<str:dataType>/<str:dataName>/', endpoints.index),
     path("const/", viewjson.load, name="loadjson"),
-    path("static/", static)
 ]
