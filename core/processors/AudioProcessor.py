@@ -1,13 +1,8 @@
 import os
 import numpy as np
-<<<<<<< Updated upstream
-from acoustics import Signal
-
-=======
 import pandas as pd
 from acoustics import Signal
 from core.utils.TimestampConverter import ConvertDateTimeToTimestamp
->>>>>>> Stashed changes
 
 
 def ProcessAudio():
@@ -17,14 +12,8 @@ def ProcessAudio():
     t = 44100000
     ### END ###
 
-<<<<<<< Updated upstream
-for filename in os.listdir(fileDirectory):
-    # open wave file
-    s = Signal.from_wav(os.path.join(fileDirectory, filename))
-=======
     with open(os.path.join(fileDirectory, "times.txt")) as f:
         end_time = f.read().splitlines()
->>>>>>> Stashed changes
 
 
     for n, filename in enumerate(os.listdir(fileDirectory)):
@@ -60,13 +49,8 @@ def SPL(s, micGain, end_time, nSamples, framerate, nChannels, filename, i, n):
 
     # mean over all channels
     spl_mean = np.power(10,0.1*spl_a[1][0])
-<<<<<<< Updated upstream
-    for i in range(nChannels):
-        spl_mean = meanTemp + np.power(10,0.1*spl_a[1][i])
-=======
     for i in range(1, nChannels):
         spl_mean = spl_mean + np.power(10,0.1*spl_a[1][i])
->>>>>>> Stashed changes
     spl_mean = 10*np.log10(1/nChannels*spl_mean)
 
     # downsample fro 8Hz to 2Hz

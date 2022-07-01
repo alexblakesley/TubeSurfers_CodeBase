@@ -4,6 +4,7 @@ import core.inserters.AudioInserter as AudioInserter
 import core.processors.AudioProcessor as AudioProcessor
 import os
 
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_settings.development_settings')
 # CoreInserter.InsertAll();
 
 # for filename in os.listdir("data/audio/"):
@@ -12,10 +13,5 @@ import os
 AudioProcessor.ProcessAudio()
 
 
-<<<<<<< Updated upstream
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_settings.development_settings')
-CoreInserter.InsertAll();
-=======
->>>>>>> Stashed changes
 
 print("Data Insert Complete")
