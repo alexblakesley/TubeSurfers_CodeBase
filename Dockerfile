@@ -14,11 +14,9 @@ RUN apt-get install -y make automake gcc g++ subversion python3-dev bash watchma
 RUN rm -fr /var/cache/apk/*
 
 # Install pip requirements
-RUN mkdir /var/run/watchman/
 RUN mkdir /code
 COPY requirements.txt /code/
 WORKDIR /code
 
-RUN pip3 install setuptools==41.6.0 wheel==0.33.6
-RUN pip3 install --upgrade pip && pip install -r requirements.txt
+RUN pip3 install --upgrade pip && pip3 install -r requirements.txt
 COPY . /code/

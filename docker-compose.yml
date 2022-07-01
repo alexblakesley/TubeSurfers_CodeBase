@@ -2,20 +2,27 @@ version: '3.8'
 
 services:
   web:
-    command: gunicorn django.wsgi:application --bind 0.0.0.0:8000 --workers=4
+    command: gunicorn django_settings.wsgi:application --bind 0.0.0.0:8000
     build:
       context: .
       dockerfile: ./Dockerfile
     expose:
       - 8000
-    restart: always
-    environment:
-      DJANGO_WATCHMAN_TIMEOUT: 20
     volumes:
+      - static_volume:/app/static
+      - media_volume:/app/media
       - .:/code
+    environment:
+      - DEBUG
+      - DATABASE_NAME
+      - DATABASE_USER
+      - DATABASE_PASSWORD
+      - HOST_ENDPOINT
 
   nginx:
-    build: nginx
+    build:
+      context: ./nginx
+      dockerfile: ./Dockerfile
     restart: always
     volumes:
       - static_volume:/app/static
