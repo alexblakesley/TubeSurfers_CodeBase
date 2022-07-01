@@ -1579,7 +1579,6 @@
         // TODO: Add a threshold as a border between green and red values
         function ColorsByMinMax(dataset, min, max, threshold, changedDirection) {
             var colors = new Array();
-            console.log(dataset);
             if (changedDirection) {
                 for (let i = dataset.length; i > 0; i--) {
                     colors.push(FindColorStringGivenRange(dataset[i-1][9], min, max, threshold));
