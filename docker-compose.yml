@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   web:
-    command: gunicorn django_settings.wsgi:application --bind 0.0.0.0:8000 --timeout 90
+    command: ["python3.8", "manage.py", "runserver", "0.0.0.0:8000"] 
     build:
       context: .
       dockerfile: ./Dockerfile
