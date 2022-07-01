@@ -42,3 +42,6 @@ TEMPERATURE_TG = TemperatureDataTypes["TG"]["name"]
 TEMPERATURE_WET = TemperatureDataTypes["WET"]["name"]
 TEMPERATURE_HUMIDITY = TemperatureDataTypes["Humidity"]["name"]
 TEMPERATURE_WBGT = TemperatureDataTypes["WBGT"]["name"]
+
+SoundDataTypes = DataTypes['Sound']
+SOUND_SPL = SoundDataTypes["SPL"]["name"]
