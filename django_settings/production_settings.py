@@ -22,9 +22,9 @@ SECURE_CROSS_ORIGIN_OPENER_POLICY = None
 SECRET_KEY = 'fr!3by5i&ey^-9s^*gl$*1)uoxf3l441r2t5l$!((pg2j2l#=('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['tubesurfers.co.uk', 'TubeSurfersApp.eba-pabcmmyh.eu-west-2.elasticbeanstalk.com' ]
+ALLOWED_HOSTS = ['tubesurfers.co.uk', 'TubeSurfersApp.eba-pabcmmyh.eu-west-2.elasticbeanstalk.com']
 
 
 # Application definition
