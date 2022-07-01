@@ -124,6 +124,62 @@
   <body>
 
     <div id="selectProperties">
+        <div>
+            Select data to show:
+            <div>
+                <input type="radio" id="r_co2" name="r_data" value="Pollution&&CO2" onclick="changeColors()" checked>
+                <label for="r_co2">CO2</label>
+            </div>
+            <div>
+                <input type="radio" id="r_temperature" name="r_data" value="Pollution&&Temperature" onclick="changeColors()">
+                <label for="r_temperature">Temperature (Air Quality Device)</label>
+            </div>
+            <div>
+                <input type="radio" id="r_healthIndex" name="r_data" value="Pollution&&HealthIndex" onclick="changeColors()">
+                <label for="r_healthIndex">Health Index</label>
+            </div>
+            <div>
+                <input type="radio" id="r_pm25" name="r_data" value="Pollution&&PM25" onclick="changeColors()">
+                <label for="r_pm25">PM2.5</label>
+            </div>
+            <div>
+                <input type="radio" id="r_humidityPollution" name="r_data" value="Pollution&&Humidity" onclick="changeColors()">
+                <label for="r_humidityPollution">Humidity (Air Quality Device)</label>
+            </div>
+            <div>
+                <input type="radio" id="r_pressure" name="r_data" value="Pollution&&Pressure" onclick="changeColors()">
+                <label for="r_pressure">Air pressure</label>
+            </div>
+            <div>
+                <input type="radio" id="r_dp" name="r_data" value="Temperature&&DP" onclick="changeColors()">
+                <label for="r_dp">Dew Point</label>
+            </div>
+            <div>
+                <input type="radio" id="r_ta" name="r_data" value="Temperature&&TA" onclick="changeColors()">
+                <label for="r_ta">TA</label>
+            </div>
+            <div>
+                <input type="radio" id="r_tg" name="r_data" value="Temperature&&TG" onclick="changeColors()">
+                <label for="r_tg">TG</label>
+            </div>
+            <div>
+                <input type="radio" id="r_wet" name="r_data" value="Temperature&&WET" onclick="changeColors()">
+                <label for="r_wet">WET</label>
+            </div>
+            <div>
+                <input type="radio" id="r_humidityTemperature" name="r_data" value="Temperature&&Humidity" onclick="changeColors()">
+                <label for="r_humidity">Humidity (Thermometer)</label>
+            </div>
+            <div>
+                <input type="radio" id="r_wbgt" name="r_data" value="Temperature&&WBGT" onclick="changeColors()">
+                <label for="r_wbgt">WBGT</label>
+            </div>
+            <div>
+                <input type="radio" id="r_sound" name="r_data" value="Sound&&SPL" onclick="changeColors()">
+                <label for="r_sound">Sound Pressure Level</label>
+            </div>
+        </div>
+
         <div id="selectLines">
             Choose the lines to show data on:
             <div>
@@ -181,66 +237,6 @@
             <div>
                 <input type="checkbox" onclick="changeColors()" id="c_changeDirection" name="c_changeDirection">
                 <label for="c_changeDirection">Change Direction</label>
-            </div>
-        </div>
-
-        <div>
-            Select data to show:
-            <div>
-                <input type="radio" id="r_co2" name="r_data" value="Pollution&&CO2" onclick="changeColors()">
-                <label for="r_co2">CO2</label>
-            </div>
-            <div>
-                <input type="radio" id="r_temperature" name="r_data" value="Pollution&&Temperature" onclick="changeColors()">
-                <label for="r_temperature">Temperature (Air Quality Device)</label>
-            </div>
-            <div>
-                <input type="radio" id="r_healthIndex" name="r_data" value="Pollution&&HealthIndex" onclick="changeColors()">
-                <label for="r_healthIndex">Health Index</label>
-            </div>
-            <div>
-                <input type="radio" id="r_pm25" name="r_data" value="Pollution&&PM25" onclick="changeColors()">
-                <label for="r_pm25">PM2.5</label>
-            </div>
-            <div>
-                <input type="radio" id="r_humidityPollution" name="r_data" value="Pollution&&Humidity" onclick="changeColors()">
-                <label for="r_humidityPollution">Humidity (Air Quality Device)</label>
-            </div>
-            <div>
-                <input type="radio" id="r_pressure" name="r_data" value="Pollution&&Pressure" onclick="changeColors()">
-                <label for="r_pressure">Air pressure</label>
-            </div>
-            <div>
-                <input type="radio" id="r_dp" name="r_data" value="Temperature&&DP" onclick="changeColors()">
-                <label for="r_dp">Dew Point</label>
-            </div>
-            <div>
-                <input type="radio" id="r_ta" name="r_data" value="Temperature&&TA" onclick="changeColors()">
-                <label for="r_ta">TA</label>
-            </div>
-            <div>
-                <input type="radio" id="r_tg" name="r_data" value="Temperature&&TG" onclick="changeColors()">
-                <label for="r_tg">TG</label>
-            </div>
-            <div>
-                <input type="radio" id="r_wet" name="r_data" value="Temperature&&WET" onclick="changeColors()">
-                <label for="r_wet">WET</label>
-            </div>
-            <div>
-                <input type="radio" id="r_humidityTemperature" name="r_data" value="Temperature&&Humidity" onclick="changeColors()">
-                <label for="r_humidity">Humidity (Thermometer)</label>
-            </div>
-            <div>
-                <input type="radio" id="r_wbgt" name="r_data" value="Temperature&&WBGT" onclick="changeColors()">
-                <label for="r_wbgt">WBGT</label>
-            </div>
-            <div>
-                <input type="radio" id="r_noise" name="r_data" value="Noise" onclick="changeColors()" disabled>
-                <label for="r_noise">Noise</label>
-            </div>
-            <div>
-                <input type="radio" id="r_temperature" name="r_data" value="Temperature" onclick="changeColors()" disabled>
-                <label for="r_temperature">Temperature</label>
             </div>
         </div>
     </div>

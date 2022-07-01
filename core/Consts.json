@@ -120,8 +120,16 @@
             }
         },
 
-        "Noise":[
-        ],
+        "Sound":{
+            "SPL":{
+                "name":"SPL",
+                "min":7.94,
+                "max":80.88,
+                "threshold":50,
+                "unit":"dB",
+                "resolution":0.01
+            }           
+        },
 
         "Acceleration":[
         ],

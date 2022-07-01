@@ -53,3 +53,7 @@ docs/_build/
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+
+# Raw audio files
+code/data/audioraw/
