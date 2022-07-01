@@ -119,7 +119,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-BASE_URL = "0.0.0.0:8000"
+BASE_URL = "localhost:8000"
 DB_NAME = "ts_db"
 DB_DEFAULT_SCHEMA = "ts_db"
 DB_USERNAME = "root"
