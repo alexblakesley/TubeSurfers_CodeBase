@@ -125,3 +125,4 @@ DB_DEFAULT_SCHEMA = "ts_db"
 DB_USERNAME = "root"
 DB_PASSWORD = "pw"
 DB_PORT = "3306"
+DB_OVERRIDE_CONNECT_TO_PROD = False # Use to connect to ProdDB in Dev

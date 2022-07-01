@@ -22,7 +22,7 @@ SECURE_CROSS_ORIGIN_OPENER_POLICY = None
 SECRET_KEY = 'fr!3by5i&ey^-9s^*gl$*1)uoxf3l441r2t5l$!((pg2j2l#=('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['tubesurfers.co.uk', 'TubeSurfersApp.eba-pabcmmyh.eu-west-2.elasticbeanstalk.com']
 
@@ -125,4 +125,5 @@ DB_DEFAULT_SCHEMA = "ts_db"
 DB_USERNAME = "masterUsername"
 DB_PASSWORD = "TubeSurfers1234!"
 DB_PORT = None
+DB_OVERRIDE_CONNECT_TO_PROD = False # Use to connect to ProdDB in Dev
 
