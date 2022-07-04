@@ -107,15 +107,25 @@
         .zonefg {font-size:35px;fill:#efefef;stroke:#ddd;stroke-width:1}
         .zonedf {font-size:13px;fill:#999;stroke:none}
 
+        .options_container { display: flex; flex-direction: column; width: 220px; border-style: solid; border-radius: 1mm; border-width:0.1mm; border-color: #009; background-color: rgba(255, 255, 255, 0.8);}
+        .options_item { padding-left: 2mm;}
+        .options_title { font-size: 16px; margin: 0mm 0mm 1mm; padding: 1.5mm 0mm; border-style: solid;  border-width: 0mm; border-bottom-width: 0.1mm; padding-bottom: 0.5mm; border-color: #009; font-family:Arimo,Liberation Sans,Helvetica,Arial,sans-serif; text-align: center; background-color: #009; color: #fff; }
+        .options_text { font-family:Arimo,Liberation Sans,Helvetica,Arial,sans-serif; font-size: 14px; padding-left: 1mm;}
+        .options_divider { border-style: dotted; border-width: 0mm; border-top-width: 0.1mm; margin-top: 0.5mm; border-color: #009; }
+        .options_subsection { padding: 0mm 0mm 1mm; }
         .grey {
             stroke:gainsboro
         }
 
+        .svg { width: 100%; }
+        .footer { position: absolute; bottom: 10px; font-size: 3mm;  }
+
+
 
         #selectProperties {
-            position:absolute;
-            top:80px;
-            left:30px;
+            position: absolute;
+            top:10px;
+            left:10px;
         }
         </style>
 
@@ -123,129 +133,121 @@
   </head>
   <body>
 
-    <div id="selectProperties">
-        <div>
-            Select data to show:
-            <div>
+    <div id="selectProperties" class="options_container">
+        <div class="options_subsection">
+            <p class="options_title">Data Type</p>
+            <div class="options_item">
                 <input type="radio" id="r_co2" name="r_data" value="Pollution&&CO2" onclick="changeColors()" checked>
-                <label for="r_co2">CO2</label>
+                <label for="r_co2" class="options_text">CO<sub>2</sub></label>
             </div>
-            <div>
+            <!-- <div class="options_item">
                 <input type="radio" id="r_temperature" name="r_data" value="Pollution&&Temperature" onclick="changeColors()">
-                <label for="r_temperature">Temperature (Air Quality Device)</label>
-            </div>
-            <div>
+                <label for="r_temperature" class="options_text">Temperature (Air Quality Device)</label>
+            </div> -->
+            <div class="options_item">
                 <input type="radio" id="r_healthIndex" name="r_data" value="Pollution&&HealthIndex" onclick="changeColors()">
-                <label for="r_healthIndex">Health Index</label>
+                <label for="r_healthIndex" class="options_text">Health Index</label>
             </div>
-            <div>
+            <!-- <div class="options_item">
                 <input type="radio" id="r_pm25" name="r_data" value="Pollution&&PM25" onclick="changeColors()">
-                <label for="r_pm25">PM2.5</label>
-            </div>
-            <div>
+                <label for="r_pm25" class="options_text">PM2.5</label>
+            </div> -->
+            <!--  <div class="options_item">
                 <input type="radio" id="r_humidityPollution" name="r_data" value="Pollution&&Humidity" onclick="changeColors()">
-                <label for="r_humidityPollution">Humidity (Air Quality Device)</label>
-            </div>
-            <div>
+                <label for="r_humidityPollution" class="options_text">Humidity (Air Quality Device)</label>
+            </div> -->
+            <div class="options_item">
                 <input type="radio" id="r_pressure" name="r_data" value="Pollution&&Pressure" onclick="changeColors()">
-                <label for="r_pressure">Air pressure</label>
+                <label for="r_pressure" class="options_text">Air Pressure</label>
             </div>
-            <div>
+            <!-- <div class="options_item">
                 <input type="radio" id="r_dp" name="r_data" value="Temperature&&DP" onclick="changeColors()">
-                <label for="r_dp">Dew Point</label>
-            </div>
-            <div>
+                <label for="r_dp" class="options_text">Dew Point</label>
+            </div> -->
+            <div class="options_item">
                 <input type="radio" id="r_ta" name="r_data" value="Temperature&&TA" onclick="changeColors()">
-                <label for="r_ta">TA</label>
+                <label for="r_ta" class="options_text">Temperature</label>
             </div>
-            <div>
+            <!-- <div class="options_item">
                 <input type="radio" id="r_tg" name="r_data" value="Temperature&&TG" onclick="changeColors()">
-                <label for="r_tg">TG</label>
-            </div>
-            <div>
+                <label for="r_tg" class="options_text">TG</label>
+            </div> -->
+            <!-- <div class="options_item">
                 <input type="radio" id="r_wet" name="r_data" value="Temperature&&WET" onclick="changeColors()">
-                <label for="r_wet">WET</label>
-            </div>
-            <div>
+                <label for="r_wet" class="options_text">WET</label>
+            </div> -->
+            <div class="options_item">
                 <input type="radio" id="r_humidityTemperature" name="r_data" value="Temperature&&Humidity" onclick="changeColors()">
-                <label for="r_humidity">Humidity (Thermometer)</label>
+                <label for="r_humidity" class="options_text">Humidity</label>
             </div>
-            <div>
+            <!-- <div class="options_item">
                 <input type="radio" id="r_wbgt" name="r_data" value="Temperature&&WBGT" onclick="changeColors()">
-                <label for="r_wbgt">WBGT</label>
-            </div>
-            <div>
+                <label for="r_wbgt" class="options_text">WBGT</label>
+            </div> -->
+            <div class="options_item">
                 <input type="radio" id="r_sound" name="r_data" value="Sound&&SPL" onclick="changeColors()">
-                <label for="r_sound">Sound Pressure Level</label>
+                <label for="r_sound" class="options_text">Sound Pressure Level</label>
             </div>
         </div>
 
-        <div id="selectLines">
-            Choose the lines to show data on:
-            <div>
+        <div id="selectLines" class="options_subsection">
+            <p class="options_title">Tube Lines</p>
+            <div class="options_item">
                 <input type="checkbox" onclick="lineChange('bakerloo')" id="c_bakerloo" name="c_bakerloo">
-                <label for="c_bakerloo">Bakerloo line</label>
+                <label for="c_bakerloo" class="options_text">Bakerloo line</label>
             </div>
-            <div>
+            <div class="options_item">
                 <input type="checkbox" onclick="lineChange('central')" id="c_central" name="c_central">
-                <label for="c_central">Central line</label>
+                <label for="c_central" class="options_text">Central line</label>
             </div>
-            <div>
+            <div class="options_item">
                 <input type="checkbox" onclick="lineChange('circle')" id="c_circle" name="c_circle">
-                <label for="c_circle">Circle line</label>
+                <label for="c_circle" class="options_text">Circle line</label>
             </div>
-            <div>
+            <div class="options_item">
                 <input type="checkbox" onclick="lineChange('district')" id="c_district" name="c_district">
-                <label for="c_district">District line</label>
+                <label for="c_district" class="options_text">District line</label>
             </div>
-            <div>
+            <div class="options_item">
                 <input type="checkbox" onclick="lineChange('hnc')" id="c_hnc" name="c_hnc">
-                <label for="c_hnc">Hammersmith & City line</label>
+                <label for="c_hnc" class="options_text">Hammersmith & City line</label>
             </div>
-            <div>
+            <div class="options_item">
                 <input type="checkbox" onclick="lineChange('jubilee')" id="c_jubilee" name="c_jubilee">
-                <label for="c_jubilee">Jubilee line</label>
+                <label for="c_jubilee" class="options_text">Jubilee line</label>
             </div>
-            <div>
+            <div class="options_item">
                 <input type="checkbox" onclick="lineChange('metropolitan')" id="c_metropolitan" name="c_metropolitan">
-                <label for="c_metropolitan">Metropolitan line</label>
+                <label for="c_metropolitan" class="options_text">Metropolitan line</label>
             </div>
-            <div>
-                <input type="checkbox" onclick="lineChange('northerneast')" id="c_northerneast" name="c_northerneast">
-                <label for="c_northerneast">Northern line (east)</label>
+            <div class="options_item">
+                <input type="checkbox" onclick="lineChange('northern')" id="c_northern" name="c_northern">
+                <label for="c_northern" class="options_text">Northern line</label>
             </div>
-            <div>
-                <input type="checkbox" onclick="lineChange('northernwest')" id="c_northernwest" name="c_northernwest">
-                <label for="c_northernwest">Northern line (west)</label>
-            </div>
-            <div>
+            <div class="options_item">
                 <input type="checkbox" onclick="lineChange('piccadilly')" id="c_piccadilly" name="c_piccadilly">
-                <label for="c_piccadilly">Piccadilly line</label>
+                <label for="c_piccadilly" class="options_text">Piccadilly line</label>
             </div>
-            <div>
+            <div class="options_item">
                 <input type="checkbox" onclick="lineChange('victoria')" id="c_victoria" name="c_victoria">
-                <label for="c_victoria">Victoria line</label>
+                <label for="c_victoria" class="options_text">Victoria line</label>
             </div>
-            <div>
+            <div class="options_item">
                 <input type="checkbox" onclick="lineChange('wnc')" id="c_wnc" name="c_wnc">
-                <label for="c_wnc">Waterloo & City line</label>
+                <label for="c_wnc" class="options_text">Waterloo & City line</label>
+            </div>
+        
+            <div class="options_divider">
+                <div class="options_item">
+                    <input type="checkbox" onclick="changeColors()" id="c_changeDirection" name="c_changeDirection">
+                    <label for="c_changeDirection" class="options_text">Swap Direction</label>
+                </div>
             </div>
         </div>
 
-        <div>
-            Change direction
-            <div>
-                <input type="checkbox" onclick="changeColors()" id="c_changeDirection" name="c_changeDirection">
-                <label for="c_changeDirection">Change Direction</label>
-            </div>
-        </div>
     </div>
 
-    <div id="output"></div>
-
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" max-width="100%" max-height="80%" viewBox="-40.5 -120.5 2500 1340">
-        <title>Alternative route map of London Underground, London Overground, Docklands Light Railway and Elizabeth line licensed under Creative Commons Attribution-Share Alike 4.0 International by Wikimedians</title>
-    
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg" viewBox="-40.5 -120.5 2500 1340">
         <defs>
             <g id="term"><path class="me" d="M -7.5,0 H 7.5"/></g>
             <g id="termb">
@@ -567,24 +569,24 @@
                 <title>Northern line</title>
                 <path id="Northern_line_route" class="original"  d="    M 854,4.5    L 1124,207 q 16,12 16,32    V 251 a 25,25 0 0,0 25,25    a 25,25 0 0,1 25,25    V 361 a 18.5,18.5 0 0,0 18.5,18.5    H 1389 a 90,90 0 0,1 90,90    V 765 q 0,20 -16,32    L 1000.5,1144             M 980,99    q -12,-9 -27,-9    h -40    "/>
             
-                <path class="inner_original p_northerneast" segment_id="1301" line="northern" station_from="Archway"                  station_to="Tufnell Park"             id="1301" d="M 1069,165.75 L1108,195" />
-                <path class="inner_original p_northerneast" segment_id="1302" line="northern" station_from="Tufnell Park"             station_to="Kentish Town"             id="1302" d="M 1108,195 L1124,207" />
-                <path class="inner_original p_northerneast" segment_id="1303" line="northern" station_from="Kentish Town"             station_to="Camden Town"              id="1303" d="M 1124,207  q 16,12 16,32 V 251 a 25,25 0 0,0 25,25" />
-                <path class="inner_original p_northerneast" segment_id="1304" line="northern" station_from="Camden Town"              station_to="Euston"                   id="1304" d="M 1165,276 a 25,25 0 0,1 25,25 V 361 a 18.5,18.5 0 0,0 18.5,18.5" />
-                <path class="inner_original p_northerneast" segment_id="1305" line="northern" station_from="Euston"                   station_to="King's Cross St. Pancras" id="1305" d="M 1208.5,379.5 L1290,379.5" />
-                <path class="inner_original p_northerneast" segment_id="1306" line="northern" station_from="King's Cross St. Pancras" station_to="Angel"                    id="1306" d="M 1290,379.5 H 1389 A 90,90 0 0,1 1419.78,384.93" />
-                <path class="inner_original p_northerneast" segment_id="1307" line="northern" station_from="Angel"                    station_to="Old Street"               id="1307" d="M 1419.78,384.93 A 90,90 0 0,1 1466.94,424.5" />
-                <path class="inner_original p_northerneast" segment_id="1308" line="northern" station_from="Old Street"               station_to="Moorgate"                 id="1308" d="M 1466.94,424.5 A 90,90 0 0,1 1479,469.5 L1479,500" />
-                <path class="inner_original p_northerneast" segment_id="1309" line="northern" station_from="Moorgate"                 station_to="Bank"                     id="1309" d="M 1479,500 L1479,563" />
-                <path class="inner_original p_northerneast" segment_id="1310" line="northern" station_from="Bank"                     station_to="London Bridge"            id="1310" d="M 1479,563 L1479,672" />
-                <path class="inner_original p_northerneast" segment_id="1311" line="northern" station_from="London Bridge"            station_to="Borough"                  id="1311" d="M 1479,672 L1479,720" />
-                <path class="inner_original p_northerneast" segment_id="1312" line="northern" station_from="Borough"                  station_to="Elephant & Castle"        id="1312" d="M 1479,720 L1479,765" />
-                <path class="inner_original p_northerneast" segment_id="1313" line="northern" station_from="Elephant & Castle"        station_to="Kennington"               id="1313" d="M 1479,765 q 0,20 -16,32 L1365.5,870" />
-                <path class="inner_original p_northerneast" segment_id="1314" line="northern" station_from="Kennington"               station_to="Oval"                     id="1314" d="M 1365.5,870 L1328.5,898" />
-                <path class="inner_original p_northerneast" segment_id="1315" line="northern" station_from="Oval"                     station_to="Stockwell"                id="1315" d="M 1328.5,898 L1284.5,931" />
-                <path class="inner_original p_northerneast" segment_id="1316" line="northern" station_from="Stockwell"                station_to="Clapham North"            id="1316" d="M 1284.5,931 L1240.5,964" />
-                <path class="inner_original p_northerneast" segment_id="1317" line="northern" station_from="Clapham North"            station_to="Clapham Common"           id="1317" d="M 1240.5,964 L1210.5,986.5" />
-                <path class="inner_original p_northerneast" segment_id="1318" line="northern" station_from="Clapham Common"           station_to="Clapham South"            id="1318" d="M 1210.5,986.5 L1180.5,1009" />   
+                <path class="inner_original p_northern" segment_id="1301" line="northern" station_from="Archway"                  station_to="Tufnell Park"             id="1301" d="M 1069,165.75 L1108,195" />
+                <path class="inner_original p_northern" segment_id="1302" line="northern" station_from="Tufnell Park"             station_to="Kentish Town"             id="1302" d="M 1108,195 L1124,207" />
+                <path class="inner_original p_northern" segment_id="1303" line="northern" station_from="Kentish Town"             station_to="Camden Town"              id="1303" d="M 1124,207  q 16,12 16,32 V 251 a 25,25 0 0,0 25,25" />
+                <path class="inner_original p_northern" segment_id="1304" line="northern" station_from="Camden Town"              station_to="Euston"                   id="1304" d="M 1165,276 a 25,25 0 0,1 25,25 V 361 a 18.5,18.5 0 0,0 18.5,18.5" />
+                <path class="inner_original p_northern" segment_id="1305" line="northern" station_from="Euston"                   station_to="King's Cross St. Pancras" id="1305" d="M 1208.5,379.5 L1290,379.5" />
+                <path class="inner_original p_northern" segment_id="1306" line="northern" station_from="King's Cross St. Pancras" station_to="Angel"                    id="1306" d="M 1290,379.5 H 1389 A 90,90 0 0,1 1419.78,384.93" />
+                <path class="inner_original p_northern" segment_id="1307" line="northern" station_from="Angel"                    station_to="Old Street"               id="1307" d="M 1419.78,384.93 A 90,90 0 0,1 1466.94,424.5" />
+                <path class="inner_original p_northern" segment_id="1308" line="northern" station_from="Old Street"               station_to="Moorgate"                 id="1308" d="M 1466.94,424.5 A 90,90 0 0,1 1479,469.5 L1479,500" />
+                <path class="inner_original p_northern" segment_id="1309" line="northern" station_from="Moorgate"                 station_to="Bank"                     id="1309" d="M 1479,500 L1479,563" />
+                <path class="inner_original p_northern" segment_id="1310" line="northern" station_from="Bank"                     station_to="London Bridge"            id="1310" d="M 1479,563 L1479,672" />
+                <path class="inner_original p_northern" segment_id="1311" line="northern" station_from="London Bridge"            station_to="Borough"                  id="1311" d="M 1479,672 L1479,720" />
+                <path class="inner_original p_northern" segment_id="1312" line="northern" station_from="Borough"                  station_to="Elephant & Castle"        id="1312" d="M 1479,720 L1479,765" />
+                <path class="inner_original p_northern" segment_id="1313" line="northern" station_from="Elephant & Castle"        station_to="Kennington"               id="1313" d="M 1479,765 q 0,20 -16,32 L1365.5,870" />
+                <path class="inner_original p_northern" segment_id="1314" line="northern" station_from="Kennington"               station_to="Oval"                     id="1314" d="M 1365.5,870 L1328.5,898" />
+                <path class="inner_original p_northern" segment_id="1315" line="northern" station_from="Oval"                     station_to="Stockwell"                id="1315" d="M 1328.5,898 L1284.5,931" />
+                <path class="inner_original p_northern" segment_id="1316" line="northern" station_from="Stockwell"                station_to="Clapham North"            id="1316" d="M 1284.5,931 L1240.5,964" />
+                <path class="inner_original p_northern" segment_id="1317" line="northern" station_from="Clapham North"            station_to="Clapham Common"           id="1317" d="M 1240.5,964 L1210.5,986.5" />
+                <path class="inner_original p_northern" segment_id="1318" line="northern" station_from="Clapham Common"           station_to="Clapham South"            id="1318" d="M 1210.5,986.5 L1180.5,1009" />   
             </g>
 
 
@@ -592,21 +594,21 @@
                 <title>Edgware line</title>
                 <path id="Edgware_line_route" class="original" d="    M 766,124.5    L 962.67,272 q 12,9 27,9    H 1165 a 37,37 0 0,1 37,37    L 1202,360 q 0,13 -19.5,26 t -19.5,26    L 1163,461.667 q 0,10 6,18    L 1278,625 q 9,12 9,25 t 9,25    L 1390.875,801.5 a 30,30 0 0,1 -6.5,42    L 1342.375,875 q -12,9 -27,9    H 1240.5 q -15,0 -27,9    L 1180.17,918.25 q -12,9 -27,9    H 1134    "/>
                 
-                <path class="inner_original p_northernwest" segment_id="1401" line="northern" station_from="Hampstead"            station_to="Belsize Park"            id="1401" d="M 948,261 L 962.67,272 q 12,9 27,9 L1010,281" />
-                <path class="inner_original p_northernwest" segment_id="1402" line="northern" station_from="Belsize Park"         station_to="Chalk Farm"              id="1402" d="M 1010,281 L1090,281" />
-                <path class="inner_original p_northernwest" segment_id="1403" line="northern" station_from="Chalk Farm"           station_to="Camden Town"             id="1403" d="M 1090,281 L1165,281" />
-                <path class="inner_original p_northernwest" segment_id="1404" line="northern" station_from="Camden Town"          station_to="Mornington Crescent"     id="1404" d="M 1165,281 a 37,37 0 0,1 37,37 L1202,332" />
-                <path class="inner_original p_northernwest" segment_id="1405" line="northern" station_from="Mornington Crescent"  station_to="Euston"                  id="1405" d="M 1202,332 L1202,360" />
-                <path class="inner_original p_northernwest" segment_id="1406" line="northern" station_from="Euston"               station_to="Warren Street"           id="1406" d="M 1202,360 q 0,13 -19.5,26 t -19.5,26" />
-                <path class="inner_original p_northernwest" segment_id="1407" line="northern" station_from="Warren Street"        station_to="Goodge Street"           id="1407" d="M 1163,412 L1163,450" />
-                <path class="inner_original p_northernwest" segment_id="1408" line="northern" station_from="Goodge Street"        station_to="Tottenham Court Road"    id="1408" d="M 1163,450 L 1163,461.667 q 0,10 6,18 L1208,531.75" />
-                <path class="inner_original p_northernwest" segment_id="1409" line="northern" station_from="Tottenham Court Road" station_to="Leicester Square"        id="1409" d="M 1208,531.75 L1255.5,595" />
-                <path class="inner_original p_northernwest" segment_id="1410" line="northern" station_from="Leicester Square"     station_to="Charing Cross"           id="1410" d="M 1255.5,595 L1278,625 q 9,12 9,25 t 9,25" />
-                <path class="inner_original p_northernwest" segment_id="1411" line="northern" station_from="Charing Cross"        station_to="Embankment"              id="1411" d="M 1296,675 L1307,690" />
-                <path class="inner_original p_northernwest" segment_id="1412" line="northern" station_from="Embankment"           station_to="Waterloo"                id="1412" d="M 1307,690 L1338,731" />
-                <path class="inner_original p_northernwest" segment_id="1413" line="northern" station_from="Waterloo"             station_to="Kennington"              id="1413" d="M 1338,731 L 1390.875,801.5 a 30,30 0 0,1 -6.5,42 L1359.5,862" />
-                <path class="inner_original p_northernwest" segment_id="1414" line="northern" station_from="Kennington"           station_to="Nine Elms"               id="1414" d="M 1359.5,862  L 1342.375,875 q -12,9 -27,9    H 1240.5 q -15,0 -27,9 L1192.5,908" />
-                <path class="inner_original p_northernwest" segment_id="1415" line="northern" station_from="Nine Elms"            station_to="Battersea Power Station" id="1415" d="M 1193.5,908 L 1180.17,918.25 q -12,9 -27,9    H 1134" />
+                <path class="inner_original p_northern" segment_id="1401" line="northern" station_from="Hampstead"            station_to="Belsize Park"            id="1401" d="M 948,261 L 962.67,272 q 12,9 27,9 L1010,281" />
+                <path class="inner_original p_northern" segment_id="1402" line="northern" station_from="Belsize Park"         station_to="Chalk Farm"              id="1402" d="M 1010,281 L1090,281" />
+                <path class="inner_original p_northern" segment_id="1403" line="northern" station_from="Chalk Farm"           station_to="Camden Town"             id="1403" d="M 1090,281 L1165,281" />
+                <path class="inner_original p_northern" segment_id="1404" line="northern" station_from="Camden Town"          station_to="Mornington Crescent"     id="1404" d="M 1165,281 a 37,37 0 0,1 37,37 L1202,332" />
+                <path class="inner_original p_northern" segment_id="1405" line="northern" station_from="Mornington Crescent"  station_to="Euston"                  id="1405" d="M 1202,332 L1202,360" />
+                <path class="inner_original p_northern" segment_id="1406" line="northern" station_from="Euston"               station_to="Warren Street"           id="1406" d="M 1202,360 q 0,13 -19.5,26 t -19.5,26" />
+                <path class="inner_original p_northern" segment_id="1407" line="northern" station_from="Warren Street"        station_to="Goodge Street"           id="1407" d="M 1163,412 L1163,450" />
+                <path class="inner_original p_northern" segment_id="1408" line="northern" station_from="Goodge Street"        station_to="Tottenham Court Road"    id="1408" d="M 1163,450 L 1163,461.667 q 0,10 6,18 L1208,531.75" />
+                <path class="inner_original p_northern" segment_id="1409" line="northern" station_from="Tottenham Court Road" station_to="Leicester Square"        id="1409" d="M 1208,531.75 L1255.5,595" />
+                <path class="inner_original p_northern" segment_id="1410" line="northern" station_from="Leicester Square"     station_to="Charing Cross"           id="1410" d="M 1255.5,595 L1278,625 q 9,12 9,25 t 9,25" />
+                <path class="inner_original p_northern" segment_id="1411" line="northern" station_from="Charing Cross"        station_to="Embankment"              id="1411" d="M 1296,675 L1307,690" />
+                <path class="inner_original p_northern" segment_id="1412" line="northern" station_from="Embankment"           station_to="Waterloo"                id="1412" d="M 1307,690 L1338,731" />
+                <path class="inner_original p_northern" segment_id="1413" line="northern" station_from="Waterloo"             station_to="Kennington"              id="1413" d="M 1338,731 L 1390.875,801.5 a 30,30 0 0,1 -6.5,42 L1359.5,862" />
+                <path class="inner_original p_northern" segment_id="1414" line="northern" station_from="Kennington"           station_to="Nine Elms"               id="1414" d="M 1359.5,862  L 1342.375,875 q -12,9 -27,9    H 1240.5 q -15,0 -27,9 L1192.5,908" />
+                <path class="inner_original p_northern" segment_id="1415" line="northern" station_from="Nine Elms"            station_to="Battersea Power Station" id="1415" d="M 1193.5,908 L 1180.17,918.25 q -12,9 -27,9    H 1134" />
             </g>
 
             <g class="me sdistrict">
@@ -1308,7 +1310,7 @@
             </g>
         </g>
 
-        <g id="key_to_lines_box" transform="translate(2045,810)">
+        <g id="key_to_lines_box" transform="translate(2045,1010)">
             <rect x="0.5" y="0.5" width="410" height="200" rx="25" fill="#fff"/>
             <rect x="0" y="0" width="410" height="180" rx="25" style="fill:#fff;fill-opacity:0;stroke:#009;stroke-width:2.5"/>
             <path style="stroke:none;fill:#009" d="   M 1.25,25   h 410   a 25,25 0 0,0 -25,-25   h -361.25   a 25,25 0 0,0 -25,25   "/>
@@ -1349,7 +1351,7 @@
             </g>
         </g>
 
-        <g id="key_to_colours" transform="translate(2400,120)">
+        <g id="key_to_colours" transform="translate(2430,-80)">
             <g class="me">
                 <path id="keyToColours" class="original" style="stroke:grey" d="M 0,0 v400"/>
             </g>
@@ -1364,6 +1366,8 @@
             </g>
         </g>
     </svg>
+
+    <footer class="footer">Alternative route map of London Underground, London Overground, Docklands Light Railway and Elizabeth line licensed under Creative Commons Attribution-Share Alike 4.0 International by Wikimedians</footer>
 
 
     <script>
