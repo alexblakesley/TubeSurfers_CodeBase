@@ -11,5 +11,6 @@ jupyter
 notebook
 djangorestframework
 acoustics
+pydub
 awsebcli
 wheel==0.33.6
