@@ -121,7 +121,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 STATIC_ROOT = '/static/'
 
 
-BASE_URL = "0.0.0.0:8000"
+BASE_URL = "localhost:8000"
 DB_NAME = "ts_db"
 DB_DEFAULT_SCHEMA = "ts_db"
 DB_USERNAME = "root"
