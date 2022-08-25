@@ -2,6 +2,7 @@ import pandas as pd
 from core.objects.Timestamp import Timestamp
 from core.objects.audio.SPL import SPL
 from core.utils.DBConnector import execute_mutation
+import datetime
 
 
 def Insert(fileName):
@@ -20,17 +21,32 @@ def Insert(fileName):
     CompiledQuery = None
     CompiledData = []
 
+    print(fileName)
+    print(str(datetime.datetime.fromtimestamp(int(AudioData['Timestamp'][0]))))
+
+    IsTimestampRejected = False
+
     for index, row in AudioData.iterrows():
 
         TSData = Timestamp.GetClosest(str(row['Timestamp']))
         if (TSData == None):
+            if IsTimestampRejected:
+                continue;
+            IsTimestampRejected = True
+            print("START: " + str(datetime.datetime.fromtimestamp(int(row['Timestamp']))))
             continue;
+        else:
+            if IsTimestampRejected:
+                IsTimestampRejected = False
+                print(" END : " + str(datetime.datetime.fromtimestamp(int(row['Timestamp']))))
 
         TSid = TSData[0]
 
         spl = SPL(TSid, float(row['SPL']))
         if InsertDataToDB:
             CompiledQuery, CompiledData = spl.insertToCompile(CompiledQuery, CompiledData)
+
+    print(str(datetime.datetime.fromtimestamp(int(AudioData['Timestamp'].iloc[len(AudioData.index) - 1]))))
 
     execute_mutation(CompiledQuery, CompiledData)
     print(fileName + " - sound inserted.")

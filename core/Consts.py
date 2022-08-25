@@ -45,3 +45,6 @@ TEMPERATURE_WBGT = TemperatureDataTypes["WBGT"]["name"]
 
 SoundDataTypes = DataTypes['Sound']
 SOUND_SPL = SoundDataTypes["SPL"]["name"]
+
+AccelerometerDataTypes = DataTypes['Accelerometer']
+ACCELEROMETER_TOTAL = AccelerometerDataTypes["TotalAcceleration"]["name"]

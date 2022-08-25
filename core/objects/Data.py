@@ -35,3 +35,16 @@ class Data(DBObject):
 
         return execute_query(query)
 
+
+    @staticmethod
+    def FetchTimestamps(FromStation, ToStation, TubeLine):
+        baseUpdateQuery = 'SELECT MIN(`Timestamp`) FROM `ts_db`.`Timestamps` WHERE `FromStation` = (fromStation) AND `ToStation` = (toStation) AND `TubeLine` = (tubeLine)'
+        
+        query = QB.BuildQueryComplex(baseUpdateQuery, {
+            'fromStation': FromStation,
+            'toStation': ToStation,
+            'tubeLine': TubeLine
+        })
+
+        return execute_query(query)
+

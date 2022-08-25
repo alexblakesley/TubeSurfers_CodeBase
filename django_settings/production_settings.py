@@ -126,4 +126,5 @@ DB_USERNAME = "masterUsername"
 DB_PASSWORD = "TubeSurfers1234!"
 DB_PORT = None
 DB_OVERRIDE_CONNECT_TO_PROD = False # Use to connect to ProdDB in Dev
+IS_DEV = False
 
