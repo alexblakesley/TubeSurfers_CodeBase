@@ -34,6 +34,20 @@ class Timestamp(DBObject):
         
         return True
 
+    @staticmethod
+    def GetSegment(fromStation, toStation, line):
+        TS = Timestamp()
+
+        Where = "FromStation = \"" + fromStation + "\" AND ToStation = \"" + toStation + "\" AND TubeLine = \"" + line + "\""
+        ret = TS.fetch(Where)
+
+        if (len(ret) == 0):
+            return None
+
+        ts = ret[0][0]
+
+        return ts
+
 
     @staticmethod
     def GetClosest(timestamp):
@@ -53,6 +67,7 @@ class Timestamp(DBObject):
                 clostestTS = ts
 
         return clostestTS
+    
 
     
 """  @staticmethod

@@ -1,0 +1,20 @@
+segment start,segement end,average riding comfort,acoustic comfort,thermal comfort,air quality/ventilation,acceleration & braking,vibration,jerks/shaking,crowdedness,participant id,line
+Stratford,West Ham ,4,2,5,4,4,4,3,1,10,Jubilee
+West Ham ,Canning Town,4,2,5,4,4,4,3,3,10,Jubilee
+Canning Town,North Greenwich,2,1,5,3,4,3,3,3,10,Jubilee
+North Greenwich,Canary Wharf,3,1,5,3,4,4,3,3,10,Jubilee
+Canary Wharf,Canada Water,2,1,5,3,4,4,3,3,10,Jubilee
+Canada Water,Bermondsey,2,1,5,3,4,3,4,3,10,Jubilee
+Bermondsey,London Bridge,1,1,5,3,3,3,3,3,10,Jubilee
+London Bridge,Southwark,3,2,4,2,4,3,3,4,10,Jubilee
+Southwark,Waterloo,3,3,4,2,4,4,4,4,10,Jubilee
+Waterloo,Westminster,3,3,4,2,2,3,3,4,10,Jubilee
+Westminster,Green Park,3,2,4,2,3,3,5,4,10,Jubilee
+Green Park,Bond Street,2,1,5,3,2,2,2,3,10,Jubilee
+Bond Street,Baker Street,1,1,5,3,2,2,1,2,10,Jubilee
+Baker Street,St. John's Wood,1,1,5,2,3,2,2,2,10,Jubilee
+St. John's Wood,Swiss Cottage,2,2,5,2,3,3,1,1,10,Jubilee
+Swiss Cottage,Finchley Road,2,2,5,2,3,3,1,1,10,Jubilee
+Finchley Road,West Hampstead,3,2,5,3,3,3,2,1,10,Jubilee
+West Hampstead,Kilburn,4,4,4,4,4,3,3,1,10,Jubilee
+Kilburn,Willesden Green,4,4,4,4,4,4,3,1,10,Jubilee

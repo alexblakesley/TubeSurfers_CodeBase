@@ -1,0 +1,16 @@
+segment start,segement end,average riding comfort,acoustic comfort,thermal comfort,air quality/ventilation,acceleration & braking,vibration,jerks/shaking,crowdedness,participant id,line
+Hampstead,Belsize Park,2,3,4,4,2,3,2,1,15,Northern
+Belsize Park,Chalk Farm,2,2,4,4,2,1,1,1,15,Northern
+Chalk Farm,Camden Town,1,1,4,4,3,1,2,1,15,Northern
+Camden Town,Mornington Crescent,3,3,4,4,3,3,2,3,15,Northern
+Mornington Crescent,Euston,3,2,4,4,3,2,2,3,15,Northern
+Euston,Warren Street,3,2,4,4,3,2,3,3,15,Northern
+Warren Street,Goodge Street,3,3,4,4,4,4,3,3,15,Northern
+Goodge Street,Tottenham Court Road,2,3,4,4,3,3,2,3,15,Northern
+Tottenham Court Road,Leicester Square,3,4,4,4,3,3,3,3,15,Northern
+Leicester Square,Charing Cross,2,2,4,4,3,3,2,1,15,Northern
+Charing Cross,Embankment,3,3,4,4,4,4,4,1,15,Northern
+Embankment,Waterloo,3,3,4,4,3,3,3,1,15,Northern
+Waterloo,Kennington,2,2,4,4,2,1,2,1,15,Northern
+Kennington,Nine Elms,1,1,4,4,4,4,3,1,15,Northern
+Nine Elms,Battersea Power Station,3,2,4,4,4,3,3,1,15,Northern

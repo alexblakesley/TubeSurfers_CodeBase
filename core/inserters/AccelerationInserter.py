@@ -19,7 +19,8 @@ def Insert(filename):
     first_timestamp = ConvertDateTimeToTimestampWithMs(AccelerationData['Timestamp'][0])
     last_timestamp = ConvertDateTimeToTimestampWithMs(AccelerationData['Timestamp'].iloc[len(AccelerationData.index) - 1])
 
-    duration = last_timestamp - first_timestamp
+    # duration = last_timestamp - first_timestamp
+    duration = 0
 
     CompiledQuery = None
     CompiledData = []

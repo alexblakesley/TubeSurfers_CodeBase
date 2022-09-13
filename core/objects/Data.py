@@ -3,7 +3,7 @@ from core.utils.DBConnector import execute_query
 import core.utils.QueryBuilder as QB
 
 class Data(DBObject):
-    def __init__(self, TimestampID = None, DataName = None, DataValue = None, DataType = None, Units = None):
+    def __init__(self, TimestampID = None, DataName = None, DataValue = None, DataType = None, Units = None, SensorID = None):
         #Columns and other variables
 
         self.TimestampID = TimestampID
@@ -11,10 +11,11 @@ class Data(DBObject):
         self.DataValue = DataValue
         self.DataType = DataType
         self.Units = Units
+        self.SensorID = SensorID
 
         #Set DB Variables
         DB_Table_Name = "Data"
-        DB_Columns = ("TimestampID", "DataName", "DataValue", "DataType", "Units")
+        DB_Columns = ("TimestampID", "DataName", "DataValue", "DataType", "Units", "SensorID")
 
 
         #Sets up DB object

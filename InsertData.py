@@ -4,6 +4,7 @@ import core.inserters.AudioInserter as AudioInserter
 import core.processors.AudioProcessor as AudioProcessor
 import core.processors.AudioPostProcessor as AudioPostProcessor
 import core.inserters.AccelerationInserter as AccelerationInserter
+import core.inserters.QuestionnaireInserter as QuestionnaireInserter
 
 
 ### Uncomment this to process raw audio. UNTESTED IN NEWEST VERSION!
@@ -11,13 +12,16 @@ import core.inserters.AccelerationInserter as AccelerationInserter
 # AudioPostProcessor.PostprocessAudio()
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_settings.development_settings')
-# CoreInserter.InsertAll()
+CoreInserter.InsertAll()
 
-# for filename in os.listdir("data/audio/"):
-#     AudioInserter.Insert(filename)
+for filename in os.listdir("data/audio/"):
+    AudioInserter.Insert(filename)
 
 for filename in os.listdir("data/acceleration/"):
     AccelerationInserter.Insert(filename)
+
+for filename in os.listdir("data/questionnaire/"):
+    QuestionnaireInserter.Insert(filename)
 
 
 print("Data Insert Complete")

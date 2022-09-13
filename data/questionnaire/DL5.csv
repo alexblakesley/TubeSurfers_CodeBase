@@ -1,0 +1,27 @@
+segment start,segement end,average riding comfort,acoustic comfort,thermal comfort,air quality/ventilation,acceleration & braking,vibration,jerks/shaking,crowdedness,participant id,line
+West Ham,Bromley-by-Bow,4,4,5,5,4,4,3,2,10,District
+Bromley-by-Bow,Bow Road,4,4,5,5,4,4,4,2,10,District
+Bow Road,Mile End,5,4,5,5,5,5,5,2,10,District
+Mile End,Stepney Green,5,5,5,5,5,5,5,2,10,District
+Stepney Green,Whitechapel,4,4,5,4,3,4,3,2,10,District
+Whitechapel,Aldgate East,3,3,5,5,5,3,3,1,10,District
+Aldgate East,Tower Hill,4,3,5,4,4,4,3,2,10,District
+Tower Hill,Monument,4,3,5,3,4,3,4,2,10,District
+Monument,Cannon Street,4,4,5,4,4,3,3,2,10,District
+Cannon Street,Mansion House,3,3,5,3,4,3,3,2,10,District
+Mansion House,Blackfriars,4,4,4,3,3,4,4,2,10,District
+Blackfriars,Temple,4,3,5,4,4,3,4,3,10,District
+Temple,Embankment,4,4,5,4,3,4,3,3,10,District
+Embankment,Westminster,4,4,5,4,4,3,3,2,10,District
+Westminster,St James's Park,3,3,5,5,4,3,3,3,10,District
+St James's Park,Victoria,4,3,5,5,3,3,4,3,10,District
+Victoria,Sloane Square,3,3,5,4,2,3,2,4,10,District
+Sloane Square,South Kensington,3,3,5,5,2,4,3,4,10,District
+South Kensington,Gloucester Road,3,2,5,5,2,3,3,3,10,District
+Gloucester Road,Earl's Court,3,3,5,5,2,4,3,3,10,District
+Earl's Court,West Kensington,2,2,5,5,3,2,3,2,10,District
+West Kensington,Barons Court,3,3,5,5,2,3,2,2,10,District
+Barons Court,Hammersmith,4,4,4,5,4,2,4,2,10,District
+Hammersmith,Ravenscourt Park,4,5,4,5,4,3,3,2,10,District
+Ravenscourt Park,Stamford Brook,4,5,5,5,3,4,4,2,10,District
+Stamford Brook,Turnham Green,4,4,5,5,4,3,3,2,10,District

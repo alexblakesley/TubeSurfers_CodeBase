@@ -135,6 +135,9 @@
         #d_timestamp {
             display: none;
         }
+        .devmode {
+            display:none;
+        }
         </style>
 
 
@@ -197,10 +200,46 @@
                 <label for="r_sound" class="options_text">Sound Pressure Level</label>
             </div>
             <div class="options_item">
-                <input type="radio" id="r_acceleration" name="r_data" value="Accelerometer&&TotalAcceleration" onclick="changeColors()">
-                <label for="r_acceleration" class="options_text">Acceleration</label>
+                <input type="radio" id="r_totalacceleration" name="r_data" value="Accelerometer&&TotalAcceleration" onclick="changeColors()">
+                <label for="r_totalacceleration" class="options_text">Acceleration</label>
             </div>
         </div>
+        <div class="options_subsection devmode">
+            <p class="options_title">Questionnaires</p>
+            <div class="options_item devmode">
+                <input type="radio" id="r_average" name="r_data" value="Questionnaire&&Average" onclick="changeColors()">
+                <label for="r_averag" class="options_text">Average Comfort</label>
+            </div>
+            <div class="options_item devmode">
+                <input type="radio" id="r_acoustic" name="r_data" value="Questionnaire&&Acoustic" onclick="changeColors()">
+                <label for="r_acoustic" class="options_text">Acoustic Comfort</label>
+            </div>
+            <div class="options_item devmode">
+                <input type="radio" id="r_thermal" name="r_data" value="Questionnaire&&Thermal" onclick="changeColors()">
+                <label for="r_thermal" class="options_text">Thermal Comfort</label>
+            </div>
+            <div class="options_item devmode">
+                <input type="radio" id="r_airquality" name="r_data" value="Questionnaire&&AirQuality" onclick="changeColors()">
+                <label for="r_airquality" class="options_text">Air Quality/Ventilation</label>
+            </div>
+            <div class="options_item devmode">
+                <input type="radio" id="r_questionnaireacceleration" name="r_data" value="Questionnaire&&Acceleration" onclick="changeColors()">
+                <label for="r_questionnaireacceleration" class="options_text">Acceleration & Braking</label>
+            </div>
+            <div class="options_item devmode">
+                <input type="radio" id="r_vibration" name="r_data" value="Questionnaire&&Vibration" onclick="changeColors()">
+                <label for="r_vibration" class="options_text">Vibration</label>
+            </div>
+            <div class="options_item devmode">
+                <input type="radio" id="r_jerks" name="r_data" value="Questionnaire&&Jerks" onclick="changeColors()">
+                <label for="r_jerks" class="options_text">Jerks/Shaking</label>
+            </div>
+            <div class="options_item devmode">
+                <input type="radio" id="r_crowdedness" name="r_data" value="Questionnaire&&Crowdedness" onclick="changeColors()">
+                <label for="r_crowdedness" class="options_text">Crowdedness</label>
+            </div>
+        </div>
+
 
         <div id="selectLines" class="options_subsection">
             <p class="options_title">Tube Lines</p>
@@ -257,11 +296,12 @@
                     <label for="c_changeDirection" class="options_text">Swap Direction</label>
                 </div>
             </div>
-            <div class="options_item" id="d_timestamp">
+            <div class="options_item devmode" id="d_timestamp">
                 <input type="checkbox" onclick="showTimestamps()" id="c_timestamp" name="c_data">
                 <label for="c_timestamp" class="options_text">Timestamps</label>
             </div>
         </div>
+
 
     </div>
 
@@ -1413,6 +1453,11 @@
 
         document.addEventListener("DOMContentLoaded", function(event) { 
             if (isDev) {
+                const devmodes = document.querySelectorAll('.devmode');
+                devmodes.forEach(dev => {
+                    dev.style.display = 'block';
+                });
+
                 document.getElementById("d_timestamp").style.display = "block";
             }
         });
@@ -1548,7 +1593,7 @@
             // detect the correct segment and direction
             const station_from = path.getAttribute("station_from");
             const station_to = path.getAttribute("station_to");
-            const line = path.getAttribute("line")
+            const line = path.getAttribute("line");
             var changedDirection = document.getElementById("c_changeDirection").checked;
 
             // create the url for the database query
@@ -1556,6 +1601,8 @@
             if (changedDirection) {
                 url = "http://{{ BaseURL }}/data/" + station_from + "/" + station_to + "/" + line + "/" + dataType + "/" + dataName;
             }
+
+            // console.log(url);
             
             // example query
             /////// "http://{{ BaseURL }}/data/Green Park/Piccadilly Circus/Piccadilly/Pollution/CO2"
@@ -1572,7 +1619,8 @@
                             displayTimeStamps(JSON.parse(xhr.response), path);
                         }
                         else {
-                            colourPaths (JSON.parse(xhr.response), minVal, maxVal, threshold, changedDirection, path);
+                            dataset = checkSensorID(JSON.parse(xhr.response));
+                            colourPaths (dataset, minVal, maxVal, threshold, changedDirection, path);
                         }
                     }
                 }
@@ -1635,6 +1683,32 @@
             text.innerHTML = line + ": " + value;
 
             parent.appendChild(text);
+        }
+
+        function checkSensorID(dataset) {
+            var obj = {};
+            for (let i = 0; i < dataset.length; i++) {
+                var el = dataset[i];
+                var tsid = el[0];
+                var datavalue = parseFloat(el[9]);
+                if (!obj[tsid]) {
+                    obj[tsid] = [datavalue, 1]
+                } else {
+                    obj[tsid] = [obj[tsid][0] + datavalue, obj[tsid][1] + 1]
+                }
+            }
+
+            average = []
+            for (var p in obj) {
+                average.push([p, obj[p][0] / obj[p][1]]);                
+            }
+
+            average.sort(function(a,b) {
+                return a[0]-b[0]
+            });
+            console.log(average);
+
+            return average
         }
 
         function colourPaths (dataset, minVal, maxVal, threshold, changedDirection, path) {
@@ -1705,7 +1779,7 @@
             keyDataset = [];
             nSteps = (maxVal - minVal)/resolution + 1;
             for (i=0; i<nSteps; i++) {
-                keyDataset.push([0,0,0,0,0,0,0,0,0,i*resolution + minVal]);
+                keyDataset.push([0,i*resolution + minVal]);
             }
             colourPaths(keyDataset, minVal, maxVal, threshold, true, path);
 
@@ -1718,12 +1792,12 @@
             var colors = new Array();
             if (changedDirection) {
                 for (let i = dataset.length; i > 0; i--) {
-                    colors.push(FindColorStringGivenRange(dataset[i-1][9], min, max, threshold));
+                    colors.push(FindColorStringGivenRange(dataset[i-1][1], min, max, threshold));
                 }               
             }
             else {
                 for (let i = 0; i < dataset.length; i++) {
-                    colors.push(FindColorStringGivenRange(dataset[i][9], min, max, threshold));
+                    colors.push(FindColorStringGivenRange(dataset[i][1], min, max, threshold));
                 }
             }
             return colors;

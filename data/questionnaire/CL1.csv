@@ -1,0 +1,20 @@
+segment start,segement end,average riding comfort,acoustic comfort,thermal comfort,air quality/ventilation,acceleration & braking,vibration,jerks/shaking,crowdedness,participant id,line
+Stratford,Mile End,3,2,4,3,3,2,3,3,12,Central
+Mile End,Bethnal Green,2,1,4,3,4,2,2,3,12,Central
+Bethnal Green,Liverpool Street,1,1,4,4,4,2,2,3,12,Central
+Liverpool Street,Bank,2,2,4,4,4,3,3,3,12,Central
+Bank,St. Paul's,2,2,4,4,4,3,3,3,12,Central
+St. Paul's,Chancery Lane,1,1,4,4,3,3,2,3,12,Central
+Chancery Lane,Holborn,1,1,4,4,2,3,3,3,12,Central
+Holborn,Tottenham Court Road,2,2,4,4,4,3,3,3,12,Central
+Tottenham Court Road,Oxford Circus,1,1,4,4,4,3,3,2,12,Central
+Oxford Circus,Bond Street,3,2,4,4,4,4,4,1,12,Central
+Bond Street,Marble Arch,3,2,4,4,4,4,4,1,12,Central
+Marble Arch,Lancaster Gate,2,1,4,4,4,4,4,1,12,Central
+Lancaster Gate,Queensway,3,2,4,4,4,4,4,1,12,Central
+Queensway,Notting Hill Gate,2,1,4,4,4,4,4,1,12,Central
+Notting Hill Gate,Holland Park,1,1,4,4,4,4,3,1,12,Central
+Holland Park,Shepherd's Bush,2,2,4,4,4,4,2,1,12,Central
+Shepherd's Bush,White City,1,1,4,4,4,2,2,1,12,Central
+White City,East Acton,4,3,5,5,4,4,4,1,12,Central
+East Acton,North Acton,4,4,5,5,3,3,4,1,12,Central

@@ -19,6 +19,9 @@
 
     "DataTypes":{
         "Pollution":{
+            "General":{
+                "id":1
+            },
             "CO2":{
                 "name":"CO2",
                 "min":446,
@@ -76,6 +79,9 @@
         },
 
         "Temperature":{
+            "General":{
+                "id":2
+            },
             "DP":{
                 "name":"DP",
                 "min":0.9,
@@ -133,18 +139,24 @@
         },
 
         "Sound":{
+            "General":{
+                "id":3
+            },
             "SPL":{
                 "name":"SPL",
                 "min":35.18,
                 "max":114.88,
                 "threshold":50,
                 "unit":"dB",
-                "resolution":0.01,
-                "hideValues":true
+                "resolution":1,
+                "hideValues":false
             }           
         },
 
         "Accelerometer":{
+            "General":{
+                "id":4
+            },
             "TotalAcceleration":{
                 "name":"TotalAcceleration",
                 "min":0.03,
@@ -156,8 +168,84 @@
             }  
         },
 
-        "Questionaire":[
-        ]
+        "Questionnaire":{
+            "General":{
+                "name": "Questionnaire",
+                "id":5 
+            },
+            "Average":{
+                "name":"Average",
+                "min":1,
+                "max":5,
+                "threshold":3,
+                "unit":"-",
+                "resolution":1,
+                "hideValues":false
+            },
+            "Acoustic":{
+                "name":"Acoustic",
+                "min":1,
+                "max":5,
+                "threshold":3,
+                "unit":"-",
+                "resolution":1,
+                "hideValues":false
+            },
+            "Thermal":{
+                "name":"Thermal",
+                "min":1,
+                "max":5,
+                "threshold":3,
+                "unit":"-",
+                "resolution":1,
+                "hideValues":false
+            },
+            "AirQuality":{
+                "name":"AirQuality",
+                "min":1,
+                "max":5,
+                "threshold":3,
+                "unit":"-",
+                "resolution":1,
+                "hideValues":false
+            },
+            "Acceleration":{
+                "name":"Acceleration",
+                "min":1,
+                "max":5,
+                "threshold":3,
+                "unit":"-",
+                "resolution":1,
+                "hideValues":false
+            },
+            "Vibration":{
+                "name":"Vibration",
+                "min":1,
+                "max":5,
+                "threshold":3,
+                "unit":"-",
+                "resolution":1,
+                "hideValues":false
+            },
+            "Jerks":{
+                "name":"Jerks",
+                "min":1,
+                "max":5,
+                "threshold":3,
+                "unit":"-",
+                "resolution":1,
+                "hideValues":false
+            },
+            "Crowdedness":{
+                "name":"Crowdedness",
+                "min":1,
+                "max":5,
+                "threshold":3,
+                "unit":"-",
+                "resolution":1,
+                "hideValues":false
+            }
+        }
     }
 
 }
