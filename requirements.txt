@@ -14,3 +14,5 @@ acoustics
 pydub
 awsebcli
 wheel==0.33.6
+pysqlite3
+pysqlite3-binary
