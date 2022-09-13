@@ -18,6 +18,8 @@ from django.urls import path, include
 from app import views
 from core import viewjson
 from data import endpoints
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.index, name='Home'),
@@ -26,4 +28,4 @@ urlpatterns = [
     path('data/<str:fromStation>/<str:toStation>/<str:line>/<str:dataType>/<str:dataName>/', endpoints.index),
     path("const/", viewjson.load, name="loadjson"),
     path("", include("django.contrib.auth.urls")),
-]
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

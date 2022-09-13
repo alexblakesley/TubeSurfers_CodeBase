@@ -1,6 +1,6 @@
 branch-defaults:
   main:
-    environment: TubeSurfersApp
+    environment: TubeSurfersApp37
 environment-defaults:
   TubeSurfersApp:
     branch: null
