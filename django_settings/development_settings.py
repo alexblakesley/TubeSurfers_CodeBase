@@ -119,6 +119,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 STATIC_ROOT = '/static/'
+LOGIN_REDIRECT_URL = "../dev/"
 
 
 BASE_URL = "localhost:8000"
@@ -128,4 +129,4 @@ DB_USERNAME = "root"
 DB_PASSWORD = "pw"
 DB_PORT = "3306"
 DB_OVERRIDE_CONNECT_TO_PROD = False # Use to connect to ProdDB in Dev
-IS_DEV = True
+IS_DEV = False

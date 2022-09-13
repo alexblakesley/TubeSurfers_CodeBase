@@ -118,6 +118,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '/static/'
+LOGIN_REDIRECT_URL = '../dev/'
 
 BASE_URL = "tubesurfers.co.uk"
 DB_NAME = "tubesurfers-db.cql9ooxely3d.eu-west-2.rds.amazonaws.com"

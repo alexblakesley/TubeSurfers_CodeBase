@@ -296,7 +296,7 @@
                     <label for="c_changeDirection" class="options_text">Swap Direction</label>
                 </div>
             </div>
-            <div class="options_item devmode" id="d_timestamp">
+            <div class="options_item" id="d_timestamp">
                 <input type="checkbox" onclick="showTimestamps()" id="c_timestamp" name="c_data">
                 <label for="c_timestamp" class="options_text">Timestamps</label>
             </div>
@@ -1449,15 +1449,17 @@
         var url = "{{ BaseURL }}"
         var constJson = JSON.parse(Get("http://"+url+"/const"));
 
-        var isDev = "{{ isDev }}"
+        var isDev = "{{ isDev }}";
+        var isSuperuser = "{{ isSuperuser }}";
 
         document.addEventListener("DOMContentLoaded", function(event) { 
-            if (isDev) {
+            if (isDev == "True") {
                 const devmodes = document.querySelectorAll('.devmode');
                 devmodes.forEach(dev => {
                     dev.style.display = 'block';
                 });
-
+            }
+            if (isSuperuser == "True") {
                 document.getElementById("d_timestamp").style.display = "block";
             }
         });
