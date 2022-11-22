@@ -53,7 +53,7 @@
                 "name":"PM25",
                 "min":0,
                 "max":205,
-                "threshold":0,
+                "threshold":35,
                 "unit":"ug/m^3",
                 "resolution":1,
                 "hideValues":false
