@@ -7,3 +7,8 @@ def index(request, fromStation, toStation, line, dataType, dataName):
     else: 
         data = Data.FetchDataBetweenStations(fromStation, toStation, line, dataType, dataName)
     return JsonResponse(data, safe=False)
+
+
+def getAll(request, line, dataType, dataName):
+    data = Data.FetchDataForLine(line, dataType, dataName)
+    return JsonResponse(data, safe=False)

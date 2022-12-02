@@ -26,6 +26,7 @@ urlpatterns = [
     path('dev/', views.extendedView, name='Extended'),
     path('admin/', admin.site.urls),
     path('data/<str:fromStation>/<str:toStation>/<str:line>/<str:dataType>/<str:dataName>/', endpoints.index),
+    path('line_data/<str:line>/<str:dataType>/<str:dataName>/', endpoints.getAll),
     path("const/", viewjson.load, name="loadjson"),
     path("", include("django.contrib.auth.urls")),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

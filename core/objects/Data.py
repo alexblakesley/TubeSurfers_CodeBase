@@ -37,6 +37,20 @@ class Data(DBObject):
         return execute_query(query)
 
 
+
+    @staticmethod
+    def FetchDataForLine(TubeLine, DataType, DataName):
+        baseUpdateQuery = 'SELECT * FROM `ts_db`.`Timestamps` LEFT JOIN `ts_db`.`Data` ON `ts_db`.`Timestamps`.`DBid` = `ts_db`.`Data`.`TimestampID` WHERE `TubeLine` = (tubeLine) AND `DataType` = (dataType) AND `DataName` = (dataName)'
+
+        query = QB.BuildQueryComplex(baseUpdateQuery, {
+            'tubeLine': TubeLine,
+            'dataType': DataType,
+            'dataName': DataName,
+        })
+
+        return execute_query(query)
+
+
     @staticmethod
     def FetchTimestamps(FromStation, ToStation, TubeLine):
         baseUpdateQuery = 'SELECT MIN(`Timestamp`) FROM `ts_db`.`Timestamps` WHERE `FromStation` = (fromStation) AND `ToStation` = (toStation) AND `TubeLine` = (tubeLine)'
