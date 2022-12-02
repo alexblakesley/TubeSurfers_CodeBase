@@ -95,7 +95,7 @@
                 "name":"TA",
                 "min":11.4,
                 "max":28.1,
-                "threshold":0,
+                "threshold":24,
                 "unit":"deg C",
                 "resolution":0.1,
                 "hideValues":false
