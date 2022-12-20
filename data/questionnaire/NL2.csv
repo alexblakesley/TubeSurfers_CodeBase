@@ -1,0 +1,19 @@
+segment start,segement end,average riding comfort,acoustic comfort,thermal comfort,air quality/ventilation,acceleration & braking,vibration,jerks/shaking,crowdedness,participant id,line
+Clapham South,Clapham Common,3,3,3,3,3,3,3,2,15,Northern
+Clapham Common,Clapham North,3,3,3,3,3,3,3,2,15,Northern
+Clapham North,Stockwell,2,2,3,3,4,3,2,2,15,Northern
+Stockwell,Oval ,3,2,3,3,3,3,3,2,15,Northern
+Oval ,Kennington,3,3,3,3,3,2,2,2,15,Northern
+Kennington,Elephant & Castle,3,2,3,3,3,3,3,2,15,Northern
+Elephant & Castle,Borough,3,1,3,3,3,3,3,2,15,Northern
+Borough,London Bridge,3,2,3,3,3,3,2,2,15,Northern
+London Bridge,Bank,3,2,3,3,3,2,2,3,15,Northern
+Bank,Moorgate ,3,2,3,3,3,3,2,3,15,Northern
+Moorgate ,Old Street,3,1,3,3,3,3,2,3,15,Northern
+Old Street,Angel,3,1,3,3,3,2,2,3,15,Northern
+Angel,King's Cross St. Pancras,2,2,3,3,2,3,2,3,15,Northern
+King's Cross St. Pancras,Euston,2,2,3,3,3,3,3,3,15,Northern
+Euston,Camden Town,2,2,3,3,3,2,2,3,15,Northern
+Camden Town,Kentish Town,1,1,3,3,3,1,1,3,15,Northern
+Kentish Town,Tufnell Park,2,1,3,3,3,2,2,2,15,Northern
+Tufnell Park,Archway,2,1,3,3,3,2,2,2,15,Northern

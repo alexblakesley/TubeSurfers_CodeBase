@@ -1,7 +1,7 @@
 
 # To ensure app dependencies are ported from your virtual environment/host machine into your container, run 'pip freeze > requirements.txt' in the terminal to overwrite this file
 flask==2.0.2
-gunicorn==20.1.0
+gunicorn
 mysql-connector-python==8.0.29
 pandas==1.2.4
 Django
@@ -10,3 +10,9 @@ debugpy==1.5.1
 jupyter 
 notebook
 djangorestframework
+acoustics
+pydub
+awsebcli
+wheel==0.33.6
+pysqlite3
+pysqlite3-binary

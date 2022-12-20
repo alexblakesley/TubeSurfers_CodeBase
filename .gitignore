@@ -51,4 +51,5 @@ coverage.xml
 docs/_build/
 
 # Raw audio files
-code/data/audioraw/
+data/audioraw/
+*.wav

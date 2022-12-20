@@ -19,13 +19,17 @@
 
     "DataTypes":{
         "Pollution":{
+            "General":{
+                "id":1
+            },
             "CO2":{
                 "name":"CO2",
                 "min":446,
                 "max":1500,
                 "threshold":600,
                 "unit":"CO2 ppm",
-                "resolution":1
+                "resolution":1,
+                "hideValues":false
             },
             "Temperature":{
                 "name":"Temperature",
@@ -33,7 +37,8 @@
                 "max":27.6,
                 "threshold":0,
                 "unit":"deg C",
-                "resolution":0.1
+                "resolution":0.1,
+                "hideValues":false
             },
             "HealthIndex":{
                 "name":"HealthIndex",
@@ -41,15 +46,17 @@
                 "max":9,
                 "threshold":3,
                 "unit":"-",
-                "resolution":1
+                "resolution":1,
+                "hideValues":false
             },
             "PM25":{
                 "name":"PM25",
                 "min":0,
                 "max":205,
-                "threshold":0,
+                "threshold":35,
                 "unit":"ug/m^3",
-                "resolution":1
+                "resolution":1,
+                "hideValues":false
             },
             "Humidity":{
                 "name":"Humidity",
@@ -57,7 +64,8 @@
                 "max":57.8,
                 "threshold":0,
                 "unit":"%RH",
-                "resolution":0.1
+                "resolution":0.1,
+                "hideValues":false
             },
             "Pressure":{
                 "name":"Pressure",
@@ -65,26 +73,32 @@
                 "max":1041.5,
                 "threshold":0,
                 "unit":"hPa",
-                "resolution":0.1
+                "resolution":0.1,
+                "hideValues":false
             }
         },
 
         "Temperature":{
+            "General":{
+                "id":2
+            },
             "DP":{
                 "name":"DP",
                 "min":0.9,
                 "max":13,
                 "threshold":0,
                 "unit":"deg C",
-                "resolution":0.1
+                "resolution":0.1,
+                "hideValues":false
             },
             "TA":{
                 "name":"TA",
                 "min":11.4,
                 "max":28.1,
-                "threshold":0,
+                "threshold":24,
                 "unit":"deg C",
-                "resolution":0.1
+                "resolution":0.1,
+                "hideValues":false
             },
             "TG":{
                 "name":"TG",
@@ -92,7 +106,8 @@
                 "max":27.5,
                 "threshold":0,
                 "unit":"deg C",
-                "resolution":0.1
+                "resolution":0.1,
+                "hideValues":false
             },
             "WET":{
                 "name":"WET",
@@ -100,7 +115,8 @@
                 "max":17.8,
                 "threshold":0,
                 "unit":"deg C",
-                "resolution":0.1
+                "resolution":0.1,
+                "hideValues":false
             },
             "Humidity":{
                 "name":"Humidity",
@@ -108,7 +124,8 @@
                 "max":61.4,
                 "threshold":0,
                 "unit":"%RH",
-                "resolution":0.1
+                "resolution":0.1,
+                "hideValues":false
             },
             "WBGT":{
                 "name":"WBGT",
@@ -116,26 +133,119 @@
                 "max":19.9,
                 "threshold":0,
                 "unit":"deg C",
-                "resolution":0.1
+                "resolution":0.1,
+                "hideValues":false
             }
         },
 
         "Sound":{
+            "General":{
+                "id":3
+            },
             "SPL":{
                 "name":"SPL",
-                "min":7.94,
-                "max":80.88,
+                "min":35.18,
+                "max":114.88,
                 "threshold":50,
                 "unit":"dB",
-                "resolution":0.01
+                "resolution":1,
+                "hideValues":false
             }           
         },
 
-        "Acceleration":[
-        ],
+        "Accelerometer":{
+            "General":{
+                "id":4
+            },
+            "TotalAcceleration":{
+                "name":"TotalAcceleration",
+                "min":0.03,
+                "max":2.52,
+                "threshold":0.3,
+                "unit":"m/s^2",
+                "resolution":0.01,
+                "hideValues":false
+            }  
+        },
 
-        "Questionaire":[
-        ]
+        "Questionnaire":{
+            "General":{
+                "name": "Questionnaire",
+                "id":5 
+            },
+            "Average":{
+                "name":"Average",
+                "min":1,
+                "max":5,
+                "threshold":3,
+                "unit":"-",
+                "resolution":1,
+                "hideValues":false
+            },
+            "Acoustic":{
+                "name":"Acoustic",
+                "min":1,
+                "max":5,
+                "threshold":3,
+                "unit":"-",
+                "resolution":1,
+                "hideValues":false
+            },
+            "Thermal":{
+                "name":"Thermal",
+                "min":1,
+                "max":5,
+                "threshold":3,
+                "unit":"-",
+                "resolution":1,
+                "hideValues":false
+            },
+            "AirQuality":{
+                "name":"AirQuality",
+                "min":1,
+                "max":5,
+                "threshold":3,
+                "unit":"-",
+                "resolution":1,
+                "hideValues":false
+            },
+            "Acceleration":{
+                "name":"Acceleration",
+                "min":1,
+                "max":5,
+                "threshold":3,
+                "unit":"-",
+                "resolution":1,
+                "hideValues":false
+            },
+            "Vibration":{
+                "name":"Vibration",
+                "min":1,
+                "max":5,
+                "threshold":3,
+                "unit":"-",
+                "resolution":1,
+                "hideValues":false
+            },
+            "Jerks":{
+                "name":"Jerks",
+                "min":1,
+                "max":5,
+                "threshold":3,
+                "unit":"-",
+                "resolution":1,
+                "hideValues":false
+            },
+            "Crowdedness":{
+                "name":"Crowdedness",
+                "min":1,
+                "max":5,
+                "threshold":3,
+                "unit":"-",
+                "resolution":1,
+                "hideValues":false
+            }
+        }
     }
 
 }

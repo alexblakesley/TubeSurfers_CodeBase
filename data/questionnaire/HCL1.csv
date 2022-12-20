@@ -1,0 +1,29 @@
+segment start,segement end,average riding comfort,acoustic comfort,thermal comfort,air quality/ventilation,acceleration & braking,vibration,jerks/shaking,crowdedness,participant id,line
+Baker Street,Edgware Road,5,5,5,4,5,4,4,2,10,Hammersmith & City
+Edgware Road,Paddington,5,5,5,4,5,4,4,3,10,Hammersmith & City
+Paddington,Royal Oak,5,4,5,4,5,5,5,1,10,Hammersmith & City
+Royal Oak,Westbourne Park,5,4,5,4,4,5,5,1,10,Hammersmith & City
+Westbourne Park,Ladbroke Grove,5,5,5,4,5,5,4,1,10,Hammersmith & City
+Ladbroke Grove,Latimer Road,5,5,5,4,5,5,5,1,10,Hammersmith & City
+Latimer Road,Wood Lane,5,5,5,4,4,5,5,1,10,Hammersmith & City
+Wood Lane,Shepherd's Bush Market,5,5,5,4,4,5,5,1,10,Hammersmith & City
+Shepherd's Bush Market,Goldhawk Road,5,5,5,4,4,4,5,1,10,Hammersmith & City
+Goldhawk Road,Hammersmith,4,4,5,4,4,3,3,1,10,Hammersmith & City
+Hammersmith,Goldhawk Road,5,5,5,5,5,4,4,1,10,Hammersmith & City
+Goldhawk Road,Shepherd's Bush Market,5,5,4,5,4,5,5,1,10,Hammersmith & City
+Shepherd's Bush Market,Wood Lane,5,4,4,5,4,5,5,1,10,Hammersmith & City
+Wood Lane,Latimer Road,5,5,4,5,4,5,5,1,10,Hammersmith & City
+Latimer Road,Ladbroke Grove,4,5,4,5,4,4,4,1,10,Hammersmith & City
+Ladbroke Grove,Westbourne Park,4,4,4,5,4,4,4,1,10,Hammersmith & City
+Westbourne Park,Royal Oak,4,3,4,5,5,4,4,1,10,Hammersmith & City
+Royal Oak,Paddington,4,3,4,5,5,4,4,1,10,Hammersmith & City
+Paddington,Edgware Road,4,3,5,4,5,3,4,2,10,Hammersmith & City
+Edgware Road,Baker Street,4,3,5,4,4,3,4,2,10,Hammersmith & City
+Baker Street,Great Portland S,3,3,5,4,4,3,3,3,10,Hammersmith & City
+Great Portland S,Euston Square,3,2,5,3,4,3,4,3,10,Hammersmith & City
+Euston Square,Kings X,3,3,5,3,5,3,4,3,10,Hammersmith & City
+Kings X,Farringdon,4,3,5,4,4,4,3,3,10,Hammersmith & City
+Farringdon,Barbican,3,2,5,4,5,3,4,3,10,Hammersmith & City
+Barbican,Moorgate,4,3,5,4,5,3,4,3,10,Hammersmith & City
+Moorgate,Liverpool Street,4,2,5,4,5,3,4,3,10,Hammersmith & City
+Liverpool Street,Aldgate East,3,1,5,4,5,3,3,2,10,Hammersmith & City

@@ -1,0 +1,18 @@
+segment start,segement end,average riding comfort,acoustic comfort,thermal comfort,air quality/ventilation,acceleration & braking,vibration,jerks/shaking,crowdedness,participant id,line
+Willesden Junction  ,Kensal Green  ,4,3,4,4,4,3,3,1,10,Bakerloo
+Kensal Green  ,Queen's Park  ,4,4,4,4,4,3,4,1,10,Bakerloo
+Queen's Park  ,Kilburn Park  ,4,3,4,4,4,3,2,1,10,Bakerloo
+Kilburn Park  ,Maida Vale  ,4,3,4,3,3,4,3,1,10,Bakerloo
+Maida Vale  ,Warwick Avenue  ,3,2,4,2,3,4,3,1,10,Bakerloo
+Warwick Avenue  ,Paddington  ,3,3,3,2,3,3,4,2,10,Bakerloo
+Paddington  ,Edgware Road,3,1,3,2,3,3,2,3,10,Bakerloo
+Edgware Road,Marylebone  ,2,2,3,2,3,3,3,3,10,Bakerloo
+Marylebone  ,Baker Street  ,2,3,3,2,3,3,2,3,10,Bakerloo
+Baker Street  ,Regent's Park  ,2,1,3,2,3,2,2,3,10,Bakerloo
+Regent's Park  ,Oxford Circus  ,3,3,3,2,3,3,2,3,10,Bakerloo
+Oxford Circus  ,Piccadilly Circus  ,3,2,3,3,3,3,2,3,10,Bakerloo
+Piccadilly Circus  ,Charing Cross  ,3,1,3,3,1,3,3,2,10,Bakerloo
+Charing Cross  ,Embankment  ,3,2,3,3,2,4,4,1,10,Bakerloo
+Embankment  ,Waterloo  ,2,1,3,2,1,3,2,1,10,Bakerloo
+Waterloo  ,Lambeth North  ,2,1,3,2,3,3,2,1,10,Bakerloo
+Lambeth North  ,Elephant & Castle  ,2,1,3,2,2,2,2,1,10,Bakerloo

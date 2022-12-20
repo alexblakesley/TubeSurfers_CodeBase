@@ -1,0 +1,21 @@
+segment start,segement end,average riding comfort,acoustic comfort,thermal comfort,air quality/ventilation,acceleration & braking,vibration,jerks/shaking,crowdedness,participant id,line
+Earl's Court,High Street Kensington,4,4,5,4,4,4,3,3,10,District
+High Street Kensington,Notting Hill Gate,4,4,5,5,4,3,3,3,10,District
+Notting Hill Gate,Bayswater,4,3,5,5,4,3,3,2,10,District
+Bayswater,Paddington,4,4,5,5,4,3,3,2,10,District
+Paddington,Edgware Road,3,3,5,5,4,4,3,1,10,District
+Edgware Road,Paddington,3,3,5,5,3,2,3,1,10,District
+Paddington,Bayswater,4,4,5,5,4,3,4,2,10,District
+Bayswater,Notting Hill Gate,3,3,5,5,4,3,3,2,10,District
+Notting Hill Gate,High Street Kensington,4,4,5,5,4,3,4,3,10,District
+High Street Kensington,Earl's Court,4,3,5,5,5,3,3,3,10,District
+Earl's Court,West Brompton,3,2,5,5,4,2,3,3,10,District
+West Brompton,Fulham Broadway,3,2,5,5,4,3,4,3,10,District
+Fulham Broadway,Parsons Green,2,3,5,5,4,3,2,3,10,District
+Parsons Green,Putney Bridge,3,3,5,4,4,2,2,3,10,District
+Putney Bridge,East Putney,2,3,5,4,5,2,2,4,10,District
+East Putney,Putney Bridge,3,3,5,4,4,3,4,2,10,District
+Putney Bridge,Parsons Green,3,3,5,4,5,2,3,2,10,District
+Parsons Green,Fulham Broadway,3,3,5,4,3,3,3,3,10,District
+Fulham Broadway,West Brompton,4,3,5,4,5,4,4,3,10,District
+West Brompton,Earl's Court,2,1,5,3,4,3,3,4,10,District

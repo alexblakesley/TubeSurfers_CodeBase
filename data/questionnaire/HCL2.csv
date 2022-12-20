@@ -1,0 +1,29 @@
+segment start,segement end,average riding comfort,acoustic comfort,thermal comfort,air quality/ventilation,acceleration & braking,vibration,jerks/shaking,crowdedness,participant id,line
+Baker Street,Edgware Road,4,4,5,3,5,4,4,2,11,Hammersmith & City
+Edgware Road,Paddington,4,4,5,3,5,3,3,2,11,Hammersmith & City
+Paddington,Royal Oak,4,4,5,4,5,4,4,2,11,Hammersmith & City
+Royal Oak,Westbourne Park,4,4,5,4,5,3,4,1,11,Hammersmith & City
+Westbourne Park,Ladbroke Grove,4,4,5,4,5,4,4,1,11,Hammersmith & City
+Ladbroke Grove,Latimer Road,4,4,5,4,5,5,4,1,11,Hammersmith & City
+Latimer Road,Wood Lane,4,5,5,4,5,5,5,1,11,Hammersmith & City
+Wood Lane,Shepherd's Bush Market,5,5,5,4,5,5,5,1,11,Hammersmith & City
+Shepherd's Bush Market,Goldhawk Road,5,5,5,4,5,5,5,1,11,Hammersmith & City
+Goldhawk Road,Hammersmith,5,4,5,4,5,4,4,1,11,Hammersmith & City
+Hammersmith,Goldhawk Road,5,5,5,4,5,5,5,1,11,Hammersmith & City
+Goldhawk Road,Shepherd's Bush Market,5,4,5,4,5,4,5,1,11,Hammersmith & City
+Shepherd's Bush Market,Wood Lane,5,5,5,4,5,5,5,1,11,Hammersmith & City
+Wood Lane,Latimer Road,5,5,5,4,5,5,5,1,11,Hammersmith & City
+Latimer Road,Ladbroke Grove,5,5,5,4,5,4,5,1,11,Hammersmith & City
+Ladbroke Grove,Westbourne Park,4,4,5,4,5,4,4,1,11,Hammersmith & City
+Westbourne Park,Royal Oak,4,4,5,4,5,4,5,1,11,Hammersmith & City
+Royal Oak,Paddington,4,4,5,4,5,4,4,1,11,Hammersmith & City
+Paddington,Edgware Road,4,3,5,4,5,3,4,1,11,Hammersmith & City
+Edgware Road,Baker Street,4,3,5,4,5,3,4,2,11,Hammersmith & City
+Baker Street,Great Portland Street,4,4,5,3,5,4,4,2,11,Hammersmith & City
+Great Portland Street,Euston Square,3,3,5,3,5,3,4,3,11,Hammersmith & City
+Euston Square,King's Cross St. Pancras,3,3,5,3,5,3,4,3,11,Hammersmith & City
+King's Cross St. Pancras,Farringdon,3,3,5,3,5,3,3,3,11,Hammersmith & City
+Farringdon,Barbican,3,3,5,3,5,3,4,3,11,Hammersmith & City
+Barbican,Moorgate,3,3,5,3,5,3,3,3,11,Hammersmith & City
+Moorgate,Liverpool Street,4,5,5,3,5,4,5,3,11,Hammersmith & City
+Liverpool Street,Aldgate East,3,3,5,3,5,4,4,3,11,Hammersmith & City

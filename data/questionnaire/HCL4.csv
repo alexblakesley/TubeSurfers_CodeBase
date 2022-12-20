@@ -1,0 +1,14 @@
+segment start,segement end,average riding comfort,acoustic comfort,thermal comfort,air quality/ventilation,acceleration & braking,vibration,jerks/shaking,crowdedness,participant id,line
+Whitechapel,Aldgate East,4,4,5,4,4,3,3,2,11,Hammersmith & City
+Aldgate East,Liverpool Street,3,3,5,3,4,3,2,2,11,Hammersmith & City
+Liverpool Street,Aldgate  ,4,3,5,3,4,3,4,1,11,Metropolitan
+Aldgate  ,Liverpool Street,4,3,5,4,4,3,4,1,11,Metropolitan
+Liverpool Street,Moorgate,4,4,5,4,4,4,4,2,11,Hammersmith & City
+Moorgate,Barbican,3,3,5,3,4,3,3,2,11,Hammersmith & City
+Barbican,Farringdon,3,3,5,4,4,2,3,2,11,Hammersmith & City
+Farringdon,King's Cross St. Pancras,3,2,5,3,5,2,4,2,11,Hammersmith & City
+King's Cross St. Pancras,Euston Square,4,4,5,3,5,4,4,2,11,Hammersmith & City
+Euston Square,Great Portland Street,4,3,5,3,5,3,4,2,11,Hammersmith & City
+Great Portland Street,Baker Street,3,3,5,3,5,2,4,2,11,Hammersmith & City
+Baker Street,Finchley Road,3,3,5,4,5,2,3,2,11,Metropolitan
+Finchley Road,Baker Street,3,3,5,4,5,2,3,2,11,Metropolitan

@@ -1,0 +1,19 @@
+segment start,segement end,average riding comfort,acoustic comfort,thermal comfort,air quality/ventilation,acceleration & braking,vibration,jerks/shaking,crowdedness,participant id,line
+Hammersmith,Barons Court,2,3,4,4,4,2,1,3,15,Piccadilly
+Barons Court,Earl's Court,2,2,4,4,3,2,2,4,15,Piccadilly
+Earl's Court,Gloucester Road,3,1,4,4,4,3,3,2,15,Piccadilly
+Gloucester Road,South Kensington,3,3,4,4,3,2,3,2,15,Piccadilly
+South Kensington,Knightsbridge,3,2,4,4,4,3,3,2,15,Piccadilly
+Knightsbridge,Hyde Park Corner,2,1,4,4,4,3,3,3,15,Piccadilly
+Hyde Park Corner,Green Park,2,2,4,4,4,3,4,3,15,Piccadilly
+Green Park,Piccadilly Circus,2,2,4,4,4,3,3,3,15,Piccadilly
+Piccadilly Circus,Leicester Square,3,3,4,4,4,2,3,3,15,Piccadilly
+Leicester Square,Covent Garden,3,2,4,4,3,3,3,3,15,Piccadilly
+Covent Garden,Holborn,4,2,4,4,4,3,3,3,15,Piccadilly
+Holborn,Russell Square,2,2,4,4,4,2,3,2,15,Piccadilly
+Russell Square,King's Cross St. Pancras,1,2,4,4,3,2,2,1,15,Piccadilly
+King's Cross St. Pancras,Caledonian Road,3,3,4,4,4,3,3,1,15,Piccadilly
+Caledonian Road,Holloway Road,2,2,4,4,4,3,3,1,15,Piccadilly
+Holloway Road,Arsenal,3,3,4,4,4,3,3,1,15,Piccadilly
+Arsenal,Finsbury Park,3,2,4,4,4,3,3,1,15,Piccadilly
+Finsbury Park,Manor House,2,1,4,4,3,3,2,2,15,Piccadilly
