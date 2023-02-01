@@ -27,7 +27,16 @@ In new VS Code window, select open folder in explorer and when prompted select t
 ```
 /code/
 ```
+Finally in VSCode press:
+```
+Shift + Ctrl/Command + P
+```
 
+Then type/select
+```
+Python: Select Interpreter
+```
+and select the Python 3.8 version
 
 
 
