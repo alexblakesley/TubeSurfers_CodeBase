@@ -39,6 +39,14 @@ Python: Select Interpreter
 and select the Python 3.8 version
 
 
+Next, you will need to create your database structure.
+To do this, open docker and then open PhPMyAdmin in your browser. Then create a blank SQL script and copy and paste the contents of DB/Full Build.sql into the editor and press Go.
+
+Next run the InsertData.py script from within the Docker container to insert the data into the DB (This will take a while).
+
+Finally, from docker again open up the TS_App in your browser and you should have a fully functioning Map!
+
+
 
 ## Deployment
 

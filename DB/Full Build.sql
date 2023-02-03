@@ -43,6 +43,7 @@ CREATE TABLE IF NOT EXISTS `ts_db`.`Data` (
   `DataValue` DECIMAL(11,2) NOT NULL,
   `DataType` ENUM('Accelerometer','Sound','Temperature','Pollution','Questionaire') NOT NULL,
   `Units` VARCHAR(10) NULL,
+  `SensorID` VARCHAR(10) NULL,
   PRIMARY KEY (`DBid`),
   INDEX `TimestampLink_idx` (`TimestampID` ASC),
   CONSTRAINT `TimestampLink`
