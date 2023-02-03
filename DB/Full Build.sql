@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `ts_db`.`Data` (
   `TimestampID` INT NOT NULL,
   `DataName` VARCHAR(50) CHARACTER SET 'utf8' NOT NULL,
   `DataValue` DECIMAL(11,2) NOT NULL,
-  `DataType` ENUM('Accelerometer','Sound','Temperature','Pollution','Questionaire') NOT NULL,
+  `DataType` ENUM('Accelerometer','Sound','Temperature','Pollution','Questionnaire') NOT NULL,
   `Units` VARCHAR(10) NULL,
   `SensorID` VARCHAR(10) NULL,
   PRIMARY KEY (`DBid`),
