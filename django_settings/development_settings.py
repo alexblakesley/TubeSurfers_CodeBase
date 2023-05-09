@@ -19,7 +19,7 @@ SECURE_CROSS_ORIGIN_OPENER_POLICY = None
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'fr!3by5i&ey^-9s^*gl$*1)uoxf3l441r2t5l$!((pg2j2l#=('
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

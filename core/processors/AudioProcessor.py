@@ -16,13 +16,13 @@ class AudioProcessor():
         # self = type('test', (object,), {})()
 
 
-        with open(os.path.join(fileDirectory, "times.txt")) as f:
+        with open(os.path.join(self.fileDirectory, "times.txt")) as f:
             self.end_time = f.read().splitlines()
 
         self.ReadAudio()
 
     def ReadAudio(self):
-        for n, self.filename in enumerate(os.listdir(fileDirectory)):
+        for n, self.filename in enumerate(os.listdir(self.fileDirectory)):
             self.notAWavFile = False
             # open wave file
             self.OpenWavFile()
@@ -41,7 +41,7 @@ class AudioProcessor():
         else:
             self.notAWavFile = False
 
-            self.s = Signal.from_wav(os.path.join(fileDirectory, self.filename))
+            self.s = Signal.from_wav(os.path.join(self.fileDirectory, self.filename))
 
             self.nSamples = self.s.samples
             self.framerate = self.s.fs
@@ -49,13 +49,13 @@ class AudioProcessor():
 
 
     def CheckLength(self):
-        if (self.nSamples/self.framerate > timeForSplit):
+        if (self.nSamples/self.framerate > self.timeForSplit):
             self.audioSplit = True
-            audio = AudioSegment.from_wav(os.path.join(fileDirectory, self.filename))
+            audio = AudioSegment.from_wav(os.path.join(self.fileDirectory, self.filename))
             oldFilename = os.path.splitext(self.filename)[0]
 
 
-            chunk_length_ms = timeForSplit * 1000 # pydub calculates in millisec
+            chunk_length_ms = self.timeForSplit * 1000 # pydub calculates in millisec
             chunks = make_chunks(audio, chunk_length_ms) #Make chunks of timeForSplit sec
 
             #Export all of the individual chunks as wav files
@@ -63,19 +63,19 @@ class AudioProcessor():
             for i, chunk in enumerate(chunks):
                 newFilename = oldFilename+"{0}.wav".format(i)
                 # chunk_name = "chunk{0}.wav".format(i)
-                chunk.export(os.path.join(fileDirectory, newFilename), format="wav")
+                chunk.export(os.path.join(self.fileDirectory, newFilename), format="wav")
                 self.filename = newFilename
                 print(newFilename)
                 self.OpenWavFile()
                 self.SPL()
-                self.start_time += timeForSplit
+                self.start_time += self.timeForSplit
         else:
             self.audioSplit = False
 
 
     def SPL(self):
         # adjust mic gain
-        self.s.gain(micGain)
+        self.s.gain(self.micGain)
 
         # A-weigh and get sound pressure levels
         spl_a = self.s.weigh('A').levels()

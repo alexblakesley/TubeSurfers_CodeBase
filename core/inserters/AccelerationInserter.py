@@ -4,54 +4,46 @@ from core.objects.acceleration.Totalacceleration import Totalacceleration
 from core.utils.DBConnector import execute_mutation
 from core.utils.TimestampConverter import ConvertDateTimeToTimestampWithMs
 
-
 def Insert(filename):
+    # Loads the data from the csv in a given directory
     data = pd.read_csv("data/acceleration/"+filename)
 
-    data = data.reset_index()  # make sure indexes pair with number of rows
+    data = data.reset_index()  # Make sure indexes pair with number of rows
 
-    InsertDataToDB = True #Only set to true once file has been run, the TimeStamps DataFrame looks correct and no errors are thrown
+    InsertDataToDB = True # Only set to true once file has been run, the TimeStamps DataFrame looks correct and no errors are thrown
 
+    # Converts the loaded csv data into a DataFrame which is easier to process
     AccelerationData = pd.DataFrame()
     AccelerationData['Timestamp'] = data['Time']
     AccelerationData['Totalacceleration'] = data['tot_acc']
 
-    first_timestamp = ConvertDateTimeToTimestampWithMs(AccelerationData['Timestamp'][0])
-    last_timestamp = ConvertDateTimeToTimestampWithMs(AccelerationData['Timestamp'].iloc[len(AccelerationData.index) - 1])
-
-    # duration = last_timestamp - first_timestamp
-    duration = 0
-
+    # Setup empty objects and arrays
     CompiledQuery = None
     CompiledData = []
     IsTimestampRejected = False
-    print(filename)
-    # print(AccelerationData['Timestamp'][0])
 
-
+    # Iterate through every line of acceleration data
     for index, row in AccelerationData.iterrows():
-
-        TSData = Timestamp.GetClosest(ConvertDateTimeToTimestampWithMs(row['Timestamp']) - duration)
+        # Find closest timestamp in the database to the recorded line
+        TSData = Timestamp.GetClosest(ConvertDateTimeToTimestampWithMs(row['Timestamp']))
+        
+        # If none found, exclude row
         if (TSData == None):
             if IsTimestampRejected:
                 continue;
             IsTimestampRejected = True
-            # print("START: " + row['Timestamp'])
             continue;
         else:
             if IsTimestampRejected:
                 IsTimestampRejected = False
-                # print(" END : " + row['Timestamp'])
-
-
 
         TSid = TSData[0]
 
+        # Create new total acceleration object and insert object into database
         totalacceleration = Totalacceleration(TSid, row['Totalacceleration'])
         if InsertDataToDB:
             CompiledQuery, CompiledData = totalacceleration.insertToCompile(CompiledQuery, CompiledData)
 
-
-    print(AccelerationData['Timestamp'].iloc[len(AccelerationData.index) - 1])
+    # Execute compiled query to action creation of rows in DB
     execute_mutation(CompiledQuery, CompiledData)
-    # print(filename + " - acceleration inserted.")
+    print(filename + " - acceleration inserted.")

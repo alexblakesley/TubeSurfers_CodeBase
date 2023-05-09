@@ -4,6 +4,9 @@ import core.inserters.TemperatureInserter as TempInserter
 import core.inserters.PollutionInserter as PollInserter
 import core.Consts as Consts
 
+# Goes through each line and inserts the timestamps (timings), temperature and pollution for all lines.
+# Needs to be quite a manual process as each line has slightly different data structures as some have data outages etc.
+
 def InsertAll():
 
     ### Insert Bakerloo ###

@@ -19,12 +19,12 @@ SECURE_CROSS_ORIGIN_OPENER_POLICY = None
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'fr!3by5i&ey^-9s^*gl$*1)uoxf3l441r2t5l$!((pg2j2l#=('
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['tubesurfers.co.uk', 'tubesurfersapp37.eu-west-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['tubesurfers.co.uk']
 
 
 # Application definition
@@ -120,11 +120,11 @@ STATIC_URL = '/static/'
 STATIC_ROOT = 'static/'
 LOGIN_REDIRECT_URL = '../dev/'
 
-BASE_URL = "tubesurfers.co.uk"
-DB_NAME = "tubesurfers-db.cql9ooxely3d.eu-west-2.rds.amazonaws.com"
-DB_DEFAULT_SCHEMA = "ts_db"
-DB_USERNAME = "masterUsername"
-DB_PASSWORD = "TubeSurfers1234!"
+BASE_URL = ""
+DB_NAME = ""
+DB_DEFAULT_SCHEMA = ""
+DB_USERNAME = ""
+DB_PASSWORD = ""
 DB_PORT = None
 DB_OVERRIDE_CONNECT_TO_PROD = False # Use to connect to ProdDB in Dev
 IS_DEV = False

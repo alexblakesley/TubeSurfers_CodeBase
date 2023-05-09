@@ -1,7 +1,38 @@
-# TubeSurfers_CodeBase
+# Introduction
+Welcome to the TubeSurfers Project.
 
+The goal of the TubeSurfers Project is to create an interactive map to help visualise how a set of different dynamics and environmental factors vary across the London Underground.
 
-## Installation
+A live working version of this repository can be found at: https://tubesurfers.co.uk/
+
+The factors that were included in this study where:
+- acceleration (vibration)
+- noise
+- temperature 
+- humitidy
+- air quality (including PM2.5, CO2 and health index).
+
+This repository contains the data recorded on the London Underground as well as the code required to recreate the website locally, including a series of docker containers to reproduce the database, web server and PHP-MyAdmin.
+
+The data collected is stored within the repository is stored in the form of a series of folders containing .csv or .txt files. Some of these files were recorded in this format (temperature, pollution, questionnaire and timings), however others (acceeleration and audio) were processed from other formats externally before being saved in this project.
+All data used to create the map is stored in the /data folder.
+
+The /core folder contains all backend functionality for the environment including data inserting scripts in the /inserters folders, data processing scripts in the /processors folder, and then utility functions and object structures in the /utils and /objects folders respectively.
+When seeking to analyse how the environment interacts with the data the /processors and /inserters folders are the main directories to search.
+
+The /app and /app-php folders contain the tube-map used to create the interactive map, as well as the endpoints for how the web-app requests the data from the backend server.
+
+Below are sections which describe how to install and deploy the TubeSurfers environment.
+
+# Installation
+This section contains an installation guide on how to quickly get the tubesurfers environment running locally on your machine.
+
+## Pre-Requisites
+Please install the following software before proceeding with the installation guide:
+- Docker Desktop
+- VSCode
+
+## Local Installation
 Run from the root of the project:
 ```
 docker compose build
@@ -48,7 +79,7 @@ Finally, from docker again open up the TS_App in your browser and you should hav
 
 
 
-## Deployment
+# Deployment
 
 If you have a .elasticbeanstalk folder already delete it
 

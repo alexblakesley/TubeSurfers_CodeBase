@@ -1,23 +1,9 @@
 <?php
 
 // $servername = "";
-// $username = "web131_7";
-// $password = "TubeSurfers1234!";
-// $dbname = "web131_db7";
-
-$servername = "tubesurfers-db.cql9ooxely3d.eu-west-2.rds.amazonaws.com";
-$username = "masterUsername";
-$password = "TubeSurfers1234!";
-$dbname = "ts_db";
-
-// BASE_URL = "tubesurfers.co.uk"
-// DB_NAME = "tubesurfers-db.cql9ooxely3d.eu-west-2.rds.amazonaws.com"
-// DB_DEFAULT_SCHEMA = "ts_db"
-// DB_USERNAME = "masterUsername"
-// DB_PASSWORD = "TubeSurfers1234!"
-// DB_PORT = None
-// DB_OVERRIDE_CONNECT_TO_PROD = False # Use to connect to ProdDB in Dev
-// IS_DEV = False
+// $username = "";
+// $password = "";
+// $dbname = "";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

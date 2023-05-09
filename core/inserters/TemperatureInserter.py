@@ -9,14 +9,17 @@ from core.objects.temperature.Humidity import Humidity
 from core.utils.DBConnector import execute_mutation
 from core.utils.TimestampConverter import ConvertDateTimeToTimestamp
 
+# This inserter gets the closest timestamp for every data point in the temperature data files and inserts the data into the database if a related timestamp is found.
 
 def Insert(tubeName):
+    # Loads the data from the csv in a given directory
     data = pd.read_csv("data/temperature/"+tubeName+".csv")
 
-    data = data.reset_index()  # make sure indexes pair with number of rows
+    data = data.reset_index()  # Make sure indexes pair with number of rows
 
-    InsertDataToDB = True #Only set to true once file has been run, the TimeStamps DataFrame looks correct and no errors are thrown
+    InsertDataToDB = True # Only set to true once file has been run, the TimeStamps DataFrame looks correct and no errors are thrown
 
+    # Converts the loaded csv data into a DataFrame which is easier to process
     TemperatureData = pd.DataFrame()
     TemperatureData['Timestamp'] = data['Date'] + ' ' + data['Time']
     TemperatureData['WBGT'] = data['Value']
@@ -26,16 +29,22 @@ def Insert(tubeName):
     TemperatureData['WET'] = data['Value.4']
     TemperatureData['DP'] = data['Value.5']
 
+    # Setup empty objects and arrays
     CompiledQuery = None
     CompiledData = []
 
+    # Iterate through every line of temperature data
     for index, row in TemperatureData.iterrows():
+        # Find closest timestamp in the database to the recorded line
         TSData = Timestamp.GetClosest(ConvertDateTimeToTimestamp(row['Timestamp']))
+
+        # If none found, exclude row
         if (TSData == None):
-            continue;
+            continue
 
         TSid = TSData[0]
 
+        # Create new object for each type of temperature data and insert object into database
         dp = DP(TSid, row['DP'])
         if InsertDataToDB:
             CompiledQuery, CompiledData = dp.insertToCompile(CompiledQuery, CompiledData)
@@ -60,6 +69,6 @@ def Insert(tubeName):
         if InsertDataToDB:
             CompiledQuery, CompiledData = humidity.insertToCompile(CompiledQuery, CompiledData)
 
-
+    # Execute compiled query to action creation of rows in DB
     execute_mutation(CompiledQuery, CompiledData)
     print(tubeName + " - temperature inserted.")
