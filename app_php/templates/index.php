@@ -1811,25 +1811,25 @@
             document.getElementById("keyMaxVal").innerHTML = maxVal;
             document.getElementById("keyMinVal").innerHTML = minVal;
 
-            if (upper_threshold != 0) {
+            if (upper_threshold != 0 && upper_threshold > minVal && upper_threshold < maxVal) {
                 document.getElementById("keyUpperThreshold").innerHTML = upper_threshold;
                 upperThresholdHeight = 403 - (upper_threshold-minVal)/(maxVal-minVal) * 397;
                 document.getElementById("keyUpperThreshold").setAttribute("y", upperThresholdHeight);
                 document.getElementById("upperThresholdMarker").setAttribute("d", "M -5," + (upperThresholdHeight -5) + " h10")
             }
             else {
-                document.getElementById("keyThreshold").innerHTML = "";
+                document.getElementById("keyUpperThreshold").innerHTML = "";
                 document.getElementById("upperThresholdMarker").setAttribute("d", "M 0,0 h0")
             }
 
-            if (upper_threshold != 0) {
+            if (lower_threshold != 0 && lower_threshold > minVal && lower_threshold < maxVal) {
                 document.getElementById("keyLowerThreshold").innerHTML = lower_threshold;
                 lowerThresholdHeight = 403 - (lower_threshold-minVal)/(maxVal-minVal) * 397;
                 document.getElementById("keyLowerThreshold").setAttribute("y", lowerThresholdHeight);
                 document.getElementById("lowerThresholdMarker").setAttribute("d", "M -5," + (lowerThresholdHeight -5) + " h10")
             }
             else {
-                document.getElementById("keyThreshold").innerHTML = "";
+                document.getElementById("keyLowerThreshold").innerHTML = "";
                 document.getElementById("lowerThresholdMarker").setAttribute("d", "M 0,0 h0")
             }
 
@@ -1875,7 +1875,7 @@
             if (upper_threshold != 0) {
                 // from min to threshold go from green rgb(77,140,87) to yellow rgb(248,222,126)
                 // halfthreshold = 0.5 * (upper_threshold-min)+min
-                if (value <= lower_threshold) {
+                if (value < lower_threshold) {
                     // var minR = 77;
                     // var maxR = 248;
                     // var minG = 140;

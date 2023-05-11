@@ -109,7 +109,9 @@
 
         .options_container { display: flex; flex-direction: column; width: 220px; border-style: solid; border-radius: 1mm; border-width:0.1mm; border-color: #009; background-color: rgba(255, 255, 255, 0.8);}
         .options_item { padding-left: 2mm;}
-        .options_title { font-size: 16px; margin: 0mm 0mm 1mm; padding: 1.5mm 0mm; border-style: solid;  border-width: 0mm; border-bottom-width: 0.1mm; padding-bottom: 0.5mm; border-color: #009; font-family:Arimo,Liberation Sans,Helvetica,Arial,sans-serif; text-align: center; background-color: #009; color: #fff; }
+        .options_header { font-size: 16px; margin: 0mm 0mm 1mm; padding: 1.5mm 0mm; border-style: solid;  border-width: 0mm; border-bottom-width: 0.1mm; padding-bottom: 0.5mm; border-color: #009; font-family:Arimo,Liberation Sans,Helvetica,Arial,sans-serif; text-align: center; background-color: #009; color: #fff; }
+        .options_title { font-size: 16px; margin: 0mm 0mm 1mm; padding: 1.5mm 0mm; border-style: solid;  border-width: 0mm; border-bottom-width: 0.1mm; padding-bottom: 0.5mm; border-color: #33f; font-family:Arimo,Liberation Sans,Helvetica,Arial,sans-serif; text-align: center; background-color: #33f; color: #fff; }
+        #lines_title { border-color: #0b0; background-color: #0b0 }
         .options_text { font-family:Arimo,Liberation Sans,Helvetica,Arial,sans-serif; font-size: 14px; padding-left: 1mm;}
         .options_divider { border-style: dotted; border-width: 0mm; border-top-width: 0.1mm; margin-top: 0.5mm; border-color: #009; }
         .options_subsection { padding: 0mm 0mm 1mm; }
@@ -132,6 +134,11 @@
             left:10px;
         }
 
+        #selectLinesContainer {
+            margin-top:10px;
+            border-color: #0b0;
+        }
+
         #d_timestamp {
             display: none;
         }
@@ -144,165 +151,170 @@
   </head>
   <body>
 
-    <div id="selectProperties" class="options_container">
-        <div class="options_subsection">
-            <p class="options_title">Data Type</p>
-            <div class="options_item">
-                <input type="radio" id="r_co2" name="r_data" value="Pollution&&CO2" onclick="changeColors()" checked>
-                <label for="r_co2" class="options_text">CO<sub>2</sub></label>
-            </div>
-            <!-- <div class="options_item">
-                <input type="radio" id="r_temperature" name="r_data" value="Pollution&&Temperature" onclick="changeColors()">
-                <label for="r_temperature" class="options_text">Temperature (Air Quality Device)</label>
-            </div> -->
-            <div class="options_item">
-                <input type="radio" id="r_healthIndex" name="r_data" value="Pollution&&HealthIndex" onclick="changeColors()">
-                <label for="r_healthIndex" class="options_text">Health Index</label>
-            </div>
-            <div class="options_item">
-                <input type="radio" id="r_pm25" name="r_data" value="Pollution&&PM25" onclick="changeColors()">
-                <label for="r_pm25" class="options_text">PM2.5</label>
-            </div>
-            <!--  <div class="options_item">
-                <input type="radio" id="r_humidityPollution" name="r_data" value="Pollution&&Humidity" onclick="changeColors()">
-                <label for="r_humidityPollution" class="options_text">Humidity (Air Quality Device)</label>
-            </div> -->
-            <!-- <div class="options_item">
-                <input type="radio" id="r_pressure" name="r_data" value="Pollution&&Pressure" onclick="changeColors()">
-                <label for="r_pressure" class="options_text">Air Pressure</label>
-            </div> -->
-            <!-- <div class="options_item">
-                <input type="radio" id="r_dp" name="r_data" value="Temperature&&DP" onclick="changeColors()">
-                <label for="r_dp" class="options_text">Dew Point</label>
-            </div> -->
-            <div class="options_item">
-                <input type="radio" id="r_ta" name="r_data" value="Temperature&&TA" onclick="changeColors()">
-                <label for="r_ta" class="options_text">Temperature</label>
-            </div>
-            <!-- <div class="options_item">
-                <input type="radio" id="r_tg" name="r_data" value="Temperature&&TG" onclick="changeColors()">
-                <label for="r_tg" class="options_text">TG</label>
-            </div> -->
-            <!-- <div class="options_item">
-                <input type="radio" id="r_wet" name="r_data" value="Temperature&&WET" onclick="changeColors()">
-                <label for="r_wet" class="options_text">WET</label>
-            </div> -->
-            <div class="options_item">
-                <input type="radio" id="r_humidityTemperature" name="r_data" value="Temperature&&Humidity" onclick="changeColors()">
-                <label for="r_humidity" class="options_text">Humidity</label>
-            </div>
-            <!-- <div class="options_item">
-                <input type="radio" id="r_wbgt" name="r_data" value="Temperature&&WBGT" onclick="changeColors()">
-                <label for="r_wbgt" class="options_text">WBGT</label>
-            </div> -->
-            <div class="options_item">
-                <input type="radio" id="r_sound" name="r_data" value="Sound&&SPL" onclick="changeColors()">
-                <label for="r_sound" class="options_text">Sound Pressure Level</label>
-            </div>
-            <div class="options_item">
-                <input type="radio" id="r_totalacceleration" name="r_data" value="Accelerometer&&TotalAcceleration" onclick="changeColors()">
-                <label for="r_totalacceleration" class="options_text">Acceleration</label>
-            </div>
-        </div>
-        <div class="options_subsection devmode">
-            <p class="options_title">Questionnaires</p>
-            <div class="options_item devmode">
-                <input type="radio" id="r_average" name="r_data" value="Questionnaire&&Average" onclick="changeColors()">
-                <label for="r_averag" class="options_text">Average Comfort</label>
-            </div>
-            <div class="options_item devmode">
-                <input type="radio" id="r_acoustic" name="r_data" value="Questionnaire&&Acoustic" onclick="changeColors()">
-                <label for="r_acoustic" class="options_text">Acoustic Comfort</label>
-            </div>
-            <div class="options_item devmode">
-                <input type="radio" id="r_thermal" name="r_data" value="Questionnaire&&Thermal" onclick="changeColors()">
-                <label for="r_thermal" class="options_text">Thermal Comfort</label>
-            </div>
-            <div class="options_item devmode">
-                <input type="radio" id="r_airquality" name="r_data" value="Questionnaire&&AirQuality" onclick="changeColors()">
-                <label for="r_airquality" class="options_text">Air Quality/Ventilation</label>
-            </div>
-            <div class="options_item devmode">
-                <input type="radio" id="r_questionnaireacceleration" name="r_data" value="Questionnaire&&Acceleration" onclick="changeColors()">
-                <label for="r_questionnaireacceleration" class="options_text">Acceleration & Braking</label>
-            </div>
-            <div class="options_item devmode">
-                <input type="radio" id="r_vibration" name="r_data" value="Questionnaire&&Vibration" onclick="changeColors()">
-                <label for="r_vibration" class="options_text">Vibration</label>
-            </div>
-            <div class="options_item devmode">
-                <input type="radio" id="r_jerks" name="r_data" value="Questionnaire&&Jerks" onclick="changeColors()">
-                <label for="r_jerks" class="options_text">Jerks/Shaking</label>
-            </div>
-            <div class="options_item devmode">
-                <input type="radio" id="r_crowdedness" name="r_data" value="Questionnaire&&Crowdedness" onclick="changeColors()">
-                <label for="r_crowdedness" class="options_text">Crowdedness</label>
-            </div>
-        </div>
-
-
-        <div id="selectLines" class="options_subsection">
-            <p class="options_title">Tube Lines</p>
-            <div class="options_item">
-                <input type="checkbox" onclick="lineChange('bakerloo')" id="c_bakerloo" name="c_bakerloo">
-                <label for="c_bakerloo" class="options_text">Bakerloo line</label>
-            </div>
-            <div class="options_item">
-                <input type="checkbox" onclick="lineChange('central')" id="c_central" name="c_central">
-                <label for="c_central" class="options_text">Central line</label>
-            </div>
-            <div class="options_item">
-                <input type="checkbox" onclick="lineChange('circle')" id="c_circle" name="c_circle">
-                <label for="c_circle" class="options_text">Circle line</label>
-            </div>
-            <div class="options_item">
-                <input type="checkbox" onclick="lineChange('district')" id="c_district" name="c_district">
-                <label for="c_district" class="options_text">District line</label>
-            </div>
-            <div class="options_item">
-                <input type="checkbox" onclick="lineChange('hnc')" id="c_hnc" name="c_hnc">
-                <label for="c_hnc" class="options_text">Hammersmith & City line</label>
-            </div>
-            <div class="options_item">
-                <input type="checkbox" onclick="lineChange('jubilee')" id="c_jubilee" name="c_jubilee">
-                <label for="c_jubilee" class="options_text">Jubilee line</label>
-            </div>
-            <div class="options_item">
-                <input type="checkbox" onclick="lineChange('metropolitan')" id="c_metropolitan" name="c_metropolitan">
-                <label for="c_metropolitan" class="options_text">Metropolitan line</label>
-            </div>
-            <div class="options_item">
-                <input type="checkbox" onclick="lineChange('northern')" id="c_northern" name="c_northern">
-                <label for="c_northern" class="options_text">Northern line</label>
-            </div>
-            <div class="options_item">
-                <input type="checkbox" onclick="lineChange('piccadilly')" id="c_piccadilly" name="c_piccadilly">
-                <label for="c_piccadilly" class="options_text">Piccadilly line</label>
-            </div>
-            <div class="options_item">
-                <input type="checkbox" onclick="lineChange('victoria')" id="c_victoria" name="c_victoria">
-                <label for="c_victoria" class="options_text">Victoria line</label>
-            </div>
-            <div class="options_item">
-                <input type="checkbox" onclick="lineChange('wnc')" id="c_wnc" name="c_wnc">
-                <label for="c_wnc" class="options_text">Waterloo & City line</label>
-            </div>
-        </div>
-
-        <div class="options_subsection">
-            <div class="options_divider">
+    <div id="selectProperties" >
+        <div class="options_container">
+            <p class="options_header">Comfort Indicator</p>
+            <div class="options_subsection">
+                <p class="options_title">Data Type</p>
                 <div class="options_item">
-                    <input type="checkbox" onclick="changeColors()" id="c_changeDirection" name="c_changeDirection">
-                    <label for="c_changeDirection" class="options_text">Swap Direction</label>
+                    <input type="radio" id="r_co2" name="r_data" value="Pollution&&CO2" onclick="changeColors()" checked>
+                    <label for="r_co2" class="options_text">CO<sub>2</sub></label>
+                </div>
+                <!-- <div class="options_item">
+                    <input type="radio" id="r_temperature" name="r_data" value="Pollution&&Temperature" onclick="changeColors()">
+                    <label for="r_temperature" class="options_text">Temperature (Air Quality Device)</label>
+                </div> -->
+                <div class="options_item">
+                    <input type="radio" id="r_healthIndex" name="r_data" value="Pollution&&HealthIndex" onclick="changeColors()">
+                    <label for="r_healthIndex" class="options_text">Health Index</label>
+                </div>
+                <div class="options_item">
+                    <input type="radio" id="r_pm25" name="r_data" value="Pollution&&PM25" onclick="changeColors()">
+                    <label for="r_pm25" class="options_text">PM2.5</label>
+                </div>
+                <!--  <div class="options_item">
+                    <input type="radio" id="r_humidityPollution" name="r_data" value="Pollution&&Humidity" onclick="changeColors()">
+                    <label for="r_humidityPollution" class="options_text">Humidity (Air Quality Device)</label>
+                </div> -->
+                <!-- <div class="options_item">
+                    <input type="radio" id="r_pressure" name="r_data" value="Pollution&&Pressure" onclick="changeColors()">
+                    <label for="r_pressure" class="options_text">Air Pressure</label>
+                </div> -->
+                <!-- <div class="options_item">
+                    <input type="radio" id="r_dp" name="r_data" value="Temperature&&DP" onclick="changeColors()">
+                    <label for="r_dp" class="options_text">Dew Point</label>
+                </div> -->
+                <div class="options_item">
+                    <input type="radio" id="r_ta" name="r_data" value="Temperature&&TA" onclick="changeColors()">
+                    <label for="r_ta" class="options_text">Temperature</label>
+                </div>
+                <!-- <div class="options_item">
+                    <input type="radio" id="r_tg" name="r_data" value="Temperature&&TG" onclick="changeColors()">
+                    <label for="r_tg" class="options_text">TG</label>
+                </div> -->
+                <!-- <div class="options_item">
+                    <input type="radio" id="r_wet" name="r_data" value="Temperature&&WET" onclick="changeColors()">
+                    <label for="r_wet" class="options_text">WET</label>
+                </div> -->
+                <div class="options_item">
+                    <input type="radio" id="r_humidityTemperature" name="r_data" value="Temperature&&Humidity" onclick="changeColors()">
+                    <label for="r_humidity" class="options_text">Humidity</label>
+                </div>
+                <!-- <div class="options_item">
+                    <input type="radio" id="r_wbgt" name="r_data" value="Temperature&&WBGT" onclick="changeColors()">
+                    <label for="r_wbgt" class="options_text">WBGT</label>
+                </div> -->
+                <div class="options_item">
+                    <input type="radio" id="r_sound" name="r_data" value="Sound&&SPL" onclick="changeColors()">
+                    <label for="r_sound" class="options_text">Sound Pressure Level</label>
+                </div>
+                <div class="options_item">
+                    <input type="radio" id="r_totalacceleration" name="r_data" value="Accelerometer&&TotalAcceleration" onclick="changeColors()">
+                    <label for="r_totalacceleration" class="options_text">Acceleration</label>
                 </div>
             </div>
-            <div class="options_item" id="d_timestamp">
-                <input type="checkbox" onclick="showTimestamps()" id="c_timestamp" name="c_data">
-                <label for="c_timestamp" class="options_text">Timestamps</label>
+            <div class="options_subsection devmode">
+                <p class="options_title">Questionnaires (perceived)</p>
+                <div class="options_item devmode">
+                    <input type="radio" id="r_average" name="r_data" value="Questionnaire&&Average" onclick="changeColors()">
+                    <label for="r_averag" class="options_text">Average Comfort</label>
+                </div>
+                <div class="options_item devmode">
+                    <input type="radio" id="r_acoustic" name="r_data" value="Questionnaire&&Acoustic" onclick="changeColors()">
+                    <label for="r_acoustic" class="options_text">Acoustic Comfort</label>
+                </div>
+                <div class="options_item devmode">
+                    <input type="radio" id="r_thermal" name="r_data" value="Questionnaire&&Thermal" onclick="changeColors()">
+                    <label for="r_thermal" class="options_text">Thermal Comfort</label>
+                </div>
+                <div class="options_item devmode">
+                    <input type="radio" id="r_airquality" name="r_data" value="Questionnaire&&AirQuality" onclick="changeColors()">
+                    <label for="r_airquality" class="options_text">Air Quality/Ventilation</label>
+                </div>
+                <div class="options_item devmode">
+                    <input type="radio" id="r_questionnaireacceleration" name="r_data" value="Questionnaire&&Acceleration" onclick="changeColors()">
+                    <label for="r_questionnaireacceleration" class="options_text">Acceleration & Braking</label>
+                </div>
+                <div class="options_item devmode">
+                    <input type="radio" id="r_vibration" name="r_data" value="Questionnaire&&Vibration" onclick="changeColors()">
+                    <label for="r_vibration" class="options_text">Vibration</label>
+                </div>
+                <div class="options_item devmode">
+                    <input type="radio" id="r_jerks" name="r_data" value="Questionnaire&&Jerks" onclick="changeColors()">
+                    <label for="r_jerks" class="options_text">Jerks/Shaking</label>
+                </div>
+                <div class="options_item devmode">
+                    <input type="radio" id="r_crowdedness" name="r_data" value="Questionnaire&&Crowdedness" onclick="changeColors()">
+                    <label for="r_crowdedness" class="options_text">Crowdedness</label>
+                </div>
             </div>
         </div>
 
 
+        <div id="selectLinesContainer" class="options_container">
+            <div id="selectLines" class="options_subsection">
+                <p class="options_title" id="lines_title">Tube Lines</p>
+                <div class="options_item">
+                    <input type="checkbox" onclick="lineChange('bakerloo')" id="c_bakerloo" name="c_bakerloo">
+                    <label for="c_bakerloo" class="options_text">Bakerloo line</label>
+                </div>
+                <div class="options_item">
+                    <input type="checkbox" onclick="lineChange('central')" id="c_central" name="c_central">
+                    <label for="c_central" class="options_text">Central line</label>
+                </div>
+                <div class="options_item">
+                    <input type="checkbox" onclick="lineChange('circle')" id="c_circle" name="c_circle">
+                    <label for="c_circle" class="options_text">Circle line</label>
+                </div>
+                <div class="options_item">
+                    <input type="checkbox" onclick="lineChange('district')" id="c_district" name="c_district">
+                    <label for="c_district" class="options_text">District line</label>
+                </div>
+                <div class="options_item">
+                    <input type="checkbox" onclick="lineChange('hnc')" id="c_hnc" name="c_hnc">
+                    <label for="c_hnc" class="options_text">Hammersmith & City line</label>
+                </div>
+                <div class="options_item">
+                    <input type="checkbox" onclick="lineChange('jubilee')" id="c_jubilee" name="c_jubilee">
+                    <label for="c_jubilee" class="options_text">Jubilee line</label>
+                </div>
+                <div class="options_item">
+                    <input type="checkbox" onclick="lineChange('metropolitan')" id="c_metropolitan" name="c_metropolitan">
+                    <label for="c_metropolitan" class="options_text">Metropolitan line</label>
+                </div>
+                <div class="options_item">
+                    <input type="checkbox" onclick="lineChange('northern')" id="c_northern" name="c_northern">
+                    <label for="c_northern" class="options_text">Northern line</label>
+                </div>
+                <div class="options_item">
+                    <input type="checkbox" onclick="lineChange('piccadilly')" id="c_piccadilly" name="c_piccadilly">
+                    <label for="c_piccadilly" class="options_text">Piccadilly line</label>
+                </div>
+                <div class="options_item">
+                    <input type="checkbox" onclick="lineChange('victoria')" id="c_victoria" name="c_victoria">
+                    <label for="c_victoria" class="options_text">Victoria line</label>
+                </div>
+                <div class="options_item">
+                    <input type="checkbox" onclick="lineChange('wnc')" id="c_wnc" name="c_wnc">
+                    <label for="c_wnc" class="options_text">Waterloo & City line</label>
+                </div>
+            </div>
+
+            <div class="options_subsection">
+                <div class="options_divider">
+                    <div class="options_item">
+                        <input type="checkbox" onclick="changeColors()" id="c_changeDirection" name="c_changeDirection">
+                        <label for="c_changeDirection" class="options_text">Swap Direction</label>
+                    </div>
+                </div>
+                <div class="options_item" id="d_timestamp">
+                    <input type="checkbox" onclick="showTimestamps()" id="c_timestamp" name="c_data">
+                    <label for="c_timestamp" class="options_text">Timestamps</label>
+                </div>
+            </div>
+
+
+        </div>
     </div>
 
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="svg" viewBox="-40.5 -120.5 2500 1340">
@@ -1424,10 +1436,12 @@
                 <text class="st">
                     <tspan x="10" y="-20" class="end" style="font-size:15px" id="keyTitle">Title [Unit]</tspan>
                     <tspan x="-10" y="6" class="end" id="keyMaxVal">max value</tspan>
-                    <tspan x="-10" y="200" class="end" id="keyThreshold">threshold</tspan>
+                    <tspan x="-10" y="200" class="end" id="keyUpperThreshold">upperThreshold</tspan>
+                    <tspan x="-10" y="300" class="end" id="keyLowerThreshold">lowerThreshold</tspan>
                     <tspan x="-10" y="403" class="end" id="keyMinVal">min value</tspan>
                 </text>
-                <path id="thresholdMarker" style="stroke:black" d="M -5,200 h10"/>
+                <path id="upperThresholdMarker" style="stroke:black" d="M -5,200 h10"/>
+                <path id="lowerThresholdMarker" style="stroke:black" d="M -5,300 h10"/>
             </g>
         </g>
     </svg>
@@ -1464,8 +1478,6 @@
             }
         });
 
-
-        // initialise map on first load
         changeColors();
 
         // is called when corresponding textbox is selected. 
@@ -1482,7 +1494,7 @@
                     var all_paths = document.getElementsByClassName(className)
                     var patharray = Object.values(all_paths);
                     for (let path in patharray) {
-                        getDataset(patharray[path], "Timestamp", "Timestamp", 0, 0, 0);
+                        getDataset(patharray[path], "Timestamp", "Timestamp", 0, 0, 0, 0);
                     }
                 }
             }
@@ -1530,7 +1542,8 @@
             // get corresponding min and max values
             var minVal = constJson["DataTypes"][dataType][dataName]["min"];
             var maxVal = constJson["DataTypes"][dataType][dataName]["max"];
-            var threshold = constJson["DataTypes"][dataType][dataName]["threshold"];
+            var lower_threshold = constJson["DataTypes"][dataType][dataName]["lower_threshold"];
+            var upper_threshold = constJson["DataTypes"][dataType][dataName]["upper_threshold"];
 
             // check how many lines are selected (aka how many checkboxes are checked)
             var selectLinesDiv = document.getElementById("selectLines");
@@ -1578,7 +1591,7 @@
                 var all_paths = document.getElementsByClassName(className)
                 var patharray = Object.values(all_paths);
                 for (let path in patharray) {
-                    getDataset(patharray[path], dataType, dataName, minVal, maxVal, threshold);
+                    getDataset(patharray[path], dataType, dataName, minVal, maxVal, lower_threshold, upper_threshold);
                 }
             }
             // otherwise checkbox has just been unchecked and the data colouring has to be removed
@@ -1591,7 +1604,7 @@
             
 
         // this function finds the correct data for a single segment for the chosen parameters and initiates the colouring
-        function getDataset(path, dataType, dataName, minVal, maxVal, threshold){
+        function getDataset(path, dataType, dataName, minVal, maxVal, lower_threshold, upper_threshold){
             // detect the correct segment and direction
             const station_from = path.getAttribute("station_from");
             const station_to = path.getAttribute("station_to");
@@ -1603,11 +1616,6 @@
             if (changedDirection) {
                 url = "http://{{ BaseURL }}/data/" + station_from + "/" + station_to + "/" + line + "/" + dataType + "/" + dataName;
             }
-
-            // console.log(url);
-            
-            // example query
-            /////// "http://{{ BaseURL }}/data/Green Park/Piccadilly Circus/Piccadilly/Pollution/CO2"
 
             // place the database query via AJAX
             var xhr = new XMLHttpRequest();
@@ -1622,7 +1630,7 @@
                         }
                         else {
                             dataset = checkSensorID(JSON.parse(xhr.response));
-                            colourPaths (dataset, minVal, maxVal, threshold, changedDirection, path);
+                            colourPaths (dataset, minVal, maxVal, lower_threshold, upper_threshold, changedDirection, path);
                         }
                     }
                 }
@@ -1688,6 +1696,7 @@
         }
 
         function checkSensorID(dataset) {
+            // console.log(dataset);
             var obj = {};
             for (let i = 0; i < dataset.length; i++) {
                 var el = dataset[i];
@@ -1712,9 +1721,9 @@
             return average
         }
 
-        function colourPaths (dataset, minVal, maxVal, threshold, changedDirection, path) {
+        function colourPaths (dataset, minVal, maxVal, lower_threshold, upper_threshold, changedDirection, path) {
             // transform values into colours
-            var cur_colors = ColorsByMinMax(dataset, minVal, maxVal, threshold, changedDirection);
+            var cur_colors = ColorsByMinMax(dataset, minVal, maxVal, lower_threshold, upper_threshold, changedDirection);
             // seperate the segment into as many parts as there are datapoints
             var total = cur_colors.length;
             var length = path.getTotalLength();
@@ -1749,7 +1758,8 @@
             var name = constJson["DataTypes"][dataType][dataName]["name"];
             var minVal = constJson["DataTypes"][dataType][dataName]["min"];
             var maxVal = constJson["DataTypes"][dataType][dataName]["max"];
-            var threshold = constJson["DataTypes"][dataType][dataName]["threshold"];
+            var lower_threshold = constJson["DataTypes"][dataType][dataName]["lower_threshold"];
+            var upper_threshold = constJson["DataTypes"][dataType][dataName]["upper_threshold"];
             var unit = constJson["DataTypes"][dataType][dataName]["unit"];
             var resolution = constJson["DataTypes"][dataType][dataName]["resolution"];
             var hideValues = constJson["DataTypes"][dataType][dataName]["hideValues"];
@@ -1758,22 +1768,34 @@
             document.getElementById("keyMaxVal").innerHTML = maxVal;
             document.getElementById("keyMinVal").innerHTML = minVal;
 
-            if (threshold != 0) {
-                document.getElementById("keyThreshold").innerHTML = threshold;
-                thresholdHeight = 403 - (threshold-minVal)/(maxVal-minVal) * 397;
-                document.getElementById("keyThreshold").setAttribute("y", thresholdHeight);
-                document.getElementById("thresholdMarker").setAttribute("d", "M -5," + (thresholdHeight -5) + " h10")
+            if (upper_threshold != 0 && upper_threshold > minVal && upper_threshold < maxVal) {
+                document.getElementById("keyUpperThreshold").innerHTML = upper_threshold;
+                upperThresholdHeight = 403 - (upper_threshold-minVal)/(maxVal-minVal) * 397;
+                document.getElementById("keyUpperThreshold").setAttribute("y", upperThresholdHeight);
+                document.getElementById("upperThresholdMarker").setAttribute("d", "M -5," + (upperThresholdHeight -5) + " h10")
             }
             else {
-                document.getElementById("keyThreshold").innerHTML = "";
-                document.getElementById("thresholdMarker").setAttribute("d", "M 0,0 h0")
+                document.getElementById("keyUpperThreshold").innerHTML = "";
+                document.getElementById("upperThresholdMarker").setAttribute("d", "M 0,0 h0")
+            }
+
+            if (lower_threshold != 0 && lower_threshold > minVal && lower_threshold < maxVal) {
+                document.getElementById("keyLowerThreshold").innerHTML = lower_threshold;
+                lowerThresholdHeight = 403 - (lower_threshold-minVal)/(maxVal-minVal) * 397;
+                document.getElementById("keyLowerThreshold").setAttribute("y", lowerThresholdHeight);
+                document.getElementById("lowerThresholdMarker").setAttribute("d", "M -5," + (lowerThresholdHeight -5) + " h10")
+            }
+            else {
+                document.getElementById("keyLowerThreshold").innerHTML = "";
+                document.getElementById("lowerThresholdMarker").setAttribute("d", "M 0,0 h0")
             }
 
             // option to not show values when data is skewed
             if (hideValues) {
                 document.getElementById("keyMaxVal").innerHTML = "";
                 document.getElementById("keyMinVal").innerHTML = "";
-                document.getElementById("keyThreshold").innerHTML = "";
+                document.getElementById("keyUpperThreshold").innerHTML = "";
+                document.getElementById("keyLowerThreshold").innerHTML = "";
             }
 
             path = document.getElementById("keyToColours");
@@ -1782,84 +1804,105 @@
             for (i=0; i<nSteps; i++) {
                 keyDataset.push([0,i*resolution + minVal]);
             }
-            colourPaths(keyDataset, minVal, maxVal, threshold, true, path);
+            colourPaths(keyDataset, minVal, maxVal, lower_threshold, upper_threshold, true, path);
 
         }
 
 
         // this function defines colours using min and max values using the FindColorStringGivenRange function
         // TODO: Add a threshold as a border between green and red values
-        function ColorsByMinMax(dataset, min, max, threshold, changedDirection) {
+        function ColorsByMinMax(dataset, min, max, lower_threshold, upper_threshold, changedDirection) {
             var colors = new Array();
             if (changedDirection) {
                 for (let i = dataset.length; i > 0; i--) {
-                    colors.push(FindColorStringGivenRange(dataset[i-1][1], min, max, threshold));
+                    colors.push(FindColorStringGivenRange(dataset[i-1][1], min, max, lower_threshold, upper_threshold));
                 }               
             }
             else {
                 for (let i = 0; i < dataset.length; i++) {
-                    colors.push(FindColorStringGivenRange(dataset[i][1], min, max, threshold));
+                    colors.push(FindColorStringGivenRange(dataset[i][1], min, max, lower_threshold, upper_threshold));
                 }
             }
             return colors;
         }
 
         // this function transforms a datapoint into an rgb colour using min and max values
-        function FindColorStringGivenRange(value, min, max, threshold){
+        function FindColorStringGivenRange(value, min, max, lower_threshold, upper_threshold){
             // if there is a threshold defined
-            if (threshold != 0) {
+            if (upper_threshold != 0) {
                 // from min to threshold go from green rgb(77,140,87) to yellow rgb(248,222,126)
-                halfthreshold = 0.5 * (threshold-min)+min
-                if (value <= halfthreshold) {
-                    var minR = 77;
-                    var maxR = 248;
-                    var minG = 140;
-                    var maxG = 222;
-                    var minB = 87;
-                    var maxB = 126;
+                // halfthreshold = 0.5 * (upper_threshold-min)+min
+                if (value < lower_threshold) {
+                    // var minR = 77;
+                    // var maxR = 248;
+                    // var minG = 140;
+                    // var maxG = 222;
+                    // var minB = 87;
+                    // var maxB = 126;
 
-                    var R = ((value-min)/(halfthreshold - min)*(maxR-minR)) + minR;
-                    var G = ((value-min)/(halfthreshold - min)*(maxG-minG)) + minG;
-                    var B = ((value-min)/(halfthreshold - min)*(maxB-minB)) + minB;
+                    var minR = 143;
+                    var maxR = 248;
+                    var minG = 210;
+                    var maxG = 232;
+                    var minB = 173;
+                    var maxB = 144;
+
+                    var R = ((value-min)/(lower_threshold - min)*(maxR-minR)) + minR;
+                    var G = ((value-min)/(lower_threshold - min)*(maxG-minG)) + minG;
+                    var B = ((value-min)/(lower_threshold - min)*(maxB-minB)) + minB;
                 }
                 // if value between threshold and 2* threshold go from yellow rgb(248,222,126) to red rgb(240,5,5)
-                else if (value <= threshold) {
-                    var minR = 248;
-                    var maxR = 240;
-                    var minG = 222;
-                    var maxG = 5;
-                    var minB = 126;
-                    var maxB = 5;
+                else if (value <= upper_threshold) {
+                    // var minR = 248;
+                    // var maxR = 240;
+                    // var minG = 222;
+                    // var maxG = 5;
+                    // var minB = 126;
+                    // var maxB = 5;
 
-                    var R = ((value-halfthreshold)/(threshold-halfthreshold)*(maxR-minR)) + minR;
-                    var G = ((value-halfthreshold)/(threshold-halfthreshold)*(maxG-minG)) + minG;
-                    var B = ((value-halfthreshold)/(threshold-halfthreshold)*(maxB-minB)) + minB;
+                    var minR = 248;
+                    var maxR = 215;
+                    var minG = 232;
+                    var maxG = 109;
+                    var minB = 144;
+                    var maxB = 129;
+
+                    var R = ((value-lower_threshold)/(upper_threshold-lower_threshold)*(maxR-minR)) + minR;
+                    var G = ((value-lower_threshold)/(upper_threshold-lower_threshold)*(maxG-minG)) + minG;
+                    var B = ((value-lower_threshold)/(upper_threshold-lower_threshold)*(maxB-minB)) + minB;
                 }
                 // if value between 2* threshold and 3* threshold go from red rgb(240,5,5) to purple rgb(48,25,52)
-                else if (value <= 2*threshold) {
-                    var minR = 240;
-                    var maxR = 48;
-                    var minG = 5;
-                    var maxG = 25;
-                    var minB = 5;
-                    var maxB = 52;
+                else if (value <= 2*upper_threshold) {
+                    // var minR = 240;
+                    // var maxR = 48;
+                    // var minG = 5;
+                    // var maxG = 25;
+                    // var minB = 5;
+                    // var maxB = 52;
 
-                    var R = ((value-threshold)/(2*threshold-threshold)*(maxR-minR)) + minR;
-                    var G = ((value-threshold)/(2*threshold-threshold)*(maxG-minG)) + minG;
-                    var B = ((value-threshold)/(2*threshold-threshold)*(maxB-minB)) + minB;
+                    var minR = 215;
+                    var maxR = 147;
+                    var minG = 109;
+                    var maxG = 103;
+                    var minB = 129;
+                    var maxB = 210;
+
+                    var R = ((value-upper_threshold)/(2*upper_threshold-upper_threshold)*(maxR-minR)) + minR;
+                    var G = ((value-upper_threshold)/(2*upper_threshold-upper_threshold)*(maxG-minG)) + minG;
+                    var B = ((value-upper_threshold)/(2*upper_threshold-upper_threshold)*(maxB-minB)) + minB;
                 }
                 // if value higher than 3* threshold go from purple rgb(75,0,130) to black rgb(0,0,0)
                 else {
-                    var minR = 75;
-                    var maxR = 0;
-                    var minG = 0;
-                    var maxG = 0;
-                    var minB = 130;
-                    var maxB = 0;
+                    var minR = 147;
+                    var maxR = 126;
+                    var minG = 103;
+                    var maxG = 75;
+                    var minB = 210;
+                    var maxB = 75;
 
-                    var R = ((value-2*threshold)/(max-2*threshold)*(maxR-minR)) + minR;
-                    var G = ((value-2*threshold)/(max-2*threshold)*(maxG-minG)) + minG;
-                    var B = ((value-2*threshold)/(max-2*threshold)*(maxB-minB)) + minB;
+                    var R = ((value-2*upper_threshold)/(max-2*upper_threshold)*(maxR-minR)) + minR;
+                    var G = ((value-2*upper_threshold)/(max-2*upper_threshold)*(maxG-minG)) + minG;
+                    var B = ((value-2*upper_threshold)/(max-2*upper_threshold)*(maxB-minB)) + minB;
                 }
             }
             // no threshold available
